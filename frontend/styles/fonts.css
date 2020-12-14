@@ -1,0 +1,9 @@
+@import "../fonts/FiraGO/FiraGO.css";
+
+@font-face {
+  font-family: optician-sans;
+  font-weight: 700;
+  font-style: normal;
+  font-display: auto;
+  src: url("../fonts/Optician-Sans.woff2");
+}

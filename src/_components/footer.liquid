@@ -1,0 +1,86 @@
+<footer>
+  <footer-inner>
+
+    <figure style="margin-bottom: var(--gap-4); opacity: 0.1">
+      <img alt="Whitefusion" src="/images/whitefusion-w-transparent.png" width="120" />
+    </figure>
+
+    <p><strong>All things are permissible.<br/>But not everything is beneficial.</strong></p>
+
+    <p>The trick is to know the difference.</p>
+
+    <p>Ping us at <a href="mailto:{{ metadata.email }}">{{ metadata.email }}</a> <br/>to start something foolish.</p>
+  </footer-inner>
+</footer>
+
+<sl-dialog label="Customer Portal">
+  <step-one>
+    <p>We'll send a one-time access code to your email address. Once you're in the portal, you can add a project brief and we'll quickly respond with a follow up to schedule a free 30 minute consultation. <strong>Sound good?</strong></p>
+
+    <sl-form>
+      <p>
+        <sl-input required type="email" name="email" placeholder="Email Address"></sl-input>
+      </p>
+
+      <p style="text-align: center">
+        <sl-button type="primary">Continue</sl-button>
+      </p>
+    </sl-form>
+  </step-one>
+  <step-two hidden>
+    <p>Awesome sauce! Look for that email shortly. If it doesn't show up, you can <sl-button
+        type="primary"
+        style="vertical-align: 2px"
+        onclick="document.querySelector('sl-dialog').querySelectorAll('step-one, step-two').forEach(el => el.hidden = !el.hidden)"
+      >try again</sl-button> or <a href="mailto:{{ metadata.email }}">email us instead</a>.</p>
+  </step-two>
+
+  <sl-button slot="footer" size="small" onclick="document.querySelector('sl-dialog').hide()">Close</sl-button>
+</sl-dialog>
+
+<script>
+  const form = document.querySelector("sl-dialog sl-form")
+
+  form.querySelector("sl-button[type=primary]").addEventListener("click", () => {
+    form.submit()
+  })
+
+  form.addEventListener("sl-submit", event => {
+    const formData = event.detail.formData
+    let output = ""
+
+    //
+    // Example 1: Post data to a server and wait for a JSON response
+    //
+/*    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Success:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    }); */
+
+    //
+    // Example 2: Output all form control names + values
+    //
+    for (const entry of formData.entries()) {
+      output += `${entry[0]}: ${entry[1]}\n`
+    }
+    alert(output)
+
+    document.querySelector('sl-dialog').querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+  })
+</script>
+
+<svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
+  <defs>
+    <filter id="marker-shape">
+      <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp" />
+    </filter>
+  </defs>
+</svg>
