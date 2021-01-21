@@ -1,19 +1,26 @@
-<nav style="margin: var(--gap-3) 0">
-  <navbar-inner>
-    <sl-flex nowrap align-items="center" spaced="between">
-      <sl-flex-item size="6/10 xs:2/10 sm:3/10 md:4/10 lg:5/10">
-        <a href="/" style="display:inline-flex;padding:8px;border-radius:12px;background: var(--primary-color);height: 76px;justify-content: center;flex-direction: column;">
+<nav>
+  <navbar-inner id="nav-bar" data-turbo-permanent>
+    <sl-bar align-items="center" spaced="between" expanded="false">
+      <sl-bar-item branding size="6/10 xs:2/10 sm:3/10 md:4/10 lg:5/10">
+        <a href="/">
           <img alt="Whitefusion" src="/images/whitefusion-w-transparent.png" width="60" style="margin-top:4px" />
         </a>
-      </sl-flex-item>
-      <sl-flex-item>
-        <a href="/spec">Tech Specs</a>
-      </sl-flex-item>
-      <sl-flex-item>
+      </sl-bar-item>
+      <sl-bar-item mobileonly>
+        <sl-button menutoggle type="text">
+           <sl-icon slot="suffix" name="list"></sl-icon>
+           Menu
+        </sl-button>
+      </sl-bar-item>
+      <sl-bar-item expandable>
         <a href="/resources">Resources</a>
-      </sl-flex-item>
-      <sl-flex-item>
-        <a href="/learn">Learn More</a>
-      </sl-flex-item>
-    </navbar-inner>
+      </sl-bar-item>
+      <sl-bar-item expandable>
+        <a href="/tech">Tech Specs</a>
+      </sl-bar-item>
+      <sl-bar-item expandable>
+        <a href="/methodology">Methodology</a>
+      </sl-bar-item>
+    </sl-bar>
+  </navbar-inner>
 </nav>

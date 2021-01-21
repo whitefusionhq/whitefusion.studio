@@ -13,34 +13,29 @@
   </footer-inner>
 </footer>
 
-<sl-dialog label="Chat It Up">
+<sl-dialog label="Customer Portal">
   <step-one>
-    <p>Fill in your email address, add a Twitter-length project summary, and then we’ll quickly follow-up to schedule a free 30 minute consultation. <strong>Sound good?</strong></p>
+    <p>Here’s the scoop: we'll email you a one-time access code. Once you’re in the portal, you can add a project brief and then we’ll quickly follow-up to schedule a free 30 minute consultation. <strong>Sound good?</strong></p>
 
     <sl-form>
       <p>
-        <sl-input required type="email" name="email" label="Email Address"></sl-input>
-      </p>
-
-      <p>
-        <sl-textarea name="message" required rows="2" label="Summary"></sl-textarea>
+        <sl-input required type="email" name="email" placeholder="Email Address"></sl-input>
       </p>
 
       <p style="text-align:center">
-        <sl-button type="primary">Booyah!</sl-button>
+        <sl-button type="primary">Continue</sl-button>
       </p>
     </sl-form>
-
-    <form name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="email" />
-      <input type="hidden" name="message" />
-    </form>
   </step-one>
   <step-two hidden>
-    <p>Awesome sauce! We’ll respond to your email shortly.</p>
-
-    <p>In the meantime, you can <a href="https://twitter.com/_whitefusion" target="_blank">follow us on Twitter</a>, or bake a lasagna. (Not sure what that has to do with anything. I just like lasagna.)</p>
+    <p>Awesome sauce! Look for that email shortly. If it doesn't show up, you can <sl-button
+        type="primary"
+        style="vertical-align: 2px"
+        onclick="document.querySelector('sl-dialog').querySelectorAll('step-one, step-two').forEach(el => el.hidden = !el.hidden)"
+      >try again</sl-button> or <a href="mailto:{{ metadata.email }}">email us instead</a>.</p>
   </step-two>
+
+  <sl-button slot="footer" size="small" onclick="document.querySelector('sl-dialog').hide()">Close</sl-button>
 </sl-dialog>
 
 <script>

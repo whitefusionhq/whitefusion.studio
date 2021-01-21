@@ -1,0 +1,19 @@
+sl-dialog::part(title), sl-dialog::part(body) {
+  --sl-spacing-large: 0.75rem 1.25rem;
+}
+
+sl-dialog::part(title) {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  color: var(--alternate-dark-color);
+  --sl-font-size-large: 2rem;
+}
+
+sl-button[type="primary"]::part(base) {
+  background-color: var(--sl-color-primary-30);
+  border-color: var(--sl-color-primary-30);
+}
+sl-button[type="primary"]::part(base):hover {
+  background-color: var(--sl-color-primary-40);
+  border-color: var(--sl-color-primary-40);
+}

@@ -45,7 +45,7 @@ You should't need a Ph.D. in quantum serverless / microservice / transpilation /
 
 Semantic <mark>HTML</mark>. Modular <mark>CSS</mark>. JavaScript _only_ where necessary.
 
-Emphasize <mark>performance</mark>, <mark>privacy</mark>, and <mark>security</mark>. 
+Emphasize <mark>performance</mark>, privacy, and <mark>security</mark>. 
 
 **Effectively utilize the latest browser standards.** <mark>Web components</mark> FTW.
 
@@ -55,11 +55,13 @@ Enjoy the fruits of SSG (static site generation) without all the exploding compl
 
 Heck, let's even throw good ol' PostgreSQL into the mix.
 
-**Use the right tool for the right job**, starting with a bottom-up (bottoms-up?) minimalist philosophy. _Simplicity is the ultimate sophistication_, as the great DaVinci once said. (Or was it Jobs?)
+**Use the right tool for the right job**, starting with a bottom-up (bottoms-up?) minimalist philosophy.
+
+_Simplicity is the ultimate sophistication_, as the great DaVinci once said. (Or was it Jobs?)
 
 {% endrendercontent %}
 
-{% rendercontent "section" %}
+{% rendercontent "section", alt_invert: true %}
 
 ## Unfucking the “Modern” Web, One Open Source Project at a Time
 
@@ -69,11 +71,11 @@ But the sad truth is that while the Jamstack has evolved, Jekyll hasn't. In most
 
 Introducing Bridgetown. It's a “modern” (for lack of a better word) fork of Jekyll that is quickly becoming the premier Ruby-powered static site generator. ::etc etc::
 
-In addition to Bridgetown, we're proud to endorse and support—and in some cases build—a slew of open source tools and educational destinations all with the aim of _unfucking the modern web_ and providing clear alternatives to the status quo.
+In addition to Bridgetown, we're proud to endorse and support—and in some cases build—[a slew of open source tools](/tech) and [educational destinations](/resources) all with the aim of _unfucking the modern web_ and providing clear alternatives to the status quo.
 
 {% endrendercontent %}
 
-{% rendercontent "section", invert: true %}
+{% rendercontent "section" %}
 
 ## Ready to Join the Movement to Restore Speed, Simplicity, and Elegance to the Web?
 
@@ -83,7 +85,7 @@ If you're tired of codebases which mushroom in complexity until they're unmainta
 
 {% endrendercontent %}
 
-{% rendercontent "section" %}
+{% rendercontent "section", invert: true %}
 
 ## Who is Whitefusion?
 
@@ -93,7 +95,7 @@ Hi, I'm Jared. =)
 
 {% endrendercontent %}
 
-{% rendercontent "section", invert: true %}
+{% rendercontent "section" %}
 
 ## Save Time AND Money! ;-P
 

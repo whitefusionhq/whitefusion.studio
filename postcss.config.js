@@ -6,7 +6,7 @@ module.exports = {
       autoprefixer: {
         flexbox: 'no-2009'
       },
-      importFrom: 'frontend/styles/flex.css',
+      importFrom: 'frontend/styles/breakpoints.css',
       stage: 4,
       features: {
         'nesting-rules': true,
