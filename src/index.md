@@ -67,7 +67,7 @@ _Simplicity is the ultimate sophistication_, as the great DaVinci once said. (Or
 
 Back to that Ruby idea…so, the progenitor of all modern Jamstack tools is Jekyll. Originally a tool created nearly a decade ago to deploy websites on GitHub (also built with Ruby)—and still the brains behind GitHub Pages to this day—Jekyll made static sites seem cool again and launched a whole new wave of tools and infrastructure which has taken the web development world by storm.
 
-But the sad truth is that while the Jamstack has evolved, Jekyll hasn't. In most respects, it's no more capable now than it was five years ago. And due to various issues—some technical, some procedural—it doesn't look like that's going to change any time soon. Meanwhile, large swaths of the industry have gravitated towards tools and methodologies which—while impressive in functionality—are often mind-numbingly obtuse for all but the most basic of tech demos.
+But the sad truth is that while the Jamstack has evolved, <mark>Jekyll hasn't</mark>. In most respects, it's no more capable now than it was five years ago. And due to various issues—some technical, some procedural—it doesn't look like that's going to change any time soon. Meanwhile, large swaths of the industry have gravitated towards tools and methodologies which—while impressive in functionality—are often mind-numbingly obtuse for all but the most basic of tech demos.
 
 Introducing Bridgetown. It's a “modern” (for lack of a better word) fork of Jekyll that is quickly becoming the premier Ruby-powered static site generator. ::etc etc::
 
