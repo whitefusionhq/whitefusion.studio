@@ -155,5 +155,9 @@ section.invert mark {
   background: linear-gradient(120deg, #ffffb411, #ffffb455, #ffffb444, #ffffb455, #ffffb444, #ffffb411);
 }
 
+body.page > main {
+  border-top: 1px solid var(--alternate-transparent-color);
+}
+
 @import "shoelace_customizations.css";
 @import "blocks";
