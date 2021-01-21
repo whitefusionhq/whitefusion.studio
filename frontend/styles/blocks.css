@@ -83,7 +83,7 @@ section.invert {
 section.alt-invert, body > footer {
   background: radial-gradient(var(--alternate-color) 25%, var(--alternate-dark-color) 100%);
   position: relative;
-
+  box-shadow: inset 4px 4px 4px var(--alternate-dark-color);
   color: var(--inverted-primary-text);
   --heading-color: var(--primary-faded-color);
 
