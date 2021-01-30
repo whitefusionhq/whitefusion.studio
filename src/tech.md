@@ -1,10 +1,28 @@
 ---
 layout: page
-title: Tech Specs
+title: Open Source Technology
 ---
 
-This is the basic Bridgetown site template. You can find out more info about customizing your Bridgetown site, as well as basic Bridgetown usage documentation at [bridgetownrb.com](https://bridgetownrb.com/)
+The technology we use here at Whitefusion is many things, but there is one thing it most certainly is not: closed.
 
-You can find the source code for Bridgetown at GitHub:
-[bridgetownrb](https://github.com/bridgetownrb) /
-[bridgetown](https://github.com/bridgetownrb/bridgetown)
+Open source beats at the heart of everything we do. We've successfully made millions of dollars over many years of web development off the backs of open source software projects, and now it's time we give back, starting with Bridgetown.
+
+### Bridgetown
+
+w00t!
+
+### Rails Nano
+
+...
+
+### Serbea
+
+...
+
+### Ruby2JS
+
+...
+
+### Posture
+
+<mark markdown="span">_Coming Q2 2021!_</mark> 

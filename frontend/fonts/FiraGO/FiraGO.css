@@ -2,6 +2,7 @@
   font-family: 'FiraGO';
   font-style: normal;
   font-weight: normal;
+  font-display: fallback;
   src: url('FiraGO-Book.woff') format('woff');
 }
 
@@ -9,6 +10,7 @@
   font-family: 'FiraGO';
   font-style: italic;
   font-weight: normal;
+  font-display: fallback;
   src: url('FiraGO-BookItalic.woff') format('woff');
 }
 
@@ -16,6 +18,7 @@
   font-family: 'FiraGO';
   font-style: normal;
   font-weight: 500;
+  font-display: fallback;
   src: url('FiraGO-SemiBold.woff') format('woff');
 }
 
@@ -23,6 +26,7 @@
   font-family: 'FiraGO';
   font-style: italic;
   font-weight: 500;
+  font-display: fallback;
   src: url('FiraGO-SemiBoldItalic.woff') format('woff');
 }
 
@@ -30,6 +34,7 @@
   font-family: 'FiraGO';
   font-style: normal;
   font-weight: 700;
+  font-display: fallback;
   src: url('FiraGO-Bold.woff') format('woff');
 }
 
@@ -37,6 +42,7 @@
   font-family: 'FiraGO';
   font-style: italic;
   font-weight: 700;
+  font-display: fallback;
   src: url('FiraGO-BoldItalic.woff') format('woff');
 }
 
@@ -44,5 +50,6 @@
   font-family: 'FiraGO';
   font-style: italic;
   font-weight: 900;
+  font-display: fallback;
   src: url('FiraGO-HeavyItalic.woff') format('woff');
 }

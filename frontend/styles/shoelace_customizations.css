@@ -9,11 +9,15 @@ sl-dialog::part(title) {
   --sl-font-size-large: 2rem;
 }
 
-sl-button[type="primary"]::part(base) {
+sl-input[size="medium"], sl-textarea[size="medium"] {
+  --sl-input-font-size-medium: var(--sl-font-size-small);
+}
+
+/*sl-button[type="primary"]::part(base) {
   background-color: var(--sl-color-primary-30);
   border-color: var(--sl-color-primary-30);
 }
 sl-button[type="primary"]::part(base):hover {
   background-color: var(--sl-color-primary-40);
   border-color: var(--sl-color-primary-40);
-}
+}*/

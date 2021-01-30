@@ -13,15 +13,19 @@ nav sl-bar {
   
   @media (--nav-minimal) {
     flex-direction: column;
-/*    & > sl-bar-item:nth-of-type(2) {
-      order: -1;
-    } */
 
     &[expanded="false"] {
       & sl-bar-item[expandable] {
         display: none;
       }
     }
+    &[expanded="true"] {
+      margin-bottom: var(--sl-spacing-x-large);
+    }
+  }
+
+  & sl-bar-item[mobileonly] {
+    height: 3.25rem;
   }
 
   @media (--nav-fullsize) {

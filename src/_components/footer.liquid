@@ -1,8 +1,8 @@
 <footer>
   <footer-inner>
 
-    <figure style="margin-bottom: var(--spacing-4); opacity: 0.1">
-      <img alt="Whitefusion" src="/images/whitefusion-w-transparent.png" width="120" />
+    <figure style="margin-bottom: var(--sl-spacing-xxx-large); opacity: 0.1">
+      <img alt="Whitefusion" src="/images/whitefusion-w-transparent.png" width="120" loading="lazy" />
     </figure>
 
     <p><strong>All things are permissible.<br/>But not everything is beneficial.</strong></p>
@@ -15,7 +15,7 @@
 
 <sl-dialog label="Chat It Up">
   <step-one>
-    <p>Fill in your email address, add a Twitter-length project summary, and then we’ll quickly follow-up to schedule a free 30 minute consultation. <strong>Sound good?</strong></p>
+    <p>Fill in your email address, add a Twitter-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
 
     <sl-form>
       <p>
@@ -27,7 +27,7 @@
       </p>
 
       <p style="text-align:center">
-        <sl-button type="primary">Booyah!</sl-button>
+        <sl-button type="success" pill>Booyeah!</sl-button>
       </p>
     </sl-form>
 
@@ -46,7 +46,7 @@
 <script>
   const form = document.querySelector("sl-dialog sl-form")
 
-  form.querySelector("sl-button[type=primary]").addEventListener("click", () => {
+  form.querySelector("sl-button[type=success]").addEventListener("click", () => {
     form.submit()
   })
 
