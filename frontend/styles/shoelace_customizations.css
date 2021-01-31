@@ -11,6 +11,11 @@ sl-dialog::part(title) {
 
 sl-input[size="medium"], sl-textarea[size="medium"] {
   --sl-input-font-size-medium: var(--sl-font-size-small);
+
+  @media (--sl-breakpoint-xs) {
+    /* ensure no weird zoom on mobile focus */
+    --sl-input-font-size-medium: 16px;
+  }
 }
 
 /*sl-button[type="primary"]::part(base) {
