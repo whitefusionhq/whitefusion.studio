@@ -1,3 +1,7 @@
+sl-button[size="large"]::part(base) {
+  box-shadow: 10px 22px 20px -8px var(--heading-shadow); /* rgba(0,0,0,0.2); */
+}
+
 sl-dialog::part(title), sl-dialog::part(body) {
   --sl-spacing-large: 0.75rem 1.25rem;
 }
@@ -18,11 +22,8 @@ sl-input[size="medium"], sl-textarea[size="medium"] {
   }
 }
 
-/*sl-button[type="primary"]::part(base) {
-  background-color: var(--sl-color-primary-30);
-  border-color: var(--sl-color-primary-30);
+p a sl-icon {
+  margin-right: var(--sl-spacing-xx-small);
+  margin-left: var(--sl-spacing-xxx-small);
+  vertical-align: -0.125em;
 }
-sl-button[type="primary"]::part(base):hover {
-  background-color: var(--sl-color-primary-40);
-  border-color: var(--sl-color-primary-40);
-}*/

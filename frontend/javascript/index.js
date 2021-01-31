@@ -27,7 +27,7 @@ import "../styles/index.css"
 
 const navBarQuery = (selector) => document.querySelector(`#nav-bar ${selector}`)
 
-document.addEventListener("turbo:load", () => {
+document.addEventListener("turbo:load", async () => {
   if (navBarQuery("sl-bar").getAttribute("expanded") == "true") {
     navBarQuery("sl-bar").setAttribute("expanded", "false")
     navBarQuery('sl-icon[name="x"]').setAttribute("name", "list")
@@ -44,6 +44,58 @@ document.addEventListener("turbo:load", () => {
       }, 100)
     })
   })
+
+  const form = document.querySelector("sl-dialog sl-form")
+
+  if (form) {
+    form.querySelector("step-one sl-button[type=success]").addEventListener("click", () => {
+      form.submit()
+    })
+
+    form.closest("sl-dialog").querySelector("step-two sl-button[type=primary]").addEventListener("click", () => {
+      setTimeout(() => {
+        form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+      }, 500);
+      form.closest("sl-dialog").hide()
+    })
+
+    form.addEventListener("sl-submit", event => {
+      const formData = event.detail.formData
+      formData.append("form-name", "contact")
+      let output = ""
+
+      //
+      // Example 1: Post data to a server and wait for a JSON response
+      //
+  /*    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Success:', result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      }); */
+
+      //
+      // Example 2: Output all form control names + values
+      //
+      for (const entry of formData.entries()) {
+        output += `${entry[0]}: ${entry[1]}\n`
+      }
+      alert(output)
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData
+      }).then(() => {
+        form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+      })
+    })
+  }
 })
 
 window.addEventListener("DOMContentLoaded", () => {

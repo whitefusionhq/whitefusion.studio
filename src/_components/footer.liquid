@@ -9,13 +9,15 @@
 
     <p>The trick is to know the difference.</p>
 
-    <p>Ping us at <a href="mailto:{{ metadata.email }}">{{ metadata.email }}</a> <br/>to start something foolish.</p>
+    <p>Ping us at <a href="mailto:{{ metadata.email }}"><sl-icon name="envelope"></sl-icon>{{ metadata.email }}</a> <br/>to start something foolish.</p>
+
+    <p>Plus catch us on <a href="https://twitter.com/_whitefusion"><sl-icon name="twitter"></sl-icon>Twitter</a>.</p>
   </footer-inner>
 </footer>
 
 <sl-dialog label="Chat It Up">
   <step-one>
-    <p>Fill in your email address, add a Twitter-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
+    <p>Fill in your email address, add a Tweet-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
 
     <sl-form>
       <p>
@@ -23,11 +25,14 @@
       </p>
 
       <p>
-        <sl-textarea name="message" required rows="2" label="Summary"></sl-textarea>
+        <sl-textarea name="message" required rows="2" label="Project Summary"></sl-textarea>
       </p>
 
       <p style="text-align:center">
-        <sl-button type="success" pill>Booyeah!</sl-button>
+        <sl-button type="success" pill>
+          <sl-icon slot="suffix" name="envelope" style="top:-1px;left:-2px"></sl-icon>
+          Booyeah!
+        </sl-button>
       </p>
     </sl-form>
 
@@ -39,47 +44,16 @@
   <step-two hidden>
     <p>Awesome sauce! We’ll respond to your email shortly.</p>
 
-    <p>In the meantime, you can <a href="https://twitter.com/_whitefusion" target="_blank">follow us on Twitter</a>, or bake a lasagna. (Not sure what that has to do with anything. I just like lasagna.)</p>
+    <p>In the meantime, you can <strong>follow us on <a href="https://twitter.com/_whitefusion" target="_blank"><sl-icon name="twitter"></sl-icon>Twitter</a></strong>, or go bake a lasagna. (Not sure what that has to do with anything. I just like lasagna. 😄)</p>
+
+    <p style="text-align:center">
+      <sl-button type="primary" pill>
+        <sl-icon slot="suffix" name="x" style="top:-1px;left:-2px"></sl-icon>
+        Close
+      </sl-button>
+    </p>
   </step-two>
 </sl-dialog>
-
-<script>
-  const form = document.querySelector("sl-dialog sl-form")
-
-  form.querySelector("sl-button[type=success]").addEventListener("click", () => {
-    form.submit()
-  })
-
-  form.addEventListener("sl-submit", event => {
-    const formData = event.detail.formData
-    let output = ""
-
-    //
-    // Example 1: Post data to a server and wait for a JSON response
-    //
-/*    fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Success:', result);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    }); */
-
-    //
-    // Example 2: Output all form control names + values
-    //
-    for (const entry of formData.entries()) {
-      output += `${entry[0]}: ${entry[1]}\n`
-    }
-    alert(output)
-
-    document.querySelector('sl-dialog').querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
-  })
-</script>
 
 <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
   <defs>

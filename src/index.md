@@ -89,6 +89,8 @@ Thankfully, [I'm not the only one decrying the complexity of the modern web](htt
 
 I'm a champion of the underdog: the solo dev, the small tight-knit team. I'm with the people who believe you can build great things with simple, easy-to-understand tools and a commitment to the greatest invention in the history of mankind: **the open web**. Let's unfuck the modern web and accomplish great things together.
 
+Follow me on <a href="https://twitter.com/jaredcwhite" style="margin-right:var(--sl-spacing-xxx-small)"><sl-icon name="twitter"></sl-icon>Twitter</a> ✦ <a href="https://jaredwhite.com"><sl-icon name="globe"></sl-icon>Website</a>
+
 {% endrendercontent %}
 
 {% rendercontent "section" %}

@@ -7,9 +7,8 @@ body > nav {
 
 main {
   overflow-x: hidden;
-  
-  
 }
+
 body.page > main {
   border-top: 1px solid var(--alternate-transparent-color);
 }
