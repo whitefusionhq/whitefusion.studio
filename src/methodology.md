@@ -7,53 +7,77 @@ Here's how we build websites and web applications in 2021.
 
 ### HTML: HyperText Markup Language
 
-It's shameful how abused and neglected HTML has been in some corners of the industry over the years. Some people have even claimed its ultimate destination is as a low-level “machine language” never intended for reading/writing by mere mortals. So we're going to go out on a limb here and declare that HTML—in its purest form—is the greatest "semantic communication syntax” ever invented by humankind. It has not only survived against the onslaught of many competing systems over its 30+ year history, it has so solidly established itself as a cultural treasure crossing all boundaries of creed, nationality, and purpose that we have no doubt HTML will still be with us 100 years from now.
+<details markdown="block">
+  <summary markdown="span">
+  It's shameful how abused and neglected HTML has been in some corners of the industry over the years. Some people have even claimed its ultimate destination is as a low-level “machine language” never intended for reading/writing by mere mortals. So we're going to go out on a limb here and declare that HTML—in its purest form—is the greatest "semantic communication syntax” ever invented by humankind.
+  </summary>
 
-We prize and value HTML. Everything starts with HTML. Before we consider what frameworks to use, what tooling to introduce, where to store and retrieve data, how to deploy the final product, and so forth, we start with the breadth of meaning and functionality we wish to express through HTML. It’s the _baseplate_ of all web development.
+  HTML has not only survived against the onslaught of many competing systems over its 30+ year history, it has so solidly established itself as a cultural treasure crossing all boundaries of creed, nationality, and purpose that we have no doubt HTML will still be with us 100 years from now.
+
+  We prize and value HTML. Everything starts with HTML. Before we consider what frameworks to use, what tooling to introduce, where to store and retrieve data, how to deploy the final product, and so forth, we start with the breadth of meaning and functionality we wish to express through HTML. It’s the _baseplate_ of all web development.
+</details>
 
 ### Custom Elements
 
-As we begin to build out the structure of the site in generalized templates, we consider which _built-in and custom elements_ we will need for expresses the intent of each section of each page.
+<details markdown="block">
+  <summary markdown="span">
+  As we begin to build out the structure of the site in generalized templates, we consider which _built-in and custom elements_ we will need for expressing the intent of each section of each page. There are many built-in elements in HTML and they should always be prioritized wherever suitable.
+  </summary>
 
-`<nav>` for a navbar. `<h1>` for a primary heading. `<article>` to represent a unit of content. There are many built-in elements in HTML and should always be prioritized wherever suitable. But for situations where a custom element is required, we liberally define and use those throughout our projects—with tag names such as `<layout-column>`, `<ui-label>`, `<footer-inner>`, or `<main-content>`. ([Here’s a definitive article on the topic by Jared White.](https://dev.to/jaredcwhite/custom-elements-everywhere-for-page-layout-parts-i-and-ii-438p))
+  `<nav>` for a navbar. `<h1>` for a primary heading. `<article>` to represent a unit of content.  But for situations where a custom element is required, we will liberally define and use those throughout our projects—tag names such as `<layout-column>`, `<ui-label>`, `<footer-inner>`, or `<main-content>`. ([Here’s a definitive article on the topic by Jared White.](https://dev.to/jaredcwhite/custom-elements-everywhere-for-page-layout-parts-i-and-ii-438p))
 
-We’ve essentially stopped using `<div>` and `<span>` in all projects going forward because they convey no semantic meaning and serve no useful purpose in an era when custom elements are baked into the fabric of the HTML standard. In case there’s any confusing, we’re _not_ talking about web components (yet). In our lexicon, custom elements are HTML-only tags which can _optionally_ be used for styling via CSS or scripting via JavaScript. In the case of the latter, read on…
+  We’ve essentially stopped using `<div>` and `<span>` in all projects going forward because they convey no semantic meaning and serve no useful purpose in an era when custom elements are baked into the fabric of the HTML standard. In case there’s any confusing, we’re _not_ talking about web components (yet). In our lexicon, custom elements are HTML-only tags which can _optionally_ be used for styling via CSS or scripting via JavaScript. In the case of the latter, read on…
+</details>
 
 ### Web Components
 
-The emergence of the web components standard is perhaps the greatest leap forward for HTML since the arrival of the `<img>` tag. With web components, you can program encapsulated functionality that are able to be embedded in any web page “natively”. For example, HTML provides a `<textarea>` tag. But anyone could write their own `<fancy-textarea>` tag that either uses `<textarea>` under the hood or presents a bespoke text editing interface built out of other HTML/CSS/JavaScript primitives. To you, the downstream HTML editor, it doesn’t matter. Use `<textarea>` or `<fancy-textarea>` or `<super-dee-dooper-textarea>` because of the capability each component affords, not its implementation details.
+<details markdown="block">
+  <summary markdown="span">
+  The emergence of the web components standard is perhaps the greatest leap forward for HTML since the arrival of the `<img>` tag. With web components, you can program encapsulated functionality that are able to be embedded in any web page “natively”.
+  </summary>
 
-Web components also pose an existential threat to legacy JavaScript component libraries such as React, which is probably why React is dragging their heels in supporting this web standard. We choose to utilize newer, lightweight libraries which take full advantage of web components—most notably LitElement, as well as Turbo and Stimulus from the Hotwire community.
+  For example, HTML provides a `<textarea>` tag. But anyone could write their own `<fancy-textarea>` tag that either uses `<textarea>` under the hood or presents a bespoke text editing interface built out of other HTML/CSS/JavaScript primitives. To you, the downstream HTML editor, it doesn’t matter. Use `<textarea>` or `<fancy-textarea>` or `<super-dee-dooper-textarea>` because of the capability each component affords, not its implementation details.
 
-We also opt to write custom component or Stimulus code in a Ruby-derived syntax with 1:1 transpilation provided by Ruby2JS. Because there’s no runtime required, the output JavaScript looks much the same as if we hand-coded it ourselves. (See our Tech page for further details!)
+  Web components also pose an existential threat to legacy JavaScript component libraries such as React, which is probably why React is dragging their heels in supporting this web standard. We choose to utilize newer, lightweight libraries which take full advantage of web components—most notably LitElement, as well as Turbo and Stimulus from the Hotwire community.
+
+  We also opt to write custom component or Stimulus code in a Ruby-derived syntax with 1:1 transpilation provided by Ruby2JS. Because there’s no runtime required, the output JavaScript looks much the same as if we hand-coded it ourselves. (See our Tech page for further details!)
+</details>
 
 ### Token-based Semantic CSS Design Systems
 
-Building upon the semantic elements and web components methodology above, we have recently made a fundamental upgrade to our approach to CSS (Cascading Style Sheets). It’s a methodology so new we’re not entirely sure there’s a name for it yet, but it all starts with CSS Variables (sometimes known as Custom Properties) and some forward-looking syntactic sugar provided by PostCSS.
+<details markdown="block">
+  <summary markdown="span">
+  Building upon the semantic elements and web components methodology above, we have recently made a fundamental upgrade to our approach to CSS (Cascading Style Sheets). It’s a methodology so new we’re not entirely sure there’s a name for it yet, but it all starts with CSS Variables (sometimes known as Custom Properties) and some forward-looking syntactic sugar provided by PostCSS.
+  </summary>
 
-We start by defining a series of “tokens” as variables defined on `:root` in a global stylesheet. These tokens can either be created by us or we might co-mingle them with tokens imported from a UI library such as Shoelace (more on that below). Examples tokens might be `--base-font-size: 24px`, `--primary-color: #ff6f59`, or `--max-content-width: 50rem`. We even create tokens for responsive breakpoints (not yet browser-native, but enabled by PostCSS). You can see these sorts of `:root`-based design tokens on this very website by opening your web developer inspector.
+  We start by defining a series of “tokens” as variables defined on `:root` in a global stylesheet. These tokens can either be created by us or we might co-mingle them with tokens imported from a UI library such as Shoelace (more on that below). Examples tokens might be `--base-font-size: 24px`, `--primary-color: #ff6f59`, or `--max-content-width: 50rem`. We even create tokens for responsive breakpoints (not yet browser-native, but enabled by PostCSS). You can see these sorts of `:root`-based design tokens on this very website by opening your web developer inspector.
 
-After a basic design system is in place, we begin create styles using only element names as selectors. `section`, `p`, `a`, `main`, etc.—as well as custom elements like `navbar-inner` and so forth. We use classes sparingly (no `.foo.bar .baz` here!) while readily reaching for attribute selectors, especially for custom elements: `sl-input[size="medium"]` or `sl-bar-item[size~="6/10"]`. Occasionally we might override design tokens for particular element scopes, or for responsive breakpoints. In addition, when using web components which offer CSS Shadow Parts for advanced styling, we’ll use those as well when required (`sl-dialog::part(title)` for example).
+  After a basic design system is in place, we begin create styles using only element names as selectors. `section`, `p`, `a`, `main`, etc.—as well as custom elements like `navbar-inner` and so forth. We use classes sparingly (no `.foo.bar .baz` here!) while readily reaching for attribute selectors, especially for custom elements: `sl-input[size="medium"]` or `sl-bar-item[size~="6/10"]`. Occasionally we might override design tokens for particular element scopes, or for responsive breakpoints. In addition, when using web components which offer CSS Shadow Parts for advanced styling, we’ll use those as well when required (`sl-dialog::part(title)` for example).
 
-This combination of CSS Variables, element and attribute selectors, and the mechanisms provided by Shadow DOM + Parts, has resulted in a shocking reduction in the amount of CSS we write _as well as import_. In the past you couldn’t do much quickly without reaching for Bootstrap. These days perhaps Tailwind often gets recommended ([Use with extreme caution!](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90)). However, we increasingly find ourselves not needing any “CSS framework” at all…only some MVP.css-inspired boilerplate and typically a web component-based UI library such as Shoelace.
+  This combination of CSS Variables, element and attribute selectors, and the mechanisms provided by Shadow DOM + Parts, has resulted in a shocking reduction in the amount of CSS we write _as well as import_. In the past you couldn’t do much quickly without reaching for Bootstrap. These days perhaps Tailwind often gets recommended ([Use with extreme caution!](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90)). However, we increasingly find ourselves not needing any “CSS framework” at all…only some MVP.css-inspired boilerplate and typically a web component-based UI library such as Shoelace.
+</details>
 
 ### Shoelace
 
-Created by Cory LaViska, [Shoelace](https://shoelace.style) is the most impressive unified collection of web components and design tokens we’ve seen to date. That’s saying a lot considering there are component libraries out now from Salesforce, Microsoft, Google, Adobe, GitHub, and many other large companies.
+<details markdown="block">
+  <summary markdown="span">
+  Created by Cory LaViska, [Shoelace](https://shoelace.style) is the most impressive unified collection of web components and design tokens we’ve seen to date. That’s saying a lot considering there are component libraries out now from Salesforce, Microsoft, Google, Adobe, GitHub, and many other large companies.
+  </summary>
 
-Shoelace at first glance might seem like Yet-Another-Bunch-o’-Components with the usual suspects of buttons, icons, menus, and dropdown—however, such simple appearances can be deceiving. What makes Shoelace so impressive are five things:
+  Shoelace at first glance might seem like Yet-Another-Bunch-o’-Components with the usual suspects of buttons, icons, menus, and dropdown—however, such simple appearances can be deceiving. What makes Shoelace so impressive are five things:
 
-0. It looks great right out of the box.
-1. It takes full advantage of modern web component standards.
-2. It’s extremely customizable, but only if you really need to.
-3. The HTML you write using Shoelace is fantastically elegant.
-4. Shoelace ships with a variety of design tokens you can use directly.
+  0. It looks great right out of the box.
+  1. It takes full advantage of modern web component standards.
+  2. It’s extremely customizable, but only if you really need to.
+  3. The HTML you write using Shoelace is fantastically elegant.
+  4. Shoelace ships with a variety of design tokens you can use directly.
 
-A button in Shoelace is `<sl-button>Hi!</sl-button>`. An icon is `<sl-icon name="person-circle"></sl-icon>`. A star rating is `<sl-rating precision=".5" value="2.5"></sl-rating> `. On that last example, you can see how element attributes allow for precise control over various component properties. All properties are also controllable of course through JavaScript requiring no additional library or framework of any kind.
+  A button in Shoelace is `<sl-button>Hi!</sl-button>`. An icon is `<sl-icon name="person-circle"></sl-icon>`. A star rating is `<sl-rating precision=".5" value="2.5"></sl-rating> `. On that last example, you can see how element attributes allow for precise control over various component properties. All properties are also controllable of course through JavaScript requiring no additional library or framework of any kind.
 
-You can customize how Shoelace looks simply by overriding various design tokens via CSS variables, and you can also use Shoelace tokens directly in your own project—even inside of inline styles! For example: `<h1 style="margin-bottom:var(--sl-spacing-x-large)">…</h1>`
+  You can customize how Shoelace looks simply by overriding various design tokens via CSS variables, and you can also use Shoelace tokens directly in your own project—even inside of inline styles! For example: `<h1 style="margin-bottom:var(--sl-spacing-x-large)">…</h1>`
 
-Shoelace v2 is a total rewrite and currently in beta, so as usable and impressive as it is now, this is only the beginning. We’re excited about choosing Shoelace as the default UI library for all new projects.
+  Shoelace v2 is a total rewrite and currently in beta, so as usable and impressive as it is now, this is only the beginning. We’re excited about choosing Shoelace as the default UI library for all new projects.
+</details>
 
 ### Bridgetown or Rails: Pick Your Flavor (or Both!)
 

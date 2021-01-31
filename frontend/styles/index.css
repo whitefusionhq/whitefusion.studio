@@ -190,5 +190,19 @@ code {
   font-size: 0.95em;
 }
 
+summary {
+  cursor: pointer;
+}
+summary::-webkit-details-marker {
+  color: var(--primary-lighter-color);
+}
+details[open] > summary {
+  margin-bottom: var(--sl-font-size-x-large);
+}
+a:focus, summary:focus {
+  outline: 2px dashed rgba(var(--body-color-rgb), 0.3);
+  outline-offset: var(--sl-spacing-x-small);
+}
+
 @import "shoelace_customizations.css";
 @import "blocks";
