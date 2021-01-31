@@ -27,7 +27,7 @@ import "../styles/index.css"
 
 const navBarQuery = (selector) => document.querySelector(`#nav-bar ${selector}`)
 
-document.addEventListener("turbo:load", async () => {
+document.addEventListener("turbo:load", () => {
   if (navBarQuery("sl-bar").getAttribute("expanded") == "true") {
     navBarQuery("sl-bar").setAttribute("expanded", "false")
     navBarQuery('sl-icon[name="x"]').setAttribute("name", "list")
@@ -62,30 +62,6 @@ document.addEventListener("turbo:load", async () => {
     form.addEventListener("sl-submit", event => {
       const formData = event.detail.formData
       formData.append("form-name", "contact")
-      let output = ""
-
-      //
-      // Example 1: Post data to a server and wait for a JSON response
-      //
-  /*    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(result => {
-        console.log('Success:', result);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      }); */
-
-      //
-      // Example 2: Output all form control names + values
-      //
-      for (const entry of formData.entries()) {
-        output += `${entry[0]}: ${entry[1]}\n`
-      }
-      alert(output)
 
       fetch("/", {
         method: "POST",
@@ -96,7 +72,7 @@ document.addEventListener("turbo:load", async () => {
       })
     })
   }
-})
+}) // end of turbo:load
 
 window.addEventListener("DOMContentLoaded", () => {
   navBarQuery("sl-button[menutoggle]").addEventListener("click", (event) => {
