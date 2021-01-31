@@ -12,7 +12,7 @@ It's how the “modern web” gets built. <mark>It's the FUTURE™!</mark>
 
 Actually, we agree! (with a catch) …Unfortunately what the Jamstack giveth, the Jamstack taketh away. Now we have _new_ wads of spaghetti code, increasingly byzantine tools, and questionable practices largely promoted by engineering teams **much larger** than anything you or I will ever be on. It's getting nuts out there.
 
-**So we're here to humbly suggest an alternate path.** The Dreamstack, if you will. DREAM stands for <mark>Delightful Ruby Expressing APIs & Markup</mark>. Start with Ruby, the greatest language ever devised for web development (in our humble opinion), and work outward from there utilizing time-tested techniques which effectively capitalize on evergreen browser technology. Shall we go on?
+**So we're here to humbly suggest an alternate path.** The Dreamstack, if you will. DREAM stands for <mark markdown="span">**D**elightful **R**uby **E**xpressing **A**PIs & **M**arkup</mark>. Ruby is the greatest programming language ever devised for web development (in our humble opinion). We work outward from there employing time-tested techniques which effectively capitalize on evergreen browser technology. Shall we go on?
 
 <sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Get This Party Started</sl-button>
 
