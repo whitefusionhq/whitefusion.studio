@@ -190,18 +190,42 @@ code {
   font-size: 0.95em;
 }
 
+details {
+  &::after {
+    content: ". . .";
+    color: var(--primary-lighter-color);
+    display: block;
+    position: absolute;
+    font-weight: bold;
+    left: 0;
+    right: 0;
+    text-align: center;
+    /* pointer-events: none; */
+    margin-top: -5px;
+  }
+}
 summary {
   cursor: pointer;
 }
 summary::-webkit-details-marker {
   color: var(--primary-lighter-color);
 }
+details[open] {
+  &::after {
+    display: none;
+  }
+}
 details[open] > summary {
   margin-bottom: var(--sl-font-size-x-large);
 }
 a:focus, summary:focus {
-  outline: 2px dashed rgba(var(--body-color-rgb), 0.3);
-  outline-offset: var(--sl-spacing-x-small);
+  outline: 2px dashed rgba(var(--body-color-rgb), 0.2);
+  outline-offset: var(--sl-spacing-small);
+}
+summary:has(details:focus) {
+  &::after {
+    display: none;
+  }
 }
 
 @import "shoelace_customizations.css";

@@ -3,6 +3,7 @@ layout: page
 title: Methodology
 ---
 
+{:style="text-align:center"}
 Here's how we build websites and web applications in 2021.
 
 ### HTML: HyperText Markup Language

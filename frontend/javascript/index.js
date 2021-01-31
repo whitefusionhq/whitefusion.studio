@@ -32,6 +32,17 @@ document.addEventListener("turbo:load", () => {
     navBarQuery("sl-bar").setAttribute("expanded", "false")
     navBarQuery('sl-icon[name="x"]').setAttribute("name", "list")
   }
+
+  document.querySelectorAll("details").forEach(detail => {
+    detail.addEventListener("click", (event) => {
+      const state = event.target.open;
+      setTimeout(() => {
+        if (!state && !event.target.open) {
+          event.target.open = true
+        }
+      }, 100)
+    })
+  })
 })
 
 window.addEventListener("DOMContentLoaded", () => {
