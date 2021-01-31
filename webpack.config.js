@@ -37,27 +37,7 @@ module.exports = {
     }),
   ],
   module: {
-    rules: [
-      {
-        test: /\.(js|jsx)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-            plugins: [
-              ["@babel/plugin-proposal-decorators", { "legacy": true }],
-              ["@babel/plugin-proposal-class-properties", { "loose" : true }],
-              [
-                "@babel/plugin-transform-runtime",
-                {
-                  helpers: false,
-                },
-              ],
-            ],
-          },
-        },
-      },
-      
+    rules: [      
       {
         test: /\.(s[ac]|c)ss$/,
         use: [
@@ -70,8 +50,7 @@ module.exports = {
           },
           "postcss-loader"
         ],
-      },      
-      
+      },
       {
         test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
         loader: "file-loader",
