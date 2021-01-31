@@ -90,7 +90,7 @@ document.addEventListener("turbo:load", async () => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData
+        body: new URLSearchParams(formData).toString()
       }).then(() => {
         form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
       })
