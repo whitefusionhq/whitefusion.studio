@@ -39,6 +39,7 @@ document.addEventListener("turbo:load", () => {
       setTimeout(() => {
         if (!state && !event.target.open) {
           event.target.open = true
+          event.target.querySelector("summary").focus()
         }
       }, 100)
     })
