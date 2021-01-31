@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "FiraSans";
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: url("FiraSans-Book.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: italic;
+  font-weight: normal;
+  font-display: fallback;
+  src: url("FiraSans-BookItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+  src: url("FiraSans-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: italic;
+  font-weight: 500;
+  font-display: fallback;
+  src: url("FiraSans-SemiBoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("FiraSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("FiraSans-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: normal;
+  font-weight: 900;
+  font-display: fallback;
+  src: url("FiraSans-Heavy.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FiraSans";
+  font-style: italic;
+  font-weight: 900;
+  font-display: fallback;
+  src: url("FiraSans-HeavyItalic.woff2") format("woff2");
+}
