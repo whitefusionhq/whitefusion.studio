@@ -59,6 +59,7 @@
     --heading-large-font-size: 2.70rem;
     --heading-medium-font-size: var(--heading-large-font-size);
     --heading-small-font-size: var(--sl-font-size-xx-large);
+    --sl-input-label-font-size-medium: 16px; /* ensure no weird zoom on mobile focus */
   }
   @media (--sl-breakpoint-sm) {
     --base-font-size: 20px;
