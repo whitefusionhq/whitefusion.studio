@@ -41,7 +41,7 @@ document.addEventListener("turbo:load", () => {
           event.target.open = true
           event.target.querySelector("summary").focus()
         }
-      }, 100)
+      }, 50)
     })
   })
 

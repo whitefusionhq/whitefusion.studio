@@ -3,8 +3,9 @@ layout: page
 title: Methodology
 ---
 
-{:style="text-align:center"}
+{:.lead}
 Here's how we build websites and web applications in 2021.
+{:style="text-align:center"}
 
 ### HTML: HyperText Markup Language
 
@@ -55,7 +56,7 @@ Here's how we build websites and web applications in 2021.
 
   After a basic design system is in place, we begin create styles using only element names as selectors. `section`, `p`, `a`, `main`, etc.—as well as custom elements like `navbar-inner` and so forth. We use classes sparingly (no `.foo.bar .baz` here!) while readily reaching for attribute selectors, especially for custom elements: `sl-input[size="medium"]` or `sl-bar-item[size~="6/10"]`. Occasionally we might override design tokens for particular element scopes, or for responsive breakpoints. In addition, when using web components which offer CSS Shadow Parts for advanced styling, we’ll use those as well when required (`sl-dialog::part(title)` for example).
 
-  This combination of CSS Variables, element and attribute selectors, and the mechanisms provided by Shadow DOM + Parts, has resulted in a shocking reduction in the amount of CSS we write _as well as import_. In the past you couldn’t do much quickly without reaching for Bootstrap. These days perhaps Tailwind often gets recommended ([Use with extreme caution!](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90)). However, we increasingly find ourselves not needing any “CSS framework” at all…only some MVP.css-inspired boilerplate and typically a web component-based UI library such as Shoelace.
+  This combination of CSS Variables, element and attribute selectors, and the mechanisms provided by Shadow DOM + Parts, has resulted in a shocking reduction in the amount of CSS we write _as well as import_. In the past you couldn’t do much quickly without reaching for something like Bootstrap. These days perhaps that would be Tailwind. ([Use with extreme caution!](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90)). However, we increasingly find ourselves not needing any “CSS framework” at all…only some MVP.css-inspired boilerplate and typically a web component-based UI library such as Shoelace.
 </details>
 
 ### Shoelace
@@ -101,3 +102,9 @@ Cloudinary, simply put, is a CDN and live transformation services for images and
 ### Jamstack or Docker-friendly Hosts
 
 The story of web hosting has changed dramatically over the past few years. Between hosting companies like Netlify, Vercel, or Render offering free or nearly-free hosting for “Jamstack” sites (aka built with static site generators such as Bridgetown), you can get incredible performance and full scalability and security at minimal cost. And for more powerful, dynamic Ruby applications, Docker-friendly hosts such as Fly.io, Render, or even DigitalOcean are changing the way we deploy applications by focusing out-of-the-gate on containerization and multi-region availability.
+
+----
+
+For more information on some of the tools we build and use on projects like these, visit our [Tech Specs](/tech/) page. Or visit [Resources](/resources/) to learn more about applying techniques such as these to your own projects.
+
+<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Now Let Us Do This for You</sl-button>

@@ -25,8 +25,10 @@ Recent popular articles include:
 We're increasingly putting an emphasis on sharing content through the wildly-popular developer resource DEV.to. To wit:
 
 0. [Custom Elements Everywhere for Page Layout, Parts I and II](https://dev.to/jaredcwhite/custom-elements-everywhere-for-page-layout-parts-i-and-ii-438p)
-0. [Why Tailwind Isn't for Me](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90) _(viewed over 45,000 times!)_
+0. [Why Tailwind Isn't for Me](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90) _(viewed over 45,000 times)_
 
 ----
 
 For more helpful resources, be sure to visit our [Tech Specs](/tech/) page with links to open source tools and frameworks you may find useful.
+
+<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Got Any Burning Questions?</sl-button>
