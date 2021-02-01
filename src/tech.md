@@ -12,7 +12,7 @@ The Ruby-Powered Static Site Generator for the Jamstack Era
 
 <a href="https://github.com/bridgetownrb/bridgetown" style="margin-right:var(--sl-spacing-xxx-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.bridgetownrb.com"><sl-icon name="globe"></sl-icon>Website</a>
 
-It all started in the spring of 2020 as a fork of Jekyll, but since then—thanks to the wonderful support and enthusiasm of the open source community—Bridgetown has settled into its own unique identity and has evolved to offer unparalleled flexibility and innovation.
+It all started in the spring of 2020 as a fork of Jekyll, but since then—thanks to the wonderful support and enthusiasm of the open source community—Bridgetown has settled into its own unique identity and has evolved to offer unparalleled flexibility and innovation. Many developers, businesses, and publishers are now using Bridgetown to build new websites and online experiences ([including this one!](https://github.com/whitefusionhq/whitefusion.studio)).
 
 Whitefusion is "all in" for Bridgetown in 2021 and has big plans to make it not just a great Ruby-powered site generator, but a central part of the **Dreamstack** to rival major competitors. Despite the claims of some, the "future" of websites is _not_ React frontends, GraphQL calls, and serverless functions (in our estimation). But what is? WordPress??
 
