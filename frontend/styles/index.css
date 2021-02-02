@@ -196,14 +196,17 @@ code {
 
 details {
   &::after {
-    content: ". . .";
+    content: "▼ ▼ ▼";
+    letter-spacing: 0.25em;
     color: var(--primary-lighter-color);
     display: block;
     position: absolute;
     font-weight: bold;
+    font-size: 0.85em;
     left: 0;
     right: 0;
     text-align: center;
+    margin-top: 0.3em;
   }
 }
 summary {
