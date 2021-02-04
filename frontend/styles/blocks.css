@@ -24,9 +24,7 @@ main-content {
     box-shadow: 4px 10px 20px rgba(0,0,0,0.45);
     overflow: hidden;
     shape-outside: circle();
-    margin-top: 3px;
-    margin-left: var(--sl-spacing-xxx-large);
-    margin-right: -1vw;
+    margin: 3px -1vw 0.6rem var(--sl-spacing-xxx-large);
 
     & > img {
       display: block;
