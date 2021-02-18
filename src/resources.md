@@ -30,7 +30,9 @@ Recent episodes include:
 
 ### The Spicy Web
 
-{% mark %}_Coming Q2 2021!_{% endmark %} An ongoing series of video tutorials and adjacent materials aimed at showcasing the fundamentals of today's evergreen browser technology. Learn about custom elements and high-fidelity web components, design systems using CSS variables, flexbox and grid, native ESM imports, Hotwire-style techniques, and so much more. The Spicy Web will be a mix of free and paid subscription-based content, with ever increasing value over time.
+{% mark %}_February 2021 Update!_{% endmark %} We've now [opened up a newbie-friendly Discord chat server](https://discord.com/invite/CUuYVH7Qa9). Join the fight against complexity overload and learn how to do far more with way less!
+
+**The Spicy Web** will be an ongoing series of video tutorials and adjacent materials aimed at showcasing the fundamentals of today's evergreen browser technology. Learn about custom elements and high-fidelity web components, design systems using CSS variables, flexbox and grid, native ESM imports, Hotwire-style techniques, and so much more. The Spicy Web will be a mix of free and paid subscription-based content, with ever increasing value over time. Stay tuned for the early access launch later this spring.
 
 ### DEV.to
 
