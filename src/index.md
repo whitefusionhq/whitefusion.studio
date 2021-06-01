@@ -56,7 +56,7 @@ The progenitor of all modern Jamstack tools is **Jekyll**. In the early half of 
 
 But the sad truth is that while the Jamstack has evolved, {% mark %}Jekyll hasn't{% endmark %}. And for a variety of reasons that doesn't appear to be changing. Meanwhile, enthusiastic swaths of the web dev community have gravitated towards tools and methodologies which—while impressive in tech demos—are often surprisingly obtuse and can lead newbies into dangerous waters.
 
-[Along comes Bridgetown.](/tech/) Starting off with the technical foundation that made Jekyll sing, Bridgetown then takes things to a whole new level. It's the Ruby-powered static site generator to fuel the <em>next</em> ten years of {% mark %}Dreamstack{% endmark %} innovation. Combined with a prudent use of Rails-based backend technology, it's the path forward we've all been waiting for.
+[Along comes Bridgetown.](/tech/) Starting off with the technical foundation that made Jekyll sing, Bridgetown then takes things to a whole new level. It's the Ruby-powered static site generator to fuel the <em>next</em> ten years of {% mark %}Dreamstack{% endmark %} innovation. Combined with a prudent use of next-gen Ruby backend technology, it's the path forward we've all been waiting for.
 
 In addition to Bridgetown, Whitefusion is proud to endorse and support—and in some cases build—[a slew of open source tools](/tech/) and [educational destinations](/resources/) all with the aim of _simplifying the modern web_, promoting the delights of Ruby, and providing better alternatives to the status quo.
 

@@ -18,18 +18,16 @@ Whitefusion is "all in" for Bridgetown in 2021 and has big plans to make it not 
 
 This our chance as Rubyists to define {% mark %}the next ten years of building digital experiences and publications.{% endmark %} Which brings us to the next item on our list:
 
-### Rails Nano
+### Arch
 
 {:.lead}
-An API for Your Bridgetown Site
+The Seemless Backend for Your Bridgetown Site
 
-{% mark %}_Coming Q1 2021!_{% endmark %} OK, so you build a static site using Bridgetown and deploy it on Vercel. Publishing content is a breeze. But now you want to add payments. Handle complex forms. Display a dashboard with live reporting. Put some content behind a paywall. Provide specialized editing functionality.
+{% mark %}_Coming Q3 2021!_{% endmark %} OK, so you build a static site using Bridgetown and deploy it on Render or Vercel. Publishing content is a breeze. But now you want to add payments. Handle complex forms. Display a dashboard with live reporting. Put some content behind a paywall. Provide specialized editing functionality.
 
-In other words, **you need an API for your website.** And what better way is there for Rubyists to create an API than to use Rails?
+In other words, **you need a backend for your website.** And what better way is there for Rubyists to create an API than to use a solution built on top of proven tools such as Rake, Rack, and Puma? Welcome to **Arch**. It's a potent blend of Jamstack and traditional monolith development practices to make developing static/dynamic websites a reality.
 
-However, {% mark %}stock Rails is pretty overwhelming{% endmark %}. You get a ton of frameworks out of the box you might not need. It's unclear how to strip it down to the studs.
-
-We're building **Rails Nano** as the answer to that conundrum. Jumpstart a _streamlined_ backend API folder living {% mark %}inside your Bridgetown site repo{% endmark %} with just a single command, and add additional frameworks only if and when necessary. Render up-to-the-second HTML using the same Bridgetown templates as your static builds. Deploy via a number of potential solutions depending on your topology preferences and traffic projections. It's the {% mark %}Dreamstack{% endmark %} fully-realized: APIs _and_ Markup all expressed through Ruby-based solutions. Stay tuned.
+Jumpstart a _streamlined_ backend folder living {% mark %}inside your Bridgetown site repo{% endmark %} with just a single command. Use [Roda](http://roda.jeremyevans.net){:target="_blank"} out-of-the-box for lightning fast server responses. Add additional frameworks such as Rails only if and when necessary. Render up-to-the-second HTML **using the same Bridgetown templates** as your static builds. Deploy via a number of potential solutions depending on your topology preferences and traffic projections. It's the {% mark %}Dreamstack{% endmark %} fully-realized: APIs _and_ Markup all expressed through Ruby-based solutions. Stay tuned.
 
 ### Ruby2JS
 
@@ -42,7 +40,7 @@ With Ruby fueling both SSG (Static Site Generation) and SSR (Server-Side Renderi
 
 **The Ruby2JS project aims to resolve that question.** While it's not a true drop-in Ruby runtime, it does enable the ability to utilize Ruby syntax and many familiar conventions to write code that will be transpiled 1:1 to JavaScript. Not only do you get the benefits that come with "thinking in Ruby" as you write frontend code, but the output JS files are so nicely formatted, {% mark %}they often appear as if they had been hand-coded!{% endmark %}
 
-Working source maps and Webpack (soon Snowpack!) integration completes the picture, providing a fantastic alternative to raw JS source. We're very excited to have recently become **regular contributors** to this project and are already using it to build {% mark %}production-ready frontends moving forward.{% endmark %}
+Working source maps plus Webpack or Snowpack integration completes the picture, providing a fantastic alternative to raw JS source. We're very excited to have recently become **regular contributors** to this project and are already using it to build {% mark %}production-ready frontends moving forward.{% endmark %}
 
 _Stay tuned for the official release of CrystallineElement, a LitElement-powered "base class" we're now using to write all our Ruby2JS web components._
 

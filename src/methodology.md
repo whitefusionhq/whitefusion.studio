@@ -94,12 +94,12 @@ Here's how we build websites and web applications in 2021.
 
   If the site is primarily a dynamic application orbiting a database—requiring user authentication and up-to-the-second live data—we’ll build out a fullstack **Ruby on Rails** app using Hotwire-style techniques and "hybrid" components to provide a sophisticated interactive interface.
 
-  As detailed on our [Tech Specs](/tech/) page, we're hard at work on the **Rails Nano** concept which will more seamlessly blend the two approaches together. Have your Rails API and eat your Jamstack too? {% mark %}That will soon be a distinct possibility.{% endmark %}
+  As detailed on our [Tech Specs](/tech/) page, we're hard at work on a next-gen concept which will more seamlessly blend the two approaches together. Have your Ruby backend API and eat your Jamstack too? {% mark %}That will soon be a distinct possibility.{% endmark %}
 </details>
 
 ### Cloudinary
 
-In a break from conventional wisdom, we generally shy away from relying on third-party APIs for functionality. Sure, using APIs for things like email delivery or error monitoring is pretty much a given. Otherwise we believe in the value of building and hosting features in-house. That being said, there is an external API we add to virtually every project we work on whether Bridgetown or Rails, and that is [Cloudinary](https://cloudinary.com){:target="_blank"}.
+In a break from conventional wisdom, we generally shy away from relying on third-party APIs for functionality. Sure, using APIs for things like email delivery or error monitoring is pretty much a given. Otherwise we believe in the value of building and hosting features in-house. That being said, there is an external API we add to virtually every project we work on—no matter the stack—and that is [Cloudinary](https://cloudinary.com){:target="_blank"}.
 
 Cloudinary, simply put, is a CDN and live transformation service for images and videos. You upload high-resolution, large-size images to Cloudinary, and then you ask Cloudinary back for exactly the size, quality, and format you need. They all get transformed on the fly and subsequently cached for maximum performance. Files can be stored and retrieved solely through Cloudinary’s API, or they additionally provide a full web-based UI where you can view, edit, upload, and delete images. {% mark %}It’s about as awesome as image management can get.{% endmark %}
 
