@@ -16,4 +16,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #
 # Happy Bridgetowning!
 
-gem "bridgetown", "~> 0.21.0.beta4"
+gem "bridgetown", "~> 1.0.0.alpha8"
+
+gem "puma", "~> 5.2"

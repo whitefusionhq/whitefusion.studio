@@ -1,4 +1,4 @@
-class MarkHelper < SiteBuilder
+class Builders::MarkHelper < SiteBuilder
   def build
     liquid_tag "mark", :mark, as_block: true
   end

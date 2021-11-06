@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DatauriBuilder < SiteBuilder
+class Builders::Datauri < SiteBuilder
   def build
     liquid_tag "datauri", :datauri
     helper "datauri", :datauri
