@@ -13,7 +13,7 @@ const esbuildOptions = {
   plugins: [
     esbuildCopy({
       assets: {
-        from: [path.resolve(__dirname, 'node_modules/@shoelace-style/shoelace/dist/assets/icons/*')],
+        from: [path.resolve(__dirname, 'node_modules/@shoelace-style/shoelace/dist/shoelace/icons/*')],
         to: [path.join(shoelaceOutputPath, "icons")],
       },
       verbose: false

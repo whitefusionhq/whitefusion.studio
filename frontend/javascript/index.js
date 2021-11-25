@@ -10,7 +10,7 @@ import {
   SlTextarea
 } from "@shoelace-style/shoelace"
 
-setAssetPath(`${location.origin}/_bridgetown/static/icons`)
+setAssetPath(`${location.origin}/_bridgetown/shoelace/assets/icons`)
 /* Define icons first: */
 customElements.define("sl-icon", SlIcon)
 customElements.define("sl-icon-button", SlIconButton)
