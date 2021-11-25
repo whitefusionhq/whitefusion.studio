@@ -21,7 +21,7 @@ customElements.define("sl-form", SlForm)
 customElements.define("sl-input", SlInput)
 customElements.define("sl-textarea", SlTextarea)
 
-import "../styles/index.css"
+import "index.css"
 
 /* *** Nav Bar Setup *** */
 
