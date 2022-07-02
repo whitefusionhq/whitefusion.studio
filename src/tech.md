@@ -10,7 +10,7 @@ Open source beats at the heart of everything we do. Our million-dollar success s
 {:.lead}
 The Ruby-Powered Static Site Generator for the Jamstack Era
 
-<a href="https://github.com/bridgetownrb/bridgetown" target="_blank" style="margin-right:var(--sl-spacing-xxx-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.bridgetownrb.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
+<a href="https://github.com/bridgetownrb/bridgetown" target="_blank" style="margin-right:var(--sl-spacing-3x-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.bridgetownrb.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
 
 It all started in the spring of 2020 as a fork of Jekyll, but since then—thanks to the wonderful support and enthusiasm of the open source community—Bridgetown has settled into its own unique identity and has evolved to offer unparalleled flexibility and innovation. Many developers, businesses, and publishers are now using Bridgetown to build new websites and online experiences ([including this one!](https://github.com/whitefusionhq/whitefusion.studio){:target="_blank"}).
 
@@ -34,7 +34,7 @@ Jumpstart a _streamlined_ backend folder living {% mark %}inside your Bridgetown
 {:.lead}
 An Extensible Ruby to Modern JavaScript Transpiler
 
-<a href="https://github.com/ruby2js/ruby2js" target="_blank" style="margin-right:var(--sl-spacing-xxx-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.ruby2js.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
+<a href="https://github.com/ruby2js/ruby2js" target="_blank" style="margin-right:var(--sl-spacing-3x-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.ruby2js.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
 
 With Ruby fueling both SSG (Static Site Generation) and SSR (Server-Side Rendering), what about CSR (Client-Side Rendering)? Is it actually possible to write your frontend code (using Stimulus, web components, etc.) _with Ruby too_?
 
@@ -49,7 +49,7 @@ _Stay tuned for the official release of CrystallineElement, a LitElement-powered
 {:.lead}
 Similar to ERB, Except Awesomer
 
-<a href="https://github.com/bridgetownrb/serbea" target="_blank" style="margin-right:var(--sl-spacing-xxx-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.serbea.dev" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
+<a href="https://github.com/bridgetownrb/serbea" target="_blank" style="margin-right:var(--sl-spacing-3x-small)"><sl-icon name="github"></sl-icon>GitHub</a> ✦ <a href="https://www.serbea.dev" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
 
 What if you combined the best ideas from “brace-style” template languages such as Liquid, Nunjucks, Twig, Jinja, Mustache, etc.—and applied them to the world of ERB? {% mark %}That's Serbea.{% endmark %} You can use Serbea in Rails applications, Bridgetown static sites, or pretty much any Ruby scenario you could imagine.
 
@@ -65,7 +65,7 @@ We've been developing and using Serbea in-house for several months and are just 
 
 Working on an open source Ruby project of your own? Need advice, mentorship, or additional development resources? Looking for support on any of the above projects?
 
-<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">We're Here to Help</sl-button>
+<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">We're Here to Help</sl-button>
 
 ----
 

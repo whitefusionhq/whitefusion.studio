@@ -3,24 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "esbuild": "node esbuild.config.js --minify",
-    "esbuild-dev": "node esbuild.config.js --watch"
+    "shoelace:copy-assets": "mkdir -p src/shoelace-assets && cp -r node_modules/@shoelace-style/shoelace/dist/assets src/shoelace-assets",
+    "esbuild": "yarn shoelace:copy-assets && node esbuild.config.js --minify",
+    "esbuild-dev": "yarn shoelace:copy-assets && node esbuild.config.js --watch"
   },
   "devDependencies": {
-    "esbuild": "^0.13.15",
-    "esbuild-plugin-copy": "^0.2.0",
-    "postcss": "8.3.0",
+    "esbuild": "^0.14.48",
+    "glob": "^8.0.3",
+    "postcss": "8.4.14",
     "postcss-color-adjustment": "^0.1.6",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^14.0.2",
+    "postcss-import": "^14.1.0",
     "postcss-load-config": "^3.1.0",
-    "postcss-preset-env": "^7.0.1"
+    "postcss-preset-env": "^7.7.2"
   },
   "dependencies": {
-    "@shoelace-style/shoelace": "2.0.0-beta.26",
-    "@stencil/core": "2.9.0"
-  },
-  "resolutions": {
-    "@shoelace-style/shoelace/@stencil/core": "2.9.0"
+    "@shoelace-style/shoelace": "^2.0.0-beta.77"
   }
 }

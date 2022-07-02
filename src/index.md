@@ -16,7 +16,7 @@ Well, we agree! Unfortunately what the Jamstack giveth, the Jamstack taketh away
 
 **Whitefusion.** Of the web, for the web, since 1997. And now here for you.
 
-<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Get This Party Started</sl-button>
+<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Get This Party Started</sl-button>
 
 {% endrendercontent %}
 
@@ -68,7 +68,7 @@ In addition to Bridgetown, Whitefusion is proud to endorse and support—and in 
 
 If you're tired of codebases which mushroom in complexity until they're unmaintainable over the long term due to _Hype-Driven Development_…if you're weary of practices which make the open web feel like a morass of numbers-driven "experiences" and subtle vendor lock-in…if you yearn for the days when a prudent employment of open web standards and "conceptual compression" could unlock delightful experiences outpacing much larger rivals…**then join us.**
 
-<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Create the Web We Want</sl-button>
+<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Create the Web We Want</sl-button>
 
 {% endrendercontent %}
 
@@ -91,7 +91,7 @@ Thankfully, [I'm not the only one decrying the complexity of the modern web](htt
 
 I'm a champion of the underdog: the solo dev, the small tight-knit team. I'm with the people who believe you can build great things with simple, easy-to-understand tools and a commitment to the greatest invention in the history of mankind: **the open web**. _Join the resistance_ and together we shall accomplish great things. I can't wait.
 
-Follow me on <a href="https://twitter.com/jaredcwhite" target="_blank" style="margin-right:var(--sl-spacing-xxx-small)"><sl-icon name="twitter"></sl-icon>Twitter</a> ✦ <a href="https://jaredwhite.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
+Follow me on <a href="https://twitter.com/jaredcwhite" target="_blank" style="margin-right:var(--sl-spacing-3x-small)"><sl-icon name="twitter"></sl-icon>Twitter</a> ✦ <a href="https://jaredwhite.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
 
 {% endrendercontent %}
 
@@ -105,6 +105,6 @@ Well-meaning engineers have adopted best practices and methodologies which benef
 
 _Enough is enough!_ It's time to reclaim our sanity and just say no to out-of-control yak shaving and tooling tomfoolery. After all, **simplicity is the ultimate sophistication.**
 
-<sl-button type="success" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Get Back to Basics</sl-button>
+<sl-button variant="success" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let’s Get Back to Basics</sl-button>
 
 {% endrendercontent %}

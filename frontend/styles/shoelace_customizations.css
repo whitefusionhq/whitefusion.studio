@@ -2,15 +2,16 @@ sl-button[size="large"]::part(base) {
   box-shadow: 10px 22px 20px -8px var(--heading-shadow); /* rgba(0,0,0,0.2); */
 }
 
-sl-dialog::part(title), sl-dialog::part(body) {
-  --sl-spacing-large: 0.75rem 1.25rem;
+sl-dialog {
+  --body-spacing: 0.75rem 1.25rem;
 }
 
 sl-dialog::part(title) {
+  --header-spacing: 0.75rem 1.25rem;
+  --sl-font-size-large: 2rem;
   font-family: var(--heading-font);
   font-weight: 700;
   color: var(--alternate-dark-color);
-  --sl-font-size-large: 2rem;
 }
 
 sl-input[size="medium"], sl-textarea[size="medium"] {
@@ -23,7 +24,7 @@ sl-input[size="medium"], sl-textarea[size="medium"] {
 }
 
 p a sl-icon {
-  margin-right: var(--sl-spacing-xx-small);
-  margin-left: var(--sl-spacing-xxx-small);
+  margin-right: var(--sl-spacing-2x-small);
+  margin-left: var(--sl-spacing-3x-small);
   vertical-align: -0.125em;
 }

@@ -1,27 +1,18 @@
-import "@shoelace-style/shoelace/dist/shoelace/shoelace.css"
-import {
-  setAssetPath,
-  SlButton,
-  SlDialog,
-  SlForm,
-  SlIcon,
-  SlIconButton,
-  SlInput,
-  SlTextarea
-} from "@shoelace-style/shoelace"
-
-setAssetPath(`${location.origin}/_bridgetown/shoelace/assets/icons`)
-/* Define icons first: */
-customElements.define("sl-icon", SlIcon)
-customElements.define("sl-icon-button", SlIconButton)
-
-customElements.define("sl-button", SlButton)
-customElements.define("sl-dialog", SlDialog)
-customElements.define("sl-form", SlForm)
-customElements.define("sl-input", SlInput)
-customElements.define("sl-textarea", SlTextarea)
-
 import "index.css"
+
+import "@shoelace-style/shoelace/dist/components/dialog/dialog.js"
+import "@shoelace-style/shoelace/dist/components/button/button.js"
+import "@shoelace-style/shoelace/dist/components/icon/icon.js"
+import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js"
+import "@shoelace-style/shoelace/dist/components/input/input.js"
+import "@shoelace-style/shoelace/dist/components/textarea/textarea.js"
+
+// Use the public icons folder:
+import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js"
+setBasePath("/shoelace-assets")
+
+// Import all JavaScript & CSS files from src/_components
+import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
 /* *** Nav Bar Setup *** */
 
@@ -45,33 +36,33 @@ document.addEventListener("turbo:load", () => {
     })
   })
 
-  const form = document.querySelector("sl-dialog sl-form")
+  // const form = document.querySelector("sl-dialog form")
 
-  if (form) {
-    form.querySelector("step-one sl-button[type=success]").addEventListener("click", () => {
-      form.submit()
-    })
+  // if (form) {
+  //   form.querySelector("step-one sl-button[type=success]").addEventListener("click", () => {
+  //     form.submit()
+  //   })
 
-    form.closest("sl-dialog").querySelector("step-two sl-button[type=primary]").addEventListener("click", () => {
-      setTimeout(() => {
-        form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
-      }, 500);
-      form.closest("sl-dialog").hide()
-    })
+  //   form.closest("sl-dialog").querySelector("step-two sl-button[type=primary]").addEventListener("click", () => {
+  //     setTimeout(() => {
+  //       form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+  //     }, 500);
+  //     form.closest("sl-dialog").hide()
+  //   })
 
-    form.addEventListener("sl-submit", event => {
-      const formData = event.detail.formData
-      formData.append("form-name", "contact")
+  //   form.addEventListener("sl-submit", event => {
+  //     const formData = event.detail.formData
+  //     formData.append("form-name", "contact")
 
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      }).then(() => {
-        form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
-      })
-    })
-  }
+  //     fetch("/", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //       body: new URLSearchParams(formData).toString()
+  //     }).then(() => {
+  //       form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+  //     })
+  //   })
+  // }
 }) // end of turbo:load
 
 window.addEventListener("DOMContentLoaded", () => {

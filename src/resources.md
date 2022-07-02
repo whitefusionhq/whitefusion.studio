@@ -45,4 +45,4 @@ We're increasingly putting an emphasis on sharing content through the wildly-pop
 
 For more helpful resources, be sure to visit our [Tech Specs](/tech/) page with links to open source tools and frameworks you may find useful.
 
-<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Got Any Burning Questions?</sl-button>
+<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Got Any Burning Questions?</sl-button>

@@ -24,7 +24,7 @@ main-content {
     box-shadow: 4px 10px 20px rgba(0,0,0,0.45);
     overflow: hidden;
     shape-outside: circle();
-    margin: 3px -1vw 0.6rem var(--sl-spacing-xxx-large);
+    margin: 3px -1vw 0.6rem var(--sl-spacing-3x-large);
 
     & > img {
       display: block;
@@ -39,7 +39,7 @@ main-content {
       }
     }
     @media (--sl-breakpoint-sm) {
-      margin-left: var(--sl-spacing-xx-large);
+      margin-left: var(--sl-spacing-2x-large);
 
       & > img {
         width: 220px;
@@ -65,7 +65,7 @@ navbar-inner, main-content, footer-inner {
 }
 
 main > section {
-  padding: var(--sl-spacing-xxxx-large) var(--sl-spacing-medium);
+  padding: var(--sl-spacing-4x-large) var(--sl-spacing-medium);
   background: radial-gradient(white 25%, #d5e3f8 150%);
   position: relative;
   box-shadow: inset 4px 4px 4px var(--heading-shadow);
@@ -75,7 +75,7 @@ main > section {
     z-index: 1;
 
     & > :not(h1, h2) {
-      margin-left: var(--sl-spacing-xxxx-large);
+      margin-left: var(--sl-spacing-4x-large);
       margin-right: var(--sl-spacing-medium);
 
       @media (--sl-breakpoint-xs) {
@@ -154,8 +154,8 @@ section.alt-invert, body > footer {
 }
 
 footer-inner {
-  padding-top: var(--sl-spacing-xxxx-large);
-  padding-bottom: var(--sl-spacing-xxxx-large);
+  padding-top: var(--sl-spacing-4x-large);
+  padding-bottom: var(--sl-spacing-4x-large);
   position: relative;
   z-index: 1;
   text-align: center;

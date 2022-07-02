@@ -115,4 +115,4 @@ The story of web hosting has changed dramatically over the past few years. Betwe
 
 For more information on some of the tools we use and build on projects like these, visit our [Tech Specs](/tech/) page. Or visit [Resources](/resources/) to learn more about applying techniques such as these to your own projects.
 
-<sl-button type="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Yo, Let Us Do This for You</sl-button>
+<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Yo, Let Us Do This for You</sl-button>
