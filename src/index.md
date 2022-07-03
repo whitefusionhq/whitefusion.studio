@@ -8,11 +8,11 @@ layout: default
 
 Some say the [Jamstack](https://jamstack.org){:target="_blank"} has come to save us all; save us from slow, insecure wads of spaghetti code, doddery tools, outdated practices, and deployment migraines.
 
-It's how the “modern web” gets built. {% mark %}It's the FUTURE™!{% endmark %}
+It's how the “modern web” gets built. ::It's the FUTURE™!::
 
 Well, we agree! Unfortunately what the Jamstack giveth, the Jamstack taketh away. Now we have _new_ wads of spaghetti code, byzantine solutions, and questionable practices often promoted by **much larger** engineering teams than any of us will ever be on. _It's getting nuts out there._
 
-**So we're here to humbly suggest an alternate path.** The Dreamstack, if you will. DREAM stands for {% mark %}**D**elightful **R**uby **E**xpressing **A**PIs & **M**arkup{% endmark %}. Ruby is the greatest programming language ever devised for typical web development. From there we methodically employ time-tested techniques which effectively capitalize on evergreen browser technology. Shall we go on?
+**So we're here to humbly suggest an alternate path.** The Dreamstack, if you will. DREAM stands for ::**D**elightful **R**uby **E**xpressing **A**PIs & **M**arkup::. Ruby is the greatest programming language ever devised for typical web development. From there we methodically employ time-tested techniques which effectively capitalize on evergreen browser technology. Shall we go on?
 
 **Whitefusion.** Of the web, for the web, since 1997. And now here for you.
 
@@ -24,13 +24,15 @@ Well, we agree! Unfortunately what the Jamstack giveth, the Jamstack taketh away
 
 ## Sins of the “Modern” Web
 
-It wasn’t your fault. You thought you were making the right call. “_Use React! Everybody is now!_” And so you did. “_You should switch to TypeScript!_” So you did. “_Write all your CSS in JS!_” So you did. You loaded up all the latest hotness and spent hours / days / weeks [yak shaving](https://web.archive.org/web/20210111105147/https://americanexpress.io/yak-shaving/){:target="_blank"} and retooling like a {% mark %}dutiful web developer{% endmark %} in a heroic attempt to arrive at that mythical promised land where everything is componentized and chunked and isomorphic and strongly-typed and grand.
+It wasn’t your fault. You thought you were making the right call. “_Use React! Everybody is now!_” And so you did. “_You should switch to TypeScript!_” So you did. “_Ditch append-only stylesheets and use Atomic CSS!_” So you did. You loaded up all the latest hotness and spent hours / days / weeks [yak shaving](https://web.archive.org/web/20210111105147/https://americanexpress.io/yak-shaving/){:target="_blank"} and retooling like a ::dutiful web developer:: in a heroic attempt to arrive at that mythical promised land where everything is componentized and isomorphic and strongly-typed and grand.
 
-But you never arrived, because {% mark %}the promised land is a **myth**.{% endmark %}
+But you never arrived, because ::the promised land is a **myth**.::
 
-Here at Whitefusion, we call it HDD: _Hype-Driven Development_. An understandable yet avoidable overreliance on rapidly-evolving "new hotness" ecosystems has brought many a project to its knees. We’ve seen it firsthand. It’s why we’re not afraid to use what some have called “boring” technology—like Ruby, or vanilla JavaScript, or majestic monoliths. {% mark %}It’s hardly boring! **It just works.**{% endmark %} And it’s going to work as well three years from now as it does today.
+Here at Whitefusion, we call it HDD: _Hype-Driven Development_. An understandable yet avoidable overreliance on rapidly-evolving "new hotness" ecosystems has brought many a project to its knees. We’ve seen it firsthand. It’s why we’re not afraid to use what some have called “boring” technology—like Ruby, or vanilla CSS & JavaScript, or majestic monoliths.
 
-Choose a stack everyone's cuckoo for today…_or swiftly ship a working product customers love tomorrow_. {% mark %}It’s up to you!{% endmark %}
+::It’s hardly boring! **It just works.**:: And it’s going to work as well three years from now as it does today.
+
+Choose a stack everyone's cuckoo for today…_or swiftly ship a working product customers love tomorrow_. ::It’s up to you!::
 
 {% endrendercontent %}
 
@@ -50,13 +52,13 @@ Here’s what we think. **Never bet against the web browser.** Start with the ba
 
 ## Unfucking the “Modern” Web, One Open Source Project at a Time
 
-Sprawling codebases and poor UX might be the {% mark %}problem{% endmark %}, but what's the {% mark %}solution{% endmark %}? So…about that Jamstack business:
+Sprawling codebases and poor UX might be the ::problem::, but what's the ::solution::? So…about that Jamstack business:
 
 The progenitor of all modern Jamstack tools is **Jekyll**. In the early half of the 2010s, Jekyll made static sites seem cool again and spearheaded a wave of tools and infrastructure which has taken the web development world by storm.
 
-But the sad truth is that while the Jamstack has evolved, {% mark %}Jekyll hasn't{% endmark %}. And for a variety of reasons that doesn't appear to be changing. Meanwhile, enthusiastic swaths of the web dev community have gravitated towards tools and methodologies which—while impressive in tech demos—are often surprisingly obtuse and can lead newbies into dangerous waters.
+But the sad truth is that while the Jamstack has evolved, ::Jekyll hasn't::. And for a variety of reasons that doesn't appear to be changing. Meanwhile, enthusiastic swaths of the web dev community have gravitated towards tools and methodologies which—while impressive in tech demos—are often surprisingly obtuse and can lead newbies into dangerous waters.
 
-[Along comes Bridgetown.](/tech/) Starting off with the technical foundation that made Jekyll sing, Bridgetown then takes things to a whole new level. It's the Ruby-powered static site generator to fuel the <em>next</em> ten years of {% mark %}Dreamstack{% endmark %} innovation. Combined with a prudent use of next-gen Ruby backend technology, it's the path forward we've all been waiting for.
+[Along comes Bridgetown.](/tech/) Starting off with the technical foundation that made Jekyll sing, Bridgetown then takes things to a whole new level. It's the Ruby-powered static site generator to fuel the <em>next</em> ten years of ::Dreamstack:: innovation. Combined with a prudent use of next-gen Ruby backend technology, it's the path forward we've all been waiting for.
 
 In addition to Bridgetown, Whitefusion is proud to endorse and support—and in some cases build—[a slew of open source tools](/tech/) and [educational destinations](/resources/) all with the aim of _simplifying the modern web_, promoting the delights of Ruby, and providing better alternatives to the status quo.
 
@@ -101,7 +103,7 @@ Follow me on <a href="https://twitter.com/jaredcwhite" target="_blank" style="ma
 
 [Our stance is clear.](/methodology/) You shouldn't need a Ph.D. in quantum-cloud-serverless-microservice-mechanics to deploy a web app. Not everyone is the next Twitter or Netflix, <em>so why the hell would you build like they do?</em>
 
-Well-meaning engineers have adopted best practices and methodologies which benefit large corporations and applied them to small teams, or even a team of one. **And then they wonder why it takes ten times longer to do ANYTHING.** It's like taking the blueprint for how to build a skyscraper, and then using that as an example for how to build a cottage. {% mark %}Total conceptual mismatch.{% endmark %}
+Well-meaning engineers have adopted best practices and methodologies which benefit large corporations and applied them to small teams, or even a team of one. **And then they wonder why it takes ten times longer to do ANYTHING.** It's like taking the blueprint for how to build a skyscraper, and then using that as an example for how to build a cottage. ::Total conceptual mismatch.::
 
 _Enough is enough!_ It's time to reclaim our sanity and just say no to out-of-control yak shaving and tooling tomfoolery. After all, **simplicity is the ultimate sophistication.**
 

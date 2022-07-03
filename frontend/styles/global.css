@@ -192,39 +192,61 @@ code {
 }
 
 details {
+  padding-bottom: var(--sl-spacing-medium);
+  cursor: pointer;
+
   &::after {
-    content: "▼ ▼ ▼";
-    letter-spacing: 0.25em;
+    content: "▼ open ▼";
+    letter-spacing: 0.4em;
     color: var(--primary-lighter-color);
     display: block;
     position: absolute;
-    font-weight: bold;
     font-size: 0.85em;
     left: 0;
     right: 0;
     text-align: center;
-    margin-top: 0.3em;
+    margin-top: var(--sl-spacing-medium);
   }
 }
-summary {
-  cursor: pointer;
+
+/*
+  Can't figure out how to get Firefox to render the ::after content, so we'll use a crappy feature
+  detection to target Firefox and at least color the disclosure triangle. Otherwise, for
+  Blink/Webkit we can allow the ::after content to indicate the expansion functionality.
+*/
+@supports (-moz-appearance: none) {
+  summary::marker {
+    color: var(--primary-lighter-color);
+  }
 }
-summary::-webkit-details-marker {
-  color: var(--primary-lighter-color);
-}
-details[open] {
-  &::after {
+
+@supports not (-moz-appearance: none) {
+  details > summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
     display: none;
   }
 }
-details[open] > summary {
-  margin-bottom: var(--sl-font-size-x-large);
+
+details[open] {
+  padding-bottom: unset;
+  cursor: unset;
+
+  &::after {
+    display: none;
+  }
+
+  & > summary {
+    margin-bottom: var(--sl-font-size-x-large);
+  }
 }
-a:focus, summary:focus {
+
+a:focus-visible, summary:focus-visible {
   outline: 2px dashed rgba(var(--body-color-rgb), 0.2);
   outline-offset: var(--sl-spacing-small);
 }
-summary:has(details:focus) {
+summary:has(details:focus-visible) {
   &::after {
     display: none;
   }
