@@ -1,5 +1,5 @@
 sl-button[size="large"]::part(base) {
-  box-shadow: 10px 22px 20px -8px var(--heading-shadow); /* rgba(0,0,0,0.2); */
+  box-shadow: 10px 22px 20px -8px var(--heading-shadow);
 }
 
 sl-dialog {
@@ -7,11 +7,21 @@ sl-dialog {
 }
 
 sl-dialog::part(title) {
-  --header-spacing: 0.75rem 1.25rem;
+  --header-spacing: 0.75rem 0 0.75rem 1.25rem;
   --sl-font-size-large: 2rem;
   font-family: var(--heading-font);
   font-weight: 700;
   color: var(--alternate-dark-color);
+}
+
+@media (max-width: 450px) {
+  sl-dialog::part(close-button) {
+    --header-spacing: 0.5rem;
+  }
+
+  sl-dialog::part(panel) {
+    max-width: 96%;
+  }
 }
 
 sl-input[size="medium"], sl-textarea[size="medium"] {

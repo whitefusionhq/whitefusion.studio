@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      h1 {
+        color: #ff6f59;
+      }
+      h2 {
+        font-size: inherit;
+      }
+    </style>
+  </head>
+  <body>
+{{ content | markdownify }}
+
+    <br />
+    <footer>
+      <p style="text-align:center">
+        <small>Sent by Bridgetown + Roda</small>
+      </p>
+    </footer>
+  </body>
+</html>

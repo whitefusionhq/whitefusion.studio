@@ -35,6 +35,7 @@
   /* Shoelace Overrides */
   --sl-font-sans: var(--body-font);
   --sl-color-gray-500: var(--alternate-faded-color);
+  --sl-color-primary-700: var(--alternate-color);
   --sl-color-primary-600: var(--alternate-lighter-color);
   --sl-color-primary-500: var(--alternate-faded-color);
   --sl-color-success-600: var(--primary-color);

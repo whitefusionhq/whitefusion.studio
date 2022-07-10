@@ -21,7 +21,7 @@
   </footer-inner>
 </footer>
 
-<sl-dialog label="Chat It Up">
+<sl-dialog id="contact-modal" label="Chat It Up">
   <step-one>
     <p>Fill in your email address, add a Tweet-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
 
@@ -48,7 +48,13 @@
     <p>In the meantime, you can <strong>follow us on <a href="https://twitter.com/_whitefusion" target="_blank"><sl-icon name="twitter"></sl-icon>Twitter</a></strong>, or go bake a lasagna. (Not sure what that has to do with anything. I just like lasagna. 😄)</p>
 
     <p style="text-align:center">
-      <sl-button variant="primary" pill>
+      <sl-button variant="primary" pill onclick='
+        setTimeout(() => {
+          this.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+        }, 500);
+        this.closest("sl-dialog").querySelector("form").reset()
+        this.closest("sl-dialog").hide()
+      '>
         <sl-icon slot="suffix" name="x" style="top:-1px;left:-2px"></sl-icon>
         Close
       </sl-button>

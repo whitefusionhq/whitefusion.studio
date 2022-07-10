@@ -5,11 +5,18 @@ import "@shoelace-style/shoelace/dist/components/button/button.js"
 import "@shoelace-style/shoelace/dist/components/icon/icon.js"
 import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js"
 import "@shoelace-style/shoelace/dist/components/input/input.js"
+import "@shoelace-style/shoelace/dist/components/menu-item/menu-item.js"
+import "@shoelace-style/shoelace/dist/components/radio-button/radio-button.js"
+import "@shoelace-style/shoelace/dist/components/radio-group/radio-group.js"
+import "@shoelace-style/shoelace/dist/components/select/select.js"
 import "@shoelace-style/shoelace/dist/components/textarea/textarea.js"
 
 // Use the public icons folder:
 import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js"
 setBasePath("/shoelace-assets")
+
+import CableReadyElement from "./cr"
+CableReadyElement.define()
 
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"

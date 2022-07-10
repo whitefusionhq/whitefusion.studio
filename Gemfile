@@ -17,5 +17,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Happy Bridgetowning!
 
 gem "bridgetown", "~> 1.1.0.beta3"
+gem "bridgetown-routes", group: :bridgetown_plugins
 
 gem "puma", "~> 5.2"
+
+gem "mail", "= 2.8.0.rc1"
+
+gem "roda-turbo", group: :bridgetown_plugins,
+                  github: "bridgetownrb/roda-turbo"
+
+gem "cable_ready", github: "stimulusreflex/cable_ready"
+
+gem "dotenv", "~> 2.7"

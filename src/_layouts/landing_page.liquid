@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<main-content style="margin-block:var(--sl-spacing-3x-large) var(--sl-spacing-4x-large)">
+  <h1 style="text-align:center">{{ resource.data.title }}</h1>
+
+  {{ resource.data.top_lead | markdownify }}
+</main-content>
+
+{{ content }}

@@ -1,0 +1,40 @@
+~~~{%
+  render_with =>
+    text_message
+  render_with(
+    data: { layout: :emails }
+  ) =>
+    html_message
+  
+  next html_message if r.params[:preview]
+
+  mail = Mail.deliver do
+    to      "Jared White <jared@whitefusion.studio>"
+    from    "Jared White <jared@whitefusion.studio>"
+    subject "Whitefusion Contact Form"
+
+    text_part do
+      body text_message
+    end
+
+    html_part do
+      content_type "text/html; charset=UTF-8"
+      body html_message
+    end
+  end
+
+  turbo_stream.cable_car do
+    cable_car.set_property "#contact-modal step-one", name: :hidden, value: true
+    cable_car.set_property "#contact-modal step-two", name: :hidden, value: false
+  end
+%}~~~
+
+# Whitefusion Contact Form
+
+## Email Address
+
+{{ r.params[:email] }}
+
+## Message
+
+{{ r.params[:message] }}
