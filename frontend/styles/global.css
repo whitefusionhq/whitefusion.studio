@@ -50,6 +50,7 @@
   --sl-input-border-radius-small: 8px;
   --sl-input-label-color: var(--alternate-faded-color);
   --sl-input-label-font-size-medium: var(--sl-font-size-x-small);
+  --sl-input-help-text-font-size-medium: var(--sl-font-size-x-small);
 
   /* Breakpoint Overrides */
   @media (--sl-breakpoint-xs) {

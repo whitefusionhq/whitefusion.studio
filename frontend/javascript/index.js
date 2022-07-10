@@ -42,35 +42,7 @@ document.addEventListener("turbo:load", () => {
       }, 50)
     })
   })
-
-  // const form = document.querySelector("sl-dialog form")
-
-  // if (form) {
-  //   form.querySelector("step-one sl-button[type=success]").addEventListener("click", () => {
-  //     form.submit()
-  //   })
-
-  //   form.closest("sl-dialog").querySelector("step-two sl-button[type=primary]").addEventListener("click", () => {
-  //     setTimeout(() => {
-  //       form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
-  //     }, 500);
-  //     form.closest("sl-dialog").hide()
-  //   })
-
-  //   form.addEventListener("sl-submit", event => {
-  //     const formData = event.detail.formData
-  //     formData.append("form-name", "contact")
-
-  //     fetch("/", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //       body: new URLSearchParams(formData).toString()
-  //     }).then(() => {
-  //       form.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
-  //     })
-  //   })
-  // }
-}) // end of turbo:load
+})
 
 window.addEventListener("DOMContentLoaded", () => {
   navBarQuery("sl-button[menutoggle]").addEventListener("click", (event) => {

@@ -8,6 +8,14 @@
   
   next html_message if r.params[:preview]
 
+  if r.params[:bot_check] != "11" && r.params[:bot_check] != "eleven"
+    next turbo_stream.cable_car do
+      cable_car.set_property "#contact-modal sl-input[name=bot_check]",
+                             name: :helpText,
+                             value: "Oops, try again! What is three plus ten minus two?"
+    end
+  end
+
   mail = Mail.deliver do
     to      "Jared White <jared@whitefusion.studio>"
     from    "Jared White <jared@whitefusion.studio>"

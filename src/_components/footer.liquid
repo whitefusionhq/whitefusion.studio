@@ -34,6 +34,10 @@
         <sl-textarea name="message" required rows="2" label="Project Summary"></sl-textarea>
       </p>
 
+      <p>
+        <sl-input required type="text" name="bot_check" label="Bot Check" help-text="What is three plus ten minus two?"></sl-input>
+      </p>
+
       <p style="text-align:center">
         <sl-button variant="success" type="submit" pill>
           <sl-icon slot="suffix" name="envelope" style="top:-1px;left:-2px"></sl-icon>
@@ -49,11 +53,13 @@
 
     <p style="text-align:center">
       <sl-button variant="primary" pill onclick='
+        const dialog = this.closest("sl-dialog")
         setTimeout(() => {
-          this.closest("sl-dialog").querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
+          dialog.querySelectorAll("step-one, step-two").forEach(el => el.hidden = !el.hidden)
         }, 500);
-        this.closest("sl-dialog").querySelector("form").reset()
-        this.closest("sl-dialog").hide()
+        dialog.querySelector("form").reset()
+        dialog.hide()
+        dialog.querySelector("#contact-modal sl-input[name=bot_check]").helpText = "What is three plus ten minus two?"
       '>
         <sl-icon slot="suffix" name="x" style="top:-1px;left:-2px"></sl-icon>
         Close
