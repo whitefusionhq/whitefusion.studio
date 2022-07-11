@@ -2,7 +2,7 @@
   {% if @step == 1 %}
     <p>Fill in your email address, add a Tweet-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
 
-    <form action="/contact-form" method="post">
+    <form action="/contact-form/" method="post">
       <p>
         <sl-input required type="email" name="email" label="Email Address"></sl-input>
       </p>
@@ -27,7 +27,7 @@
 
     <p>In the meantime, you can <strong>follow us on <a href="https://twitter.com/_whitefusion" target="_blank"><sl-icon name="twitter"></sl-icon>Twitter</a></strong>, or go bake a lasagna. (Not sure what that has to do with anything. I just like lasagna. 😄)</p>
 
-    <form action="/contact-form/reset" method="post">
+    <form action="/contact-form/reset/" method="post">
       <p style="text-align:center">
         <sl-button variant="primary" type="submit" pill onclick='
           const dialog = this.closest("sl-dialog")

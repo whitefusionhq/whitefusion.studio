@@ -30,11 +30,11 @@ services:
         value: "public, max-age=86400, s-max-age=86400"
     routes:
       - type: rewrite
-        source: /contact-form
-        destination: https://whitefusion-site-api.onrender.com/contact-form
+        source: /contact-form/*
+        destination: https://whitefusion-site-api.onrender.com/contact-form/*
       - type: rewrite
-        source: /create-checkout-session
-        destination: https://whitefusion-site-api.onrender.com/create-checkout-session
+        source: /create-checkout-session/*
+        destination: https://whitefusion-site-api.onrender.com/create-checkout-session/*
   - type: web
     name: whitefusion-site-api
     env: ruby
