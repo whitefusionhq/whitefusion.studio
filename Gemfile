@@ -26,6 +26,4 @@ gem "mail", "= 2.8.0.rc1"
 gem "roda-turbo", group: :bridgetown_plugins,
                   github: "bridgetownrb/roda-turbo"
 
-gem "cable_ready", github: "stimulusreflex/cable_ready"
-
 gem "dotenv", "~> 2.7"

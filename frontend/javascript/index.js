@@ -15,9 +15,6 @@ import "@shoelace-style/shoelace/dist/components/textarea/textarea.js"
 import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js"
 setBasePath("/shoelace-assets")
 
-import CableReadyElement from "./cr"
-CableReadyElement.define()
-
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 

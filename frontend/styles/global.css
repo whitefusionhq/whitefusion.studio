@@ -44,7 +44,7 @@
   --sl-shadow-x-large: 0px 25px 60px rgba(0,0,0,0.2);
   --sl-border-radius-medium: 24px;
   --sl-input-color: var(--alternate-dark-color);
-  --sl-input-color-hover: var(--alternate-color);
+  --sl-input-color-hover: var(--primary-dark-color);
   --sl-input-color-focus: var(--primary-dark-color);
   --sl-input-border-radius-medium: 12px;
   --sl-input-border-radius-small: 8px;
@@ -261,4 +261,10 @@ p.lead {
 
 h3 + p.lead {
   margin-top:-0.75em
+}
+
+.bad-bot {
+  --sl-input-background-color: var(--primary-faded-color);
+  --sl-input-background-color-hover: var(--primary-faded-color);
+  --sl-input-background-color-focus: var(--primary-faded-color);
 }

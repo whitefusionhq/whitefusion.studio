@@ -1,4 +1,10 @@
 ~~~{%
+r.post "reset" do
+  sleep 1 # intentionally allow modal to close on the frontend first
+  turbo_stream.replace "contact-modal", render(ContactModal.new step: 1)
+end
+
+r.is do
   render_with =>
     text_message
   render_with(
@@ -9,11 +15,10 @@
   next html_message if r.params[:preview]
 
   if r.params[:bot_check] != "11" && r.params[:bot_check] != "eleven"
-    next turbo_stream.cable_car do
-      cable_car.set_property "#contact-modal sl-input[name=bot_check]",
-                             name: :helpText,
-                             value: "Oops, try again! What is three plus ten minus two?"
-    end
+    next turbo_stream.replace_all(
+      "#contact-modal sl-input[name=bot_check]",
+      ContactModal.new(step: 1).bot_check(error: true)
+    )
   end
 
   mail = Mail.deliver do
@@ -31,10 +36,8 @@
     end
   end
 
-  turbo_stream.cable_car do
-    cable_car.set_property "#contact-modal step-one", name: :hidden, value: true
-    cable_car.set_property "#contact-modal step-two", name: :hidden, value: false
-  end
+  turbo_stream.update "contact-modal", render(ContactModal.new step: 2)
+end
 %}~~~
 
 # Whitefusion Contact Form
