@@ -8,9 +8,9 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.3)
-      activesupport (= 7.0.3)
-    activesupport (7.0.3)
+    activemodel (7.0.3.1)
+      activesupport (= 7.0.3.1)
+    activesupport (7.0.3.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -18,13 +18,13 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     amazing_print (1.4.0)
-    bridgetown (1.1.0.beta3)
-      bridgetown-builder (= 1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
-      bridgetown-paginate (= 1.1.0.beta3)
-    bridgetown-builder (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
-    bridgetown-core (1.1.0.beta3)
+    bridgetown (1.1.0)
+      bridgetown-builder (= 1.1.0)
+      bridgetown-core (= 1.1.0)
+      bridgetown-paginate (= 1.1.0)
+    bridgetown-builder (1.1.0)
+      bridgetown-core (= 1.1.0)
+    bridgetown-core (1.1.0)
       activemodel (>= 6.0, < 8.0)
       activesupport (>= 6.0, < 8.0)
       addressable (~> 2.4)
@@ -48,10 +48,10 @@ GEM
       tilt (~> 2.0)
       webrick (~> 1.7)
       zeitwerk (~> 2.5)
-    bridgetown-paginate (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
-    bridgetown-routes (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
+    bridgetown-paginate (1.1.0)
+      bridgetown-core (= 1.1.0)
+    bridgetown-routes (1.1.0)
+      bridgetown-core (= 1.1.0)
       roda-route_list (>= 2.1)
     colorator (1.1.0)
     concurrent-ruby (1.1.10)
@@ -86,7 +86,7 @@ GEM
     ffi (1.15.5)
     hash_with_dot_access (1.2.0)
       activesupport (>= 5.0.0, < 8.0)
-    i18n (1.10.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     kramdown (2.4.0)
       rexml
@@ -102,7 +102,7 @@ GEM
       net-pop
       net-smtp
     mini_mime (1.1.2)
-    minitest (5.16.1)
+    minitest (5.16.2)
     multipart-post (2.2.3)
     net-imap (0.2.3)
       digest
@@ -128,7 +128,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.5)
-    roda (3.57.0)
+    roda (3.58.0)
       rack
     roda-route_list (2.1.0)
       roda
@@ -154,7 +154,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bridgetown (~> 1.1.0.beta3)
+  bridgetown (~> 1.1.0)
   bridgetown-routes
   dotenv (~> 2.7)
   mail (= 2.8.0.rc1)
