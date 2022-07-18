@@ -2,6 +2,9 @@
 layout: default
 ---
 
+New for Q3 2022! [Advance+ is here!](/advance/)
+{:style="text-align:center"}
+
 {% rendercontent "section", invert: true %}
 
 # Come for the Jamstack, Stay for the Dreamstack

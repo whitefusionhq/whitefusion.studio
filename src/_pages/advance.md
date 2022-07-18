@@ -6,7 +6,7 @@ template_engine: serbea
 ---
 
 {% session_button = capture do %}
-  <p><sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog#book-session').show()">
+  <p><sl-button href="/advance/book" variant="primary" size="large" pill>
     Book Your Session Now
   </sl-button></p>
 {% end.strip.then(&method(:redent)) %}
@@ -59,5 +59,3 @@ template_engine: serbea
   {:style="margin-block-start:var(--sl-spacing-3x-large)"}
 
 {% end %}
-
-{%@ AdvanceBooking blocked_dates: [] %}

@@ -13,6 +13,10 @@ body.page > main {
   border-top: 1px solid var(--alternate-transparent-color);
 }
 
+body.narrow-layout {
+  --max-main-content-width: 38rem;
+}
+
 main-content {
   word-wrap: break-word;
 
@@ -62,6 +66,10 @@ navbar-inner, main-content, footer-inner {
   display: block;
   max-width: var(--max-content-width);
   margin: 0 auto;
+}
+
+main-content {
+  max-width: var(--max-main-content-width, var(--max-content-width));
 }
 
 main > section {
