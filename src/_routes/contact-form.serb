@@ -15,6 +15,7 @@ r.is do
   next html_message if r.params[:preview]
 
   if r.params[:bot_check] != "11" && r.params[:bot_check] != "eleven"
+    TryoutJob.perform_async("ARGH!!!")
     next turbo_stream.replace_all(
       "#contact-modal sl-input[name=bot_check]",
       ContactModal.new(step: 1).bot_check(error: true)

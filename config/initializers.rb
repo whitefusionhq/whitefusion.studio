@@ -14,6 +14,12 @@ Bridgetown.configure do
     end
   end
 
+  require_relative "sidekiq"
+
+  only :static do
+    init :sidekiq
+  end
+
   # only :server do
     # init "bridgetown-activerecord" do
     #   adapter "postgresql"

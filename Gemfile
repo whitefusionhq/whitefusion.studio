@@ -17,24 +17,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Happy Bridgetowning!
 
 gem "bridgetown",
-  #path: "../bridgetown"
-  github: "bridgetownrb/bridgetown",
-  branch: "add-dotenv-server-configs"
+  path: "../bridgetown"
+#  github: "bridgetownrb/bridgetown",
+#  branch: "add-dotenv-server-configs"
 gem "bridgetown-core",
-  #path: "../bridgetown"
-  github: "bridgetownrb/bridgetown",
-  branch: "add-dotenv-server-configs"
+  path: "../bridgetown"
+#  github: "bridgetownrb/bridgetown",
+#  branch: "add-dotenv-server-configs"
 gem "bridgetown-builder",
-  #path: "../bridgetown"
-  github: "bridgetownrb/bridgetown",
-  branch: "add-dotenv-server-configs"
+  path: "../bridgetown"
+#  github: "bridgetownrb/bridgetown",
+#  branch: "add-dotenv-server-configs"
 gem "bridgetown-paginate",
-  #path: "../bridgetown"
-  github: "bridgetownrb/bridgetown",
-  branch: "add-dotenv-server-configs"
+  path: "../bridgetown"
+#  github: "bridgetownrb/bridgetown",
+#  branch: "add-dotenv-server-configs"
 gem "bridgetown-routes", group: :bridgetown_plugins,
-  github: "bridgetownrb/bridgetown",
-  branch: "add-dotenv-server-configs"
+  path: "../bridgetown/bridgetown-routes"
+#  github: "bridgetownrb/bridgetown",
+#  branch: "add-dotenv-server-configs"
 
 gem "puma", "~> 5.2"
 
@@ -49,3 +50,7 @@ gem "solargraph", "~> 0.45.0"
 gem "ice_cube", "~> 0.16.4"
 
 gem "stripe", "~> 6.5"
+
+gem "sidekiq", "~> 6.5"
+
+gem "sidekiq-cron", "~> 1.6", github: "ondrejbartas/sidekiq-cron"

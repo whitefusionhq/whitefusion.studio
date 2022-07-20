@@ -1,7 +1,27 @@
 GIT
-  remote: https://github.com/bridgetownrb/bridgetown.git
-  revision: 6e8e8efe919530546bcb355057f049428d1756ee
-  branch: add-dotenv-server-configs
+  remote: https://github.com/bridgetownrb/roda-turbo.git
+  revision: c08b0bead07ef22f61a066a8efad315d2367de55
+  specs:
+    roda-turbo (1.0.0)
+      roda (~> 3.50)
+
+GIT
+  remote: https://github.com/ondrejbartas/sidekiq-cron.git
+  revision: a2284f2267ed252fab7db3746846d2b00fde4b53
+  specs:
+    sidekiq-cron (1.6.0)
+      fugit (~> 1)
+      sidekiq (>= 4.2.1)
+
+PATH
+  remote: ../bridgetown/bridgetown-routes
+  specs:
+    bridgetown-routes (1.1.0.beta3)
+      bridgetown-core (= 1.1.0.beta3)
+      roda-route_list (>= 2.1)
+
+PATH
+  remote: ../bridgetown
   specs:
     bridgetown (1.1.0.beta3)
       bridgetown-builder (= 1.1.0.beta3)
@@ -35,16 +55,6 @@ GIT
       zeitwerk (~> 2.5)
     bridgetown-paginate (1.1.0.beta3)
       bridgetown-core (= 1.1.0.beta3)
-    bridgetown-routes (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
-      roda-route_list (>= 2.1)
-
-GIT
-  remote: https://github.com/bridgetownrb/roda-turbo.git
-  revision: c08b0bead07ef22f61a066a8efad315d2367de55
-  specs:
-    roda-turbo (1.0.0)
-      roda (~> 3.50)
 
 GEM
   remote: https://rubygems.org/
@@ -64,11 +74,14 @@ GEM
     benchmark (0.2.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     diff-lcs (1.5.0)
     digest (3.1.0)
     dotenv (2.7.6)
     e2mmap (0.1.0)
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     faraday (1.10.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -95,6 +108,9 @@ GEM
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     ffi (1.15.5)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     hash_with_dot_access (1.2.0)
       activesupport (>= 5.0.0, < 8.0)
     i18n (1.12.0)
@@ -143,6 +159,7 @@ GEM
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.4)
     rainbow (3.1.1)
@@ -150,6 +167,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.7.1)
     regexp_parser (2.5.0)
     reverse_markdown (2.1.1)
       nokogiri
@@ -177,6 +195,10 @@ GEM
       activesupport (>= 6.0)
       erubi (>= 1.10)
       tilt (~> 2.0)
+    sidekiq (6.5.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     solargraph (0.45.0)
       backport (~> 1.2)
       benchmark
@@ -221,6 +243,8 @@ DEPENDENCIES
   mail (= 2.8.0.rc1)
   puma (~> 5.2)
   roda-turbo!
+  sidekiq (~> 6.5)
+  sidekiq-cron (~> 1.6)!
   solargraph (~> 0.45.0)
   stripe (~> 6.5)
 
