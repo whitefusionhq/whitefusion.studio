@@ -4,8 +4,8 @@ require "active_support/time"
 require "sidekiq"
 require "bridgetown"
 
-module Bridgetown
-  class SidekiqMiddleware
+module BridgetownSidekiq
+  class Middleware
     class << self
       attr_accessor :site
     end
@@ -32,20 +32,22 @@ Sidekiq.configure_server do |config|
     puts "\e[0m"
   end
 
-  Bridgetown::PluginManager.require_from_bundler
-  config_options = Bridgetown.configuration
-  config_options.run_initializers! context: :server
-  Bridgetown::SidekiqMiddleware.site = Bridgetown::Site.new(config_options)
+  Bridgetown.begin!
+  bridgetown_config = Bridgetown.configuration
+  bridgetown_config.run_initializers! context: :server
+  BridgetownSidekiq::Middleware.site = Bridgetown::Site.new(bridgetown_config)
 
   config.server_middleware do |chain|
-    chain.add Bridgetown::SidekiqMiddleware
+    chain.add BridgetownSidekiq::Middleware
   end
 end
 
 Sidekiq.configure_client do
-  Bridgetown.initializer :"bridgetown-sidekiq" do |config, cli_options: ""|
-    next unless Bridgetown.env.development? && config.using_puma
+  Bridgetown.initializer :sidekiq do |config, dev_cli_options: ""|
+    config.only :static do
+      next unless Bridgetown.env.development? && config.using_puma
 
-    Bridgetown::Utils::Aux.run_process "Sidekiq", :red, "sleep 4 && bundle exec sidekiq -r ./config/sidekiq.rb #{cli_options}", env: { "APP_ENV" => "development" }
+      Bridgetown::Utils::Aux.run_process "Sidekiq", :red, "sleep 4 && bundle exec sidekiq -r ./config/sidekiq.rb #{dev_cli_options}", env: { "APP_ENV" => "development" }
+    end
   end
 end

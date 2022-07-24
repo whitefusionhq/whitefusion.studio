@@ -16,11 +16,7 @@ Bridgetown.configure do
     end
   end
 
-  init :sidekiq
-
-  only :static do
-    init :"bridgetown-sidekiq", require_gem: false
-  end
+  init :sidekiq, dev_cli_options: "-v"
 
   only :static, :console do
     puts "static and console!"
