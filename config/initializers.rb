@@ -1,5 +1,6 @@
 Bridgetown.configure do
   init :dotenv
+  init :"bridgetown-routes"
   init :"roda-turbo"
 
   permalink "pretty"
@@ -8,27 +9,28 @@ Bridgetown.configure do
   init :stripe, api_key: ENV["STRIPE_API_KEY"]
 
   only :server do
-    require_relative "mail"
+    init :parse_routes, require_gem: false
+
     init :mail do
       password  ENV["SENDGRID_API_KEY"]
     end
   end
 
-  require_relative "sidekiq"
+  init :sidekiq
 
   only :static do
-    init :sidekiq
+    init :"bridgetown-sidekiq", require_gem: false
   end
 
-  # only :server do
-    # init "bridgetown-activerecord" do
-    #   adapter "postgresql"
-    #   encoding "unicode"
-    #   pool 5
-    #   database "whitefusion_studio_#{Bridgetown.env}"
-    #   url ENV['DATABASE_URL'] if Bridgetown.env.production?
-    # end
-  # end
+  only :static, :console do
+    puts "static and console!"
+  end
+
+  only :rake do
+    puts "I'm in a Rake context!"
+  end
+
+  # init :"bridgetown-activerecord"
 end
 
 Bridgetown.initializer :stripe do |api_key:|

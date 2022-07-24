@@ -32,7 +32,7 @@ gem "bridgetown-paginate",
   path: "../bridgetown"
 #  github: "bridgetownrb/bridgetown",
 #  branch: "add-dotenv-server-configs"
-gem "bridgetown-routes", group: :bridgetown_plugins,
+gem "bridgetown-routes",
   path: "../bridgetown/bridgetown-routes"
 #  github: "bridgetownrb/bridgetown",
 #  branch: "add-dotenv-server-configs"

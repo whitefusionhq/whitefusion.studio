@@ -43,9 +43,9 @@ Sidekiq.configure_server do |config|
 end
 
 Sidekiq.configure_client do
-  Bridgetown.initializer :sidekiq do |config, cli_options: ""|
+  Bridgetown.initializer :"bridgetown-sidekiq" do |config, cli_options: ""|
     next unless Bridgetown.env.development? && config.using_puma
 
-    Bridgetown::Utils::Aux.run_process "Sidekiq", :red, "bundle exec sidekiq -r ./config/sidekiq.rb #{cli_options}", env: { "APP_ENV" => "development" }
+    Bridgetown::Utils::Aux.run_process "Sidekiq", :red, "sleep 4 && bundle exec sidekiq -r ./config/sidekiq.rb #{cli_options}", env: { "APP_ENV" => "development" }
   end
 end
