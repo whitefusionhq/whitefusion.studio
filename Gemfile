@@ -41,7 +41,9 @@ gem "puma", "~> 5.2"
 
 gem "mail", "= 2.8.0.rc1"
 
-gem "roda-turbo", github: "bridgetownrb/roda-turbo"
+gem "roda-turbo",
+  path: "../roda-turbo"
+  # github: "bridgetownrb/roda-turbo"
 
 gem "dotenv", "~> 2.7"
 

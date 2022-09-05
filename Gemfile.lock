@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/bridgetownrb/roda-turbo.git
-  revision: c08b0bead07ef22f61a066a8efad315d2367de55
-  specs:
-    roda-turbo (1.0.0)
-      roda (~> 3.50)
-
-GIT
   remote: https://github.com/ondrejbartas/sidekiq-cron.git
   revision: a2284f2267ed252fab7db3746846d2b00fde4b53
   specs:
@@ -16,20 +9,20 @@ GIT
 PATH
   remote: ../bridgetown/bridgetown-routes
   specs:
-    bridgetown-routes (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
+    bridgetown-routes (1.1.0)
+      bridgetown-core (= 1.1.0)
       roda-route_list (>= 2.1)
 
 PATH
   remote: ../bridgetown
   specs:
-    bridgetown (1.1.0.beta3)
-      bridgetown-builder (= 1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
-      bridgetown-paginate (= 1.1.0.beta3)
-    bridgetown-builder (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
-    bridgetown-core (1.1.0.beta3)
+    bridgetown (1.1.0)
+      bridgetown-builder (= 1.1.0)
+      bridgetown-core (= 1.1.0)
+      bridgetown-paginate (= 1.1.0)
+    bridgetown-builder (1.1.0)
+      bridgetown-core (= 1.1.0)
+    bridgetown-core (1.1.0)
       activemodel (>= 6.0, < 8.0)
       activesupport (>= 6.0, < 8.0)
       addressable (~> 2.4)
@@ -53,8 +46,14 @@ PATH
       tilt (~> 2.0)
       webrick (~> 1.7)
       zeitwerk (~> 2.5)
-    bridgetown-paginate (1.1.0.beta3)
-      bridgetown-core (= 1.1.0.beta3)
+    bridgetown-paginate (1.1.0)
+      bridgetown-core (= 1.1.0)
+
+PATH
+  remote: ../roda-turbo
+  specs:
+    roda-turbo (1.0.0)
+      roda (~> 3.50)
 
 GEM
   remote: https://rubygems.org/

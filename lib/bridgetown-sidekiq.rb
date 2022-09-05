@@ -33,21 +33,19 @@ Sidekiq.configure_server do |config|
   end
 
   Bridgetown.begin!
-  bridgetown_config = Bridgetown.configuration
-  bridgetown_config.run_initializers! context: :server
-  BridgetownSidekiq::Middleware.site = Bridgetown::Site.new(bridgetown_config)
+  BridgetownSidekiq::Middleware.site = Bridgetown::Site.new(
+    Bridgetown.configuration.run_initializers!(context: :server)
+  )
 
   config.server_middleware do |chain|
     chain.add BridgetownSidekiq::Middleware
   end
 end
 
-Sidekiq.configure_client do
-  Bridgetown.initializer :sidekiq do |config, dev_cli_options: ""|
-    config.only :static do
-      next unless Bridgetown.env.development? && config.using_puma
+Bridgetown.initializer :sidekiq do |config, dev_cli_options: ""|
+  config.only :static do
+    next unless Bridgetown.env.development? && config.using_puma
 
-      Bridgetown::Utils::Aux.run_process "Sidekiq", :red, "sleep 4 && bundle exec sidekiq -r ./config/sidekiq.rb #{dev_cli_options}", env: { "APP_ENV" => "development" }
-    end
+    Bridgetown::Utils::Aux.run_process "Sidekiq", :red, "sleep 4 && bundle exec sidekiq -r ./config/sidekiq.rb #{dev_cli_options}", env: { "APP_ENV" => "development" }
   end
 end

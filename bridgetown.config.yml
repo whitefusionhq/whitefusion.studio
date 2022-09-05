@@ -1,4 +1,4 @@
 url: "https://www.whitefusion.studio"
 
-autoload_paths:
-- path: jobs
+#autoload_paths:
+#- path: jobs
