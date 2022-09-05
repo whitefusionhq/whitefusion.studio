@@ -38,8 +38,10 @@ namespace :frontend do
 end
 
 task :env_keys => :environment do
+  run_initializers context: :server
+
   puts "Mail keys:"
-  puts site(context: :server).config.mail_initializer
+  puts site.config.init_params.mail
   puts "Stripe keys:"
-  puts site.config.stripe_initializer
+  puts site.config.init_params.stripe
 end

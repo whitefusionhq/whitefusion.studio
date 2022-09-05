@@ -4,9 +4,11 @@ class Builders::SerbeaHelpers < SiteBuilder
       Bridgetown::Utils.reindent_for_markdown(input.to_s).html_safe
     end
 
-    helper :content_for do |key, &block|
-      resource = block.binding.receiver.resource
-      resource.data[key] = block.binding.receiver.capture(&block)
-    end
+    helper :content_for
+  end
+
+  def content_for(key, &block)
+    view = helpers.view
+    view.resource.data[key] = view.capture(&block)
   end
 end
