@@ -2,7 +2,7 @@
 layout: default
 ---
 
-New for Q3 2022! [Advance+ is here!](/advance/)
+New for Q3 2022! [Advance is here!](/advance/)
 {:style="text-align:center"}
 
 {% rendercontent "section", invert: true %}

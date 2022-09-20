@@ -1,7 +1,12 @@
+# route: POST /book-session/
 r.post do 
   r.params[:session_type] => session_type
 
-  next r.redirect("/advance/book/") if r.params[:morning_date].blank? && r.params[:hour_date].blank?
+  if r.params[:morning_date].blank? && r.params[:hour_date].blank?
+    next turbo_stream.update("oops", <<~HTML)
+      <p>Please select a suitable time for your session.</p>
+    HTML
+  end
 
   (session_type == "morning" ? r.params[:morning_date] : r.params[:hour_date]).then do
     Time.parse(_1).to_datetime.strftime("%A, %B %-d, %Y @ %I:%M %p")
@@ -32,6 +37,13 @@ r.post do
 
   session = Stripe::Checkout::Session.create(payload)
 
-  response.status = 303
-  r.redirect session.url
+  [
+    turbo_stream.update("checkout-action", <<~HTML)
+      <p>
+        <strong>Awesome!</strong>
+        Loading Stripe Checkout…
+      </p>
+      <redirect-to href='#{session.url}'></redirect-to>
+    HTML
+  ].join
 end

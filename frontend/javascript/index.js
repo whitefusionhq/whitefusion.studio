@@ -18,6 +18,15 @@ setBasePath("/shoelace-assets")
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
+class RedirectTo extends HTMLElement {
+  connectedCallback() {
+    setTimeout(() => {
+      window.location.href = this.getAttribute("href")
+    }, 1500)
+  }
+}
+customElements.define("redirect-to", RedirectTo)
+
 /* *** Nav Bar Setup *** */
 
 const navBarQuery = (selector) => document.querySelector(`#nav-bar ${selector}`)

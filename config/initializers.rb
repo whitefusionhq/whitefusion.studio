@@ -3,14 +3,21 @@ Bridgetown.configure do |config|
   timezone "America/Los_Angeles"
 
   init :dotenv
-
   init :ssr
   init :"bridgetown-routes"
-  init :"roda-turbo"
 
+  init :"roda-turbo"
+  init :ice_cube
   init :stripe, api_key: ENV["STRIPE_API_KEY"]
 
   only :server do
+    roda do |app|
+      # TODO:
+      # app.plugin :sessions,
+      #   secret: ENV.fetch("RODA_SECRET_KEY", nil),
+      #   parser: ->(data) { JSON.parse(data).with_indifferent_access }
+    end
+
     init :parse_routes
 
     init :mail do
@@ -19,6 +26,6 @@ Bridgetown.configure do |config|
   end
 end
 
-Bridgetown.initializer :stripe do |api_key:|
-  Stripe.api_key = api_key
+Bridgetown.initializer :ice_cube do
+  require "active_support/time"
 end

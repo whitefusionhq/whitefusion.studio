@@ -1,6 +1,3 @@
-require "ice_cube"
-require "active_support/time"
-
 class AdvanceBooking < Bridgetown::Component
   def initialize(blocked_dates:)
     @blocked_dates = blocked_dates.map do |date_string|

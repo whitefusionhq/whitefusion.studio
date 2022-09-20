@@ -22,7 +22,7 @@ gem "bridgetown",
   branch: "add-dotenv-server-configs"
 gem "bridgetown-core",
 #  path: "../bridgetown"
- github: "bridgetownrb/bridgetown",
+  github: "bridgetownrb/bridgetown",
   branch: "add-dotenv-server-configs"
 gem "bridgetown-builder",
 #  path: "../bridgetown"

@@ -1,7 +1,9 @@
-<form action="/book-session/" method="post" style="min-height: 80vh" data-turbo="false">
+<form action="/book-session/" method="post" style="min-height: 80vh" id="booking-form">
   <p class="lead" style="text-align:center">
     Select a time you'd like to schedule for your session.
   </p>
+
+  <aside id="oops"></aside>
 
   <p>
     <sl-radio-group label="Select session type">
@@ -42,10 +44,23 @@
     </sl-select>
   </p>
 
-  <p style="text-align:center; margin-block: var(--sl-spacing-4x-large)">
+  <p id="checkout-action" style="text-align:center; margin-block: var(--sl-spacing-4x-large)">
     <sl-button variant="primary" type="submit" pill>
       <sl-icon slot="suffix" name="credit-card"></sl-icon>
       Checkout with Stripe
     </sl-button>
   </p>
 </form>
+
+<script>
+  const form = document.querySelector("#booking-form")
+  const submitButton = form.querySelector("sl-button[type=submit]")
+
+  form.addEventListener("turbo:submit-start", event => {
+    form.querySelector("#oops").replaceChildren("")
+    submitButton.loading = true
+  })
+  form.addEventListener("turbo:submit-end", event => {
+    submitButton.loading = false
+  })
+</script>

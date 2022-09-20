@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "shoelace:copy-assets": "mkdir -p src/shoelace-assets && cp -r node_modules/@shoelace-style/shoelace/dist/assets src/shoelace-assets",
-    "esbuild": "yarn shoelace:copy-assets && ruby2js --es2022 -f return -f functions -f camelCase esbuild.config.js.rb | node - --minify",
-    "esbuild-dev": "yarn shoelace:copy-assets && ruby2js --es2022 -f return -f functions -f camelCase esbuild.config.js.rb | node - --watch"
+    "esbuild": "yarn shoelace:copy-assets && node esbuild.config.js --minify",
+    "esbuild-dev": "yarn shoelace:copy-assets && node esbuild.config.js --watch"
   },
   "devDependencies": {
     "esbuild": "^0.14.48",

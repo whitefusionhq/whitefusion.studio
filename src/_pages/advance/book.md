@@ -1,6 +1,6 @@
 ---
 layout: landing_page
-title: Advance+
+title: Advance
 page_class: page narrow-layout
 template_engine: serbea
 ---
