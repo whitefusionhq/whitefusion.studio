@@ -20,19 +20,11 @@ Recent popular articles & podcast episodes include:
 
 ### The Spicy Web
 
-_Big news!_ We've launched [a newbie-friendly Discord chat server](https://discord.com/invite/CUuYVH7Qa9) and are close to reaching a hundred members. Join a fabulous community of web developers learning how to use “vanilla” web specs like HTTP, HTML, CSS, JavaScript, &amp; Web Components—plus no-nonsense libraries &amp; tools which promote developer happiness and avoid vendor lock-in. (Hmm, this [sounds familiar](/)…)
+We've launched [a newbie-friendly Discord chat server](https://discord.com/invite/CUuYVH7Qa9) now boasting over 500 members. Join a fabulous community of web developers learning how to use “vanilla” web specs like HTTP, HTML, CSS, JavaScript, &amp; Web Components—plus no-nonsense libraries &amp; tools which promote developer happiness and avoid vendor lock-in. (Hmm, this [sounds familiar](/)…)
 
 It’s entirely free to get started. Jared is now [blogging regularly](https://www.spicyweb.dev/blog) on **THE SPICY WEB**, and we’ll soon be launching paid courses to take you even deeper down the rabbit hole, so stay tuned!
 
 ::**Vanilla has never tasted so hot.**:: 🍦🌶
-
-### DEV.to
-
-We also like to share some of our content through the wildly-popular developer resource **DEV.to**. To wit:
-
-0. [How to Install Shoelace with Rails 7, esbuild, and PostCSS](https://dev.to/jaredcwhite/how-to-install-shoelace-with-rails-7-esbuild-and-postcss-1cg9){:target="_blank"}
-0. [Custom Elements Everywhere for Page Layout, Parts I and II](https://dev.to/jaredcwhite/custom-elements-everywhere-for-page-layout-parts-i-and-ii-438p){:target="_blank"}
-0. [Why Tailwind Isn't for Me](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90){:target="_blank"} _(viewed over 83,431 times!)_
 
 ### Fresh Fusion Podcast
 
