@@ -42,7 +42,7 @@ Choose a stack everyone's cuckoo for today…_or swiftly ship a working product 
 
 The web is 30 years old. And there's been many a time we’ve witnessed the desire to “hijack” the browser and make it do things it just wasn’t designed to do. From Java applets to Flash plugins to janky rich-client leviathans…**these tendencies come and go in waves.**
 
-Most recently we’ve seen it with techniques that consider the browser merely a “build target” of a lofty cross-platform UI toolkit. _Real talk:_ have you inspected the HTML on Twitter.com lately? It’s “div tag soup” with hundreds of inscrutable class names like `r-18u37iz` and `css-901oao`. That might pan out for a company the scale of Twitter…but for the rest of us, _it’s a terrible idea_.
+Most recently we’ve seen it with techniques that consider the browser merely a “build target” of a lofty cross-platform UI toolkit. _Real talk:_ have you inspected the HTML on a large social network lately? It’s “div tag soup” with hundreds of inscrutable class names like `r-18u37iz` and `css-901oao`. That might pan out for a handful of "web-scale" companies…but for the rest of us, _it’s a terrible idea_.
 
 Here’s what we think. **Never bet against the web browser.** Start with the basics, the _holy trinity_ of web development: **HTML, CSS, and JavaScript**—all in their proper place and benefiting from a minimalist design philosophy. Avoid undue complexity like the plague. Hesitate to add yet another build tool unless _absolutely necessary_. Use progressive enhancement techniques for users **as well as** developers. Spend your time focusing on what really matters, like accessibility, network performance, privacy, and long-term maintainability.
 
@@ -93,7 +93,7 @@ Thankfully, [I'm not the only one decrying the complexity of the modern web](htt
 
 I'm a champion of the underdog: the solo dev, the small tight-knit team. I'm with the people who believe you can build great things with simple, easy-to-understand tools and a commitment to the greatest invention in the history of mankind: **the open web**. _Join the resistance_ and together we shall accomplish great things. I can't wait.
 
-Follow me on <a href="https://twitter.com/jaredcwhite" target="_blank" style="margin-right:var(--sl-spacing-3x-small)"><sl-icon name="twitter"></sl-icon>Twitter</a> ✦ <a href="https://jaredwhite.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
+Follow me on <a href="https://indieweb.social/@jaredwhite" target="_blank" style="margin-right:var(--sl-spacing-3x-small)"><sl-icon name="mastodon"></sl-icon>Mastodon</a> ✦ <a href="https://jaredwhite.com" target="_blank"><sl-icon name="globe"></sl-icon>Website</a>
 
 {% endrendercontent %}
 
@@ -101,7 +101,7 @@ Follow me on <a href="https://twitter.com/jaredcwhite" target="_blank" style="ma
 
 ## Save Time _and_ Money! <ui-label style="font-size:0.7em">😎</ui-label>
 
-[Our stance is clear.](/methodology/) You shouldn't need a Ph.D. in quantum-cloud-serverless-microservice-mechanics to deploy a web app. Not everyone is the next Twitter or Netflix, <em>so why the hell would you build like they do?</em>
+[Our stance is clear.](/methodology/) You shouldn't need a Ph.D. in quantum-cloud-serverless-microservice-mechanics to deploy a web app. Not everyone is the next Netflix or Threads, <em>so why the hell would you build like they do?</em>
 
 Well-meaning engineers have adopted best practices and methodologies which benefit large corporations and applied them to small teams, or even a team of one. **And then they wonder why it takes ten times longer to do ANYTHING.** It's like taking the blueprint for how to build a skyscraper, and then using that as an example for how to build a cottage. ::Total conceptual mismatch.::
 
