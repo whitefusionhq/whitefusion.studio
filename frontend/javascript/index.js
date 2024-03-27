@@ -1,4 +1,4 @@
-import "index.css"
+import "$styles/index.css"
 
 import "@shoelace-style/shoelace/dist/components/dialog/dialog.js"
 import "@shoelace-style/shoelace/dist/components/button/button.js"
@@ -15,8 +15,10 @@ import "@shoelace-style/shoelace/dist/components/textarea/textarea.js"
 import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js"
 setBasePath("/shoelace-assets")
 
+import "@hotwired/turbo"
+
 // Import all JavaScript & CSS files from src/_components
-import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
+import components from "$components/**/*.{js,jsx,js.rb,css}"
 
 /* *** Nav Bar Setup *** */
 

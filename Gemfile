@@ -16,14 +16,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #
 # Happy Bridgetowning!
 
-gem "bridgetown", "~> 1.1.0"
-gem "bridgetown-routes", group: :bridgetown_plugins
+gem "bridgetown", "~> 1.3"
+gem "bridgetown-routes", "~> 1.3"
 
-gem "puma", "~> 5.2"
+gem "puma", "~> 6.4"
 
-gem "mail", "= 2.8.0.rc1"
+gem "mail", "= 2.8"
 
-gem "roda-turbo", group: :bridgetown_plugins,
-                  github: "bridgetownrb/roda-turbo"
+gem "roda-turbo"
+#  path: "../roda-turbo"
+#  github: "bridgetownrb/roda-turbo"
 
-gem "dotenv", "~> 2.7"
+gem "dotenv", "~> 3.1"
+
+gem "solargraph", "~> 0.50"
+
+gem "ice_cube", "~> 0.16"
+
+gem "stripe", "~> 10.3"
