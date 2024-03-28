@@ -1,0 +1,15 @@
+@font-face {
+	font-family: Nunito Sans;
+	src: url(./NunitoSans.woff2);
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: Nunito Sans;
+	src: url(./NunitoSans-Italic.woff2);
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: italic;
+}

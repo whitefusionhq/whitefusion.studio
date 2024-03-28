@@ -10,7 +10,8 @@ sl-dialog::part(title) {
   --header-spacing: 0.75rem 0 0.75rem 1.25rem;
   --sl-font-size-large: 2rem;
   font-family: var(--heading-font);
-  font-weight: 700;
+  font-weight: 724;
+  font-variation-settings: "YTLC" 510, "opsz" 8.9;
   color: var(--alternate-dark-color);
 }
 
