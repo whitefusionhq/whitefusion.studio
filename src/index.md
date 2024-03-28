@@ -4,7 +4,7 @@ layout: default
 
 {% rendercontent "section", invert: true %}
 
-# Come for the Jamstack, Stay for the Fediverse
+# Come for the Jamstack. Stay for the Fediverse.
 
 Everything you think you know about engagement, commerce, and publishing on the Web is about to change. For the better, we hope? **Almost certainly.**
 
