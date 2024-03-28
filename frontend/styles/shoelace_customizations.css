@@ -8,11 +8,11 @@ sl-dialog {
 
 sl-dialog::part(title) {
   --header-spacing: 0.75rem 0 0.75rem 1.25rem;
-  --sl-font-size-large: 2rem;
+  --sl-font-size-large: 1.75rem;
   font-family: var(--heading-font);
   font-weight: 724;
   font-variation-settings: "YTLC" 510, "opsz" 8.9;
-  color: var(--alternate-dark-color);
+  color: var(--primary-dark-color);
 }
 
 @media (max-width: 450px) {
@@ -38,4 +38,8 @@ p a sl-icon {
   margin-right: var(--sl-spacing-2x-small);
   margin-left: var(--sl-spacing-3x-small);
   vertical-align: -0.125em;
+}
+
+sl-dialog p {
+  margin: 0 0 var(--sl-font-size-medium);
 }
