@@ -14,4 +14,7 @@
 
 <link rel="stylesheet" href="{% asset_path css %}" />
 <script src="{% asset_path js %}" defer></script>
+{% if env == "production" %}
+<script defer data-domain="whitefusion.studio" src="https://plausible.io/js/script.js"></script>
+{% endif %}
 {% live_reload_dev_js %}
