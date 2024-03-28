@@ -52,9 +52,9 @@ Here’s what we think. **Never bet against the Web browser.** Start with the ba
 
 ## Stop Publicizing Progress Without Committing to Ethics
 
-There's a different between experience and **expertise**. We don't just bring years of experience to the table. We bring deep knowledge, _curiosity_, and sound judgement to every engagement—==no matter who, what, or when==. We apply **ethical principles** to every decision we make, and we don't just talk the talk. ==**We walk the walk.**==
+There's a different between experience and **expertise**. We don't just bring years of experience to the table. We bring deep knowledge, _curiosity_, and sound judgement to every engagement—==no matter who, what, or when==. We apply **ethical principles** to every decision we make, and we don't just talk the talk. **We walk the walk.**
 
-> **Our pledge to you in 2024 and beyond:** 100% ==AI-free== productions. All the solutions we provide are of the finest ==human-grade quality==. We're not afraid of _progress_! But we're not buying the _bullshit_. Read more about our [AI Ethical Framework](/ai-ethics) we've laid out that presents the minimum threshold required for us to evaluate any "generative AI" toolchain.
+> **Our pledge to you in 2024 and beyond:** 100% ==AI-free== productions. All the solutions we provide are of the finest ==human-grade quality==. We're not afraid of _progress_! But we're not buying the _bullshit_. Read more about our [AI Ethical Framework](/ai-ethics) we've laid out which presents the minimum threshold required for us to evaluate any "generative AI" toolchain.
 
 Whitefusion is proud to endorse and support—and in some cases build—[a slew of open source tools](/tech/) and [educational destinations](/resources/) all with the aim of _simplifying the modern Web_, promoting ethical standards-based practices, and providing better alternatives to the industry status quo.
 

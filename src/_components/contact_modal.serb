@@ -1,6 +1,6 @@
 {% modal = capture do %}
   {% if @step == 1 %}
-    <p>Fill in your email address, add a Tweet-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
+    <p>Fill in your email address, add a Toot-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
 
     <form action="/contact-form/" method="post">
       <p>
