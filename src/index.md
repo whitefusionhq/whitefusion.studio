@@ -13,8 +13,8 @@ Everything you think you know about engagement, commerce, and publishing on the 
 The _open_ Web.
 The _social_ Web.
 The _standards-based_ Web.
-_Frameworks_ for developers on Web.
-_Resources_ to educate the **next generation of creators** for the Web.
+_Frameworks_ for humane developers on the Web.
+_Resources_ to educate the **next generation of creators** embodying the Web.
 
 **Whitefusion.** Exploring the edges of "cyberspace" since 1997. And now here for you.
 
