@@ -30,7 +30,7 @@
   --inverted-primary-text: var(--body-background);
 
   --spacing-gigantic: 12rem;
-  --max-content-width: 50rem;
+  --max-content-width: 62rem;
 
   /* Shoelace Overrides */
   --sl-font-sans: var(--body-font);
