@@ -81,7 +81,7 @@ Where is Whitefusion? _Why is Whitefusion?_ 😜
 {: .professional-photograph}
 ![A photo of Jared sitting with his hands folded neatly on the table in front of him](/images/jared-studio-professional.jpg){:width="440"}{:loading="lazy"}{:title="Jared in Hat"}
 
-I've been at this a long time. A long, long time. I first got my start building Websites in the 90s. I've seen entire subindustries of the Web come and go. One day it's J2EE, another day it's Gatsby. There's always somebody promoting flashy yet overengineered technology that's so complicated it requires a slew of consultants ready to "fix" all the problems that inevitably arise.
+I've been at this a long, long time. I first got my start building Web sites in the 1990s. I've seen entire sub-industries of the Web come and go. One day it's J2EE, another day it's Next.js. There's always somebody promoting flashy yet over-engineered technology that's so complicated it requires a slew of consultants ready to "fix" all the problems that inevitably arise.
 
 **I'm sick of it.** Some days I've dreamed of retiring early if no sane alternative emerged!
 
