@@ -160,3 +160,9 @@ footer-inner {
   z-index: 1;
   text-align: center;
 }
+
+form-errors {
+  display: block;
+  color: var(--primary-dark-color);
+  font-weight: 642;
+}

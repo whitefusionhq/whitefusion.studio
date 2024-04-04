@@ -1,29 +1,104 @@
-<sl-dialog id="book-session" label="Book Session">
-  <form action="/book-session" method="post">
-    <p>Easy peasy!</p>
+<form action="/book-session/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" id="booking-form" data-turbo="false">
+  <p class="lead" style="text-align:center">
+    Select a time you'd like to schedule for your session.
+  </p>
 
+  <form-errors>
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
+  </form-errors>
+
+  <p>
+    <sl-radio-group name="session_type" label="Select session type">
+      <sl-radio-button value="morning" checked>$999 for Morning+</sl-radio-button>
+      <sl-radio-button value="hour">$299 for Hour+</sl-radio-button>
+    </sl-radio-group>
+    <script>
+      const group = document.querySelector("sl-radio-group[name='session_type']")
+      group.addEventListener("sl-change", () => {
+        group.closest("form").querySelectorAll("sl-select").forEach(item => item.hidden = true)
+        document.querySelector(`[name="${group.value}_date"]`).hidden = false
+      })
+    </script>
+  </p>
+
+  <p>(All times are <strong>U.S. Pacific</strong>.)</p>
+
+  <p>
+    <sl-select hidden name="morning_date" placeholder="Available Openings…">
+      {% morning_dates.each do |date| %}
+        <sl-option value="{{ date | to_s | gsub: " ", "_" }}">{{ date | strftime: "%A, %B %-d, %Y @ %I:%M %p" }}</sl-option>
+      {% end %}
+    </sl-select>
+
+    <sl-select hidden name="hour_date" placeholder="Available Openings…">
+      {% hour_dates.each do |date| %}
+        <sl-option value="{{ date | to_s | gsub: " ", "_" }}">{{ date | strftime: "%A, %B %-d, %Y @ %-I:%M %p" }}</sl-option>
+      {% end %}
+    </sl-select>
+  </p>
+
+  <checkout-action style="display: block; text-align:center; margin-block: var(--sl-spacing-4x-large)">
+    <template shadowrootmode="open">
+      <slot></slot>
+    </template>
     <p>
-      <sl-radio-group label="Select an option">
-        <sl-radio-button name="option" value="morning" checked>$999 for Morning+</sl-radio-button>
-        <sl-radio-button name="option" value="hour">$299 for Hour+</sl-radio-button>
-      </sl-radio-group>
-    </p>
-
-    <p>Select a day you'd like to schedule for your session. All times are U.S. Pacific.</p>
-
-    <p>
-      <sl-select placeholder="Available Dates">
-        <sl-menu-item value="2022-07-10">Friday, July 10, 2022</sl-menu-item>
-        <sl-menu-item value="2022-07-23">Friday, July 23, 2022</sl-menu-item>
-        <sl-menu-item value="2022-08-02">Friday, August 2, 2022</sl-menu-item>
-      </sl-select>
-    </p>
-
-    <p style="text-align:center; margin-block: var(--sl-spacing-4x-large)">
       <sl-button variant="primary" type="submit" pill>
         <sl-icon slot="suffix" name="credit-card"></sl-icon>
         Checkout with Stripe
       </sl-button>
     </p>
-  </form>
-</sl-dialog>
+  </checkout-action>
+</form>
+
+<script type="module">
+  const form = document.querySelector("#booking-form")
+  const formErrors = document.querySelector("form-errors")
+  const checkoutAction = document.querySelector("checkout-action")
+  const submitButton = form.querySelector("sl-button[type=submit]")
+
+  SetupInvokeHandler(formErrors)
+  SetupInvokeHandler(checkoutAction)
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault()
+    submitButton.loading = true
+    formErrors.replaceChildren()
+
+    const url = form.action
+    const options = {}
+    options.body = new FormData(form)
+    options.method = form.method
+
+    try {
+      const results = await fetch(url, {...options})
+      if (results.status < 500) {
+        if (results.redirected) {
+          location.href = results.url
+          return
+        }
+        const html = await results.text()
+        const fetchedDocument = new DOMParser().parseFromString(`<body>${html}</body>`, "text/html")
+        for (const element of fetchedDocument.body.children) {
+          const el = document.querySelector(element.localName)
+          if (el) {
+            const tmpl = document.createElement("template")
+            tmpl.dataset.functions = ""
+            tmpl.content.replaceChildren(...element.children)
+            el.append(tmpl)
+            DispatchInvokeEvent(el, "functions")
+          }
+        }
+      }
+    } catch(err) {
+      console.warn(err)
+    }
+
+    submitButton.loading = false
+  })
+
+  form.addEventListener("turbo:submit-end", event => {
+    submitButton.loading = false
+  })
+</script>

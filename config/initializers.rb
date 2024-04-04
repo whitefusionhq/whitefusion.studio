@@ -1,3 +1,9 @@
+module CheckStreamlined
+  def self.===(other)
+    other.is_a?(Proc) && other.touched
+  end
+end
+
 Bridgetown.configure do |config|
   permalink "pretty"
   timezone "America/Los_Angeles"
@@ -14,6 +20,16 @@ Bridgetown.configure do |config|
 
     init :mail do
       password ENV["SENDGRID_API_KEY"]
+    end
+
+    roda do |app|
+      # TODO: we should move all this into core!
+
+      app.include Streamlined::Helpers
+      app.plugin :custom_block_results
+      app.handle_block_result CheckStreamlined do |callback|
+        callback.to_s
+      end
     end
   end
 end

@@ -1,0 +1,6 @@
+---
+layout: page
+title: Book Us
+---
+
+{%@ AdvanceBooking blocked_dates: site.data.blocked_dates.dates %}
