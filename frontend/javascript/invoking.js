@@ -72,9 +72,10 @@ class InvokingForm extends HTMLElement {
         document.querySelectorAll("[data-empty-on-submit]").forEach(item => item.replaceChildren())
 
         const url = form.action
-        const options = {}
+        const /** @type {RequestInit} */ options = {}
         options.body = new FormData(form)
         options.method = form.method
+        options.headers = {"Accept": "text/vnd.invoking.html"}
 
         try {
           const results = await fetch(url, {...options})

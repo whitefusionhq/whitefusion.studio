@@ -4,12 +4,12 @@ title: Book Us
 ---
 
 <invoking-form>
-<form action="/book-session/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" data-turbo="false">
+<form action="/submit-booking/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" data-turbo="false">
   <p class="lead" style="text-align:center">
     Select a time you'd like to schedule for your session.
   </p>
 
-  <form-errors data-empty-on-submit></form-errors>
+  <form-errors data-empty-on-submit>{{ data.errors }}</form-errors>
 
   {%@ AdvanceBooking
       blocked_dates: site.data.blocked_dates.dates,
@@ -23,7 +23,7 @@ title: Book Us
     <p>(All times are <strong>U.S. Pacific</strong>.)</p>
   {% end %}
 
-  <checkout-action style="display: block; text-align:center; margin-block: var(--sl-spacing-4x-large)">
+  <checkout-action>
     <p>
       <sl-button variant="primary" type="submit" pill>
         <sl-icon free-options slot="suffix" name="balloon-fill"></sl-icon>
@@ -33,6 +33,16 @@ title: Book Us
       </sl-button>
     </p>
   </checkout-action>
+  <un-scripted>
+    <p>➡️ JavaScript doesn't seem to be running, but that's OK! We can still set you up with a free time slot.</p>
+
+    <p>
+      {%@ AdvanceBookingNojs blocked_dates: site.data.blocked_dates.dates, label: "", placeholder: "Choose an available time…" %}
+    </p>
+    <p>
+      <button style="font: inherit; font-weight: bold">Let's Go!</button>
+    </p>
+  </un-scripted>
 </form>
 </invoking-form>
 

@@ -315,3 +315,23 @@ h3 + p.lead {
   --sl-input-background-color-hover: var(--primary-faded-color);
   --sl-input-background-color-focus: var(--primary-faded-color);
 }
+
+un-scripted {
+  display: none;
+}
+
+checkout-action {
+  display: block;
+  text-align:center;
+  margin-block: var(--sl-spacing-4x-large);
+}
+
+:is(checkout-action, sl-radio-group):not(:defined) {
+  & {
+  display: none;
+  }
+
+  & + un-scripted {
+    display: block;
+  }
+}

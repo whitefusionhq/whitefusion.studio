@@ -23,13 +23,17 @@ Bridgetown.configure do |_config|
     end
 
     roda do |app|
-      # TODO: we should move all this into core!
+      app.opts[:invoking_content_type] = "text/vnd.invoking.html"
+      Roda::RodaRequest.include(Module.new do
+        def invoking?
+          (env["HTTP_ACCEPT"] || []).include?(roda_class.opts[:invoking_content_type])
+        end
 
-      # app.include Streamlined::Helpers
-      # app.plugin :custom_block_results
-      # app.handle_block_result CheckStreamlined do |callback| # rubocop:disable Style/SymbolProc
-      #   callback.to_s
-      # end
+        def respond_invoking
+          response["Content-Type"] = roda_class.opts[:invoking_content_type]
+          yield
+        end
+      end)
     end
   end
 end
