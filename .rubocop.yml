@@ -1,0 +1,18 @@
+require: rubocop-bridgetown
+inherit_gem:
+  rubocop-bridgetown: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 3.3
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumberedParameters:
+  Enabled: false
+
+Layout/MultilineBlockLayout:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false

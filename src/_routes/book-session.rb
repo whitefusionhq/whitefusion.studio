@@ -1,8 +1,7 @@
 # route: POST /book-session/
-r.post do 
+r.post do # rubocop:disable Metrics/BlockLength
   r.params[:session_type] => session_type
 
-  puts r.params
   if session_type.blank? ||
       (session_type == "morning" && r.params[:morning_date].blank?) ||
       (session_type == "hour" && r.params[:hour_date].blank?)
@@ -13,9 +12,12 @@ r.post do
     HTML
     }
   end
+  if session_type == "free"
+    next r.redirect("/successful")
+  end
 
   (session_type == "morning" ? r.params[:morning_date] : r.params[:hour_date]).then do
-    real_time = _1.gsub("_", " ")
+    real_time = _1.tr("_", " ")
     Time.parse(real_time).to_datetime.strftime("%A, %B %-d, %Y @ %I:%M %p")
   end => selected_date
 
@@ -34,8 +36,8 @@ r.post do
     payment_intent_data: {
       metadata: {
         session_type:,
-        selected_date:
-      }
+        selected_date:,
+      },
     },
     mode: "payment",
     success_url: absolute_url("/successful/"),

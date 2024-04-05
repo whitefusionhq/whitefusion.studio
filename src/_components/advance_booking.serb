@@ -1,19 +1,43 @@
-<form action="/book-session/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" id="booking-form" data-turbo="false">
-  <p class="lead" style="text-align:center">
-    Select a time you'd like to schedule for your session.
-  </p>
-
-  <form-errors>
-    <template shadowrootmode="open">
-      <slot></slot>
-    </template>
-  </form-errors>
-
   <p>
-    <sl-radio-group name="session_type" label="Select session type">
-      <sl-radio-button value="morning" checked>$999 for Morning+</sl-radio-button>
-      <sl-radio-button value="hour">$299 for Hour+</sl-radio-button>
+    <sl-radio-group name="session_type" label="{{ @label }}">
+      <sl-radio-button value="free"><ui-label>{{ :free | slotted }}</ui-label></sl-radio-button>
+      <sl-radio-button value="hour"><ui-label>{{ :double | slotted }}</ui-label></sl-radio-button>
+      <sl-radio-button value="morning" checked><ui-label>{{ :day | slotted }}</ui-label></sl-radio-button>
     </sl-radio-group>
+    <style>
+      @media (max-width: 767px) {
+        sl-radio-group[name='session_type'] {
+          &::part(button-group) {
+            width: 100%;
+          }
+          &::part(button-group__base) {
+            display: grid;
+          }
+
+          & sl-radio-button {
+            margin-inline-start: 0;
+
+            &:not(:first-child)::part(button) {
+              border-top: 0;
+            }
+
+            &::part(button) {
+              border-radius: 0px;
+            }
+
+            &:first-child::part(button) {
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+            }
+
+            &:last-child::part(button) {
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+            }
+          }
+        }
+      }
+    </style>
     <script>
       const group = document.querySelector("sl-radio-group[name='session_type']")
       group.addEventListener("sl-change", () => {
@@ -23,82 +47,34 @@
     </script>
   </p>
 
-  <p>(All times are <strong>U.S. Pacific</strong>.)</p>
+  {{ content }}
 
   <p>
-    <sl-select hidden name="morning_date" placeholder="Available Openings…">
-      {% morning_dates.each do |date| %}
-        <sl-option value="{{ date | to_s | gsub: " ", "_" }}">{{ date | strftime: "%A, %B %-d, %Y @ %I:%M %p" }}</sl-option>
+    <sl-select hidden name="free_date" placeholder="{{ @placeholder }}">
+      {% free_dates.each do |date| %}
+        <sl-option value="{{ date | to_s | tr: " ", "_" }}">
+          {{ date | strftime: date_display_format }}
+          {{ option_icons }}
+        </sl-option>
       {% end %}
     </sl-select>
 
-    <sl-select hidden name="hour_date" placeholder="Available Openings…">
+    <sl-select hidden name="morning_date" placeholder="{{ @placeholder }}">
+      {% morning_dates.each do |date| %}
+        <sl-option value="{{ date | to_s | tr: " ", "_" }}">
+          {{ date | strftime: date_display_format }}
+          {{ option_icons }}
+        </sl-option>
+      {% end %}
+    </sl-select>
+
+    <sl-select hidden name="hour_date" placeholder="{{ @placeholder }}">
       {% hour_dates.each do |date| %}
-        <sl-option value="{{ date | to_s | gsub: " ", "_" }}">{{ date | strftime: "%A, %B %-d, %Y @ %-I:%M %p" }}</sl-option>
+        <sl-option value="{{ date | to_s | tr: " ", "_" }}">
+          {{ date | strftime: date_display_format }}
+          {{ option_icons }}
+        </sl-option>
       {% end %}
     </sl-select>
   </p>
 
-  <checkout-action style="display: block; text-align:center; margin-block: var(--sl-spacing-4x-large)">
-    <template shadowrootmode="open">
-      <slot></slot>
-    </template>
-    <p>
-      <sl-button variant="primary" type="submit" pill>
-        <sl-icon slot="suffix" name="credit-card"></sl-icon>
-        Checkout with Stripe
-      </sl-button>
-    </p>
-  </checkout-action>
-</form>
-
-<script type="module">
-  const form = document.querySelector("#booking-form")
-  const formErrors = document.querySelector("form-errors")
-  const checkoutAction = document.querySelector("checkout-action")
-  const submitButton = form.querySelector("sl-button[type=submit]")
-
-  SetupInvokeHandler(formErrors)
-  SetupInvokeHandler(checkoutAction)
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault()
-    submitButton.loading = true
-    formErrors.replaceChildren()
-
-    const url = form.action
-    const options = {}
-    options.body = new FormData(form)
-    options.method = form.method
-
-    try {
-      const results = await fetch(url, {...options})
-      if (results.status < 500) {
-        if (results.redirected) {
-          location.href = results.url
-          return
-        }
-        const html = await results.text()
-        const fetchedDocument = new DOMParser().parseFromString(`<body>${html}</body>`, "text/html")
-        for (const element of fetchedDocument.body.children) {
-          const el = document.querySelector(element.localName)
-          if (el) {
-            const tmpl = document.createElement("template")
-            tmpl.dataset.functions = ""
-            tmpl.content.replaceChildren(...element.children)
-            el.append(tmpl)
-            DispatchInvokeEvent(el, "functions")
-          }
-        }
-      }
-    } catch(err) {
-      console.warn(err)
-    }
-
-    submitButton.loading = false
-  })
-
-  form.addEventListener("turbo:submit-end", event => {
-    submitButton.loading = false
-  })
-</script>

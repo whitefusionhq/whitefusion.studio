@@ -3,4 +3,48 @@ layout: page
 title: Book Us
 ---
 
-{%@ AdvanceBooking blocked_dates: site.data.blocked_dates.dates %}
+<invoking-form>
+<form action="/book-session/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" data-turbo="false">
+  <p class="lead" style="text-align:center">
+    Select a time you'd like to schedule for your session.
+  </p>
+
+  <form-errors data-empty-on-submit></form-errors>
+
+  {%@ AdvanceBooking
+      blocked_dates: site.data.blocked_dates.dates,
+      label: "What type of session are you looking for?",
+      placeholder: "Choose an available time…"
+    do |c| %}
+    {% c.slot :free do %}Zoom zoom! <strong>$0</strong> for 30m{% end %}
+    {% c.slot :double do %}Make mine a double! <strong>$349</strong> for 2h{% end %}
+    {% c.slot :day do %}Team for a day! <strong>$999</strong> for 4-6h{% end %}
+
+    <p>(All times are <strong>U.S. Pacific</strong>.)</p>
+  {% end %}
+
+  <checkout-action style="display: block; text-align:center; margin-block: var(--sl-spacing-4x-large)">
+    <p>
+      <sl-button variant="primary" type="submit" pill>
+        <sl-icon free-options slot="suffix" name="balloon-fill"></sl-icon>
+        <ui-label free-options>All Ready to Play</ui-label>
+        <sl-icon hidden paid-options slot="suffix" name="credit-card-fill"></sl-icon>
+        <ui-label hidden paid-options>Save Payment Details for Later</ui-label>
+      </sl-button>
+    </p>
+  </checkout-action>
+</form>
+</invoking-form>
+
+<script type="module">
+  const group = document.querySelector("sl-radio-group[name='session_type']")
+  group.addEventListener("sl-change", (event) => {
+    if (event.target.value == "free") {
+      document.querySelectorAll("[free-options]").forEach(item => item. hidden = false)
+      document.querySelectorAll("[paid-options]").forEach(item => item. hidden = true)
+    } else {
+      document.querySelectorAll("[free-options]").forEach(item => item. hidden = true)
+      document.querySelectorAll("[paid-options]").forEach(item => item. hidden = false)
+    }
+  })
+</script>

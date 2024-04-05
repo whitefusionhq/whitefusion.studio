@@ -173,6 +173,12 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.31.2)
       parser (>= 3.3.0.4)
+    rubocop-bridgetown (0.4.1)
+      rubocop (~> 1.23)
+      rubocop-performance (~> 1.12)
+    rubocop-performance (1.21.0)
+      rubocop (>= 1.48.1, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
     ruby-progressbar (1.13.0)
     sequel (5.79.0)
       bigdecimal
@@ -195,7 +201,7 @@ GEM
       thor (~> 1.0)
       tilt (~> 2.0)
       yard (~> 0.9, >= 0.9.24)
-    streamlined (0.3.1)
+    streamlined (0.4.0)
       serbea (>= 2.1)
       zeitwerk (~> 2.5)
     stripe (10.14.0)
@@ -222,6 +228,7 @@ DEPENDENCIES
   mail (= 2.8)
   puma (~> 6.4)
   roda-turbo
+  rubocop-bridgetown (~> 0.4)
   solargraph (~> 0.50)
   stripe (~> 10.3)
 
