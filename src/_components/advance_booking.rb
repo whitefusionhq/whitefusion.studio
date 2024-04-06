@@ -14,13 +14,13 @@ class AdvanceBooking < Bridgetown::Component
       <p>
         <sl-radio-group name="session_type" label="#{text -> { @label }}">
           <sl-radio-button value="free">
-            <ui-label>#{text -> { slotted :free }}</ui-label>
+            <ui-label>#{text :free, -> { slotted }}</ui-label>
           </sl-radio-button>
           <sl-radio-button value="hour">
-            <ui-label>#{text -> { slotted :double }}</ui-label>
+            <ui-label>#{text :double, -> { slotted }}</ui-label>
           </sl-radio-button>
           <sl-radio-button value="morning" checked>
-            <ui-label>#{text -> { slotted :day }}</ui-label>
+            <ui-label>#{text :day, -> { slotted }}</ui-label>
           </sl-radio-button>
         </sl-radio-group>
         #{html -> { radio_group_styles }}
@@ -39,8 +39,8 @@ class AdvanceBooking < Bridgetown::Component
         <sl-select hidden name="free_date" placeholder="#{text -> { @placeholder }}">
           #{ html_map(free_dates) do |date|
             <<~HTML
-              <sl-option value="#{text -> { date.to_s.tr " ", "_" }}">
-                #{text -> { date.strftime date_display_format }}
+              <sl-option value="#{text date.to_s, -> { tr " ", "_" }}">
+                #{text date, -> { format_date }}
                 #{html -> { option_icons }}
               </sl-option>
             HTML
@@ -50,7 +50,7 @@ class AdvanceBooking < Bridgetown::Component
         <sl-select hidden name="morning_date" placeholder="#{text -> { @placeholder }}">
           #{ html_map(morning_dates) do |date|
             <<~HTML
-              <sl-option value="#{text -> { date.to_s.tr " ", "_" }}">
+              <sl-option value="#{text date.to_s, -> { tr " ", "_" }}">
                 #{text -> { date.strftime date_display_format }}
                 #{html -> { option_icons }}
               </sl-option>
@@ -61,7 +61,7 @@ class AdvanceBooking < Bridgetown::Component
         <sl-select hidden name="hour_date" placeholder="#{text -> { @placeholder }}">
           #{ html_map(hour_dates) do |date|
             <<~HTML
-              <sl-option value="#{text -> { date.to_s.tr " ", "_" }}">
+              <sl-option value="#{text date.to_s, -> { tr " ", "_" }}">
                 #{text -> { date.strftime date_display_format }}
                 #{html -> { option_icons }}
               </sl-option>
@@ -115,6 +115,8 @@ class AdvanceBooking < Bridgetown::Component
   HTML
 
   def date_display_format = "%A, %B %-d, %Y @ %-I:%M %p"
+
+  def format_date(date) = date.strftime(date_display_format)
 
   def make_schedule = IceCube::Schedule.new
 

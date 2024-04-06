@@ -5,8 +5,8 @@ class AdvanceBookingNojs < AdvanceBooking
         <option value="">#{text @placeholder}</option>
         #{ html_map free_dates do |date|
           <<~HTML
-            <option value="#{text -> { date.to_s.tr " ", "_" }}">
-              #{text -> { date.strftime date_display_format }}
+            <option value="#{text date.to_s, -> { tr " ", "_" }}">
+              #{text date, -> { format_date }}
             </option>
           HTML
         end}

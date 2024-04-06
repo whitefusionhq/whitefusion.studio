@@ -1,9 +1,3 @@
-# module CheckStreamlined
-#   def self.===(other)
-#     other.is_a?(Proc) && other.touched
-#   end
-# end
-
 Bridgetown.configure do |_config|
   permalink "pretty"
   timezone "America/Los_Angeles"
@@ -11,7 +5,7 @@ Bridgetown.configure do |_config|
   init :dotenv
   init :"bridgetown-routes"
 
-  init :"roda-turbo"
+  init :"roda-turbo" # TODO: remove in favor of Swup & Simpatico
   init :ice_cube
   init :stripe, api_key: ENV.fetch("STRIPE_API_KEY", nil)
 
