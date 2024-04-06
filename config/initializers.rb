@@ -17,14 +17,14 @@ Bridgetown.configure do |_config|
     end
 
     roda do |app|
-      app.opts[:invoking_content_type] = "text/vnd.invoking.html"
+      app.opts[:invocably_content_type] = "text/vnd.invocably.html"
       Roda::RodaRequest.include(Module.new do
-        def invoking?
-          (env["HTTP_ACCEPT"] || []).include?(roda_class.opts[:invoking_content_type])
+        def invocably?
+          (env["HTTP_ACCEPT"] || []).include?(roda_class.opts[:invocably_content_type])
         end
 
-        def respond_invoking
-          response["Content-Type"] = roda_class.opts[:invoking_content_type]
+        def respond_invocably
+          response["Content-Type"] = roda_class.opts[:invocably_content_type]
           yield
         end
       end)

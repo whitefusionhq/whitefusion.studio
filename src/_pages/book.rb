@@ -6,7 +6,8 @@ end
 ###
 
 html -> { <<~HTML # rubocop:todo Metrics
-  <invoking-form>
+  <iv-fetch id="signed" href="/signed-booking"></iv-fetch>
+  <iv-form>
   <form action="/submit-booking/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" data-turbo="false">
     <p class="lead" style="text-align:center">
       Select a time you'd like to schedule for your session.
@@ -57,7 +58,7 @@ html -> { <<~HTML # rubocop:todo Metrics
       </p>
     </un-scripted>
   </form>
-  </invoking-form>
+  </iv-form>
 
   <script type="module">
     const group = document.querySelector("sl-radio-group[name='session_type']")

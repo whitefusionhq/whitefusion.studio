@@ -19,13 +19,13 @@ r.post do # rubocop:disable Metrics/BlockLength
 
   if submitted_date.to_s.empty?
     error_message = -> { "Please select a suitable time for your session." }
-    unless r.invoking?
+    unless r.invocably?
       book_page = bridgetown_site.collections.pages.resources.find { _1.relative_url == "/book/" }
       book_page.data.errors = html -> { %(<p>#{text error_message}</p>) }
       next book_page
     end
 
-    next r.respond_invoking do
+    next r.respond_invocably do
       html -> { <<~HTML
         <form-errors>
           <p data-function="replaceChildren">#{text error_message}</p>
@@ -69,9 +69,9 @@ r.post do # rubocop:disable Metrics/BlockLength
 
   session = Stripe::Checkout::Session.create(payload)
 
-  next r.redirect(session.url) unless r.invoking? # TODO: currently the form doesn't support this
+  next r.redirect(session.url) unless r.invocably? # TODO: currently the form doesn't support this
 
-  r.respond_invoking do
+  r.respond_invocably do
     html -> { <<~HTML
       <checkout-action>
         <p data-function="replaceChildren">

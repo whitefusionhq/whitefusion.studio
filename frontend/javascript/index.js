@@ -21,7 +21,7 @@ import "turbo-shadow"
 // Import all JavaScript & CSS files from src/_components
 import components from "$components/**/*.{js,jsx,js.rb,css}"
 
-import "./invoking.js"
+import "./invocably.js"
 
 /* *** Nav Bar Setup *** */
 
