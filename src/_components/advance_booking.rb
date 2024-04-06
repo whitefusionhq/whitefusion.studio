@@ -9,11 +9,110 @@ class AdvanceBooking < Bridgetown::Component
     @until = 6.weeks.from_now
   end
 
-  def option_icons = html -> { <<~HTML
-    <sl-icon slot="prefix" name="calendar2-week-fill" style="color: var(--primary-color")></sl-icon>
+  def template # rubocop:disable Metrics
+    <<~HTML
+      <p>
+        <sl-radio-group name="session_type" label="#{text -> { @label }}">
+          <sl-radio-button value="free">
+            <ui-label>#{text -> { slotted :free }}</ui-label>
+          </sl-radio-button>
+          <sl-radio-button value="hour">
+            <ui-label>#{text -> { slotted :double }}</ui-label>
+          </sl-radio-button>
+          <sl-radio-button value="morning" checked>
+            <ui-label>#{text -> { slotted :day }}</ui-label>
+          </sl-radio-button>
+        </sl-radio-group>
+        #{html -> { radio_group_styles }}
+        <script type="module">
+          const group = document.querySelector("sl-radio-group[name='session_type']")
+          group.addEventListener("sl-change", () => {
+            group.closest("form").querySelectorAll("sl-select").forEach(item => item.hidden = true)
+            document.querySelector(`[name="${group.value}_date"]`).hidden = false
+          })
+        </script>
+      </p>
+
+      #{html -> { content }}
+
+      <p>
+        <sl-select hidden name="free_date" placeholder="#{text -> { @placeholder }}">
+          #{ html_map(free_dates) do |date|
+            <<~HTML
+              <sl-option value="#{text -> { date.to_s.tr " ", "_" }}">
+                #{text -> { date.strftime date_display_format }}
+                #{html -> { option_icons }}
+              </sl-option>
+            HTML
+          end }
+        </sl-select>
+
+        <sl-select hidden name="morning_date" placeholder="#{text -> { @placeholder }}">
+          #{ html_map(morning_dates) do |date|
+            <<~HTML
+              <sl-option value="#{text -> { date.to_s.tr " ", "_" }}">
+                #{text -> { date.strftime date_display_format }}
+                #{html -> { option_icons }}
+              </sl-option>
+            HTML
+          end }
+        </sl-select>
+
+        <sl-select hidden name="hour_date" placeholder="#{text -> { @placeholder }}">
+          #{ html_map(hour_dates) do |date|
+            <<~HTML
+              <sl-option value="#{text -> { date.to_s.tr " ", "_" }}">
+                #{text -> { date.strftime date_display_format }}
+                #{html -> { option_icons }}
+              </sl-option>
+            HTML
+          end }
+        </sl-select>
+      </p>
+    HTML
+  end
+
+  def radio_group_styles = <<~HTML
+    <style>
+      @media (max-width: 767px) {
+        sl-radio-group[name='session_type'] {
+          &::part(button-group) {
+            width: 100%;
+          }
+          &::part(button-group__base) {
+            display: grid;
+          }
+
+          & sl-radio-button {
+            margin-inline-start: 0;
+
+            &:not(:first-child)::part(button) {
+              border-top: 0;
+            }
+
+            &::part(button) {
+              border-radius: 0px;
+            }
+
+            &:first-child::part(button) {
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+            }
+
+            &:last-child::part(button) {
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+            }
+          }
+        }
+      }
+    </style>
+  HTML
+
+  def option_icons = <<~HTML
+    <sl-icon slot="prefix" name="calendar2-week-fill" style="color: var(--primary-color)"></sl-icon>
     <sl-icon slot="suffix" name="clock-fill" style="color: var(--primary-faded-color)"></sl-icon>
   HTML
-  }
 
   def date_display_format = "%A, %B %-d, %Y @ %-I:%M %p"
 
