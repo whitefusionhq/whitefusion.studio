@@ -8,7 +8,7 @@ end
 html -> { <<~HTML # rubocop:todo Metrics
   <iv-fetch id="signed" href="/signed-booking"></iv-fetch>
   <iv-form>
-  <form action="/submit-booking/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto" data-turbo="false">
+  <form action="/submit-booking/" method="post" style="min-height: 80vh; max-width: 70ch; margin-inline: auto">
     <p class="lead" style="text-align:center">
       Select a time you'd like to schedule for your session.
     </p>

@@ -32,8 +32,6 @@ export class InvocableElement extends HTMLElement {
   }
 }
 
-
-
 window.InvocablyFunctions = {
   /**
    * 
@@ -118,10 +116,12 @@ window.ProcessInvocables = (html, host = document) => {
 
 class InvocablyFetch extends InvocableElement {
   static {
-    customElements.define("iv-fetch", this)
+    this.define("iv-fetch")
   }
+
   async connectedCallback() {
     super.connectedCallback()
+
     const url = this.getAttribute("href")
     const /** @type {RequestInit} */ options = {}
 //    options.method = form.method
@@ -144,47 +144,54 @@ class InvocablyFetch extends InvocableElement {
   }
 }
 
-class InvocablyForm extends HTMLElement {
+class InvocablyForm extends InvocableElement {
   static {
-    customElements.define("iv-form", this)
+    this.define("iv-form")
+  }
+
+  async handleFormSubmit(event) {
+    const form = event.target
+    const submitButton = form.querySelector(":is(sl-button, button)[type=submit]")
+    event.preventDefault()
+    submitButton.loading = true
+    document.querySelectorAll("[data-empty-on-submit]").forEach(item => item.replaceChildren())
+
+    const url = form.action
+    const /** @type {RequestInit} */ options = {}
+    options.body = new FormData(form)
+    options.method = form.method
+    options.headers = {"Accept": "text/vnd.invocably.html"}
+    options.credentials = "same-origin"
+
+    try {
+      const results = await fetch(url, {...options})
+      if (results.status < 500) {
+        if (results.redirected) {
+          location.href = results.url
+          return
+        }
+        const html = await results.text()
+        ProcessInvocables(html)
+      } else {
+        console.warn("Whoopsie!")
+      }
+    } catch(err) {
+      console.warn(err)
+    }
+
+    submitButton.loading = false
   }
 
   connectedCallback() {
-    setTimeout(() => {
-      const form = this.querySelector(":scope > form")
-      const submitButton = form.querySelector(":is(sl-button, button)[type=submit]")
+    super.connectedCallback()
 
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault()
-        submitButton.loading = true
-        document.querySelectorAll("[data-empty-on-submit]").forEach(item => item.replaceChildren())
+    this.addEventListener("submit", this.handleFormSubmit)
+  }
 
-        const url = form.action
-        const /** @type {RequestInit} */ options = {}
-        options.body = new FormData(form)
-        options.method = form.method
-        options.headers = {"Accept": "text/vnd.invocably.html"}
-        options.credentials = "same-origin"
+  disconnectedCallback() {
+    super.disconnectedCallback()
 
-        try {
-          const results = await fetch(url, {...options})
-          if (results.status < 500) {
-            if (results.redirected) {
-              location.href = results.url
-              return
-            }
-            const html = await results.text()
-            ProcessInvocables(html)
-          } else {
-            console.warn("Whoopsie!")
-          }
-        } catch(err) {
-          console.warn(err)
-        }
-
-        submitButton.loading = false
-      })
-    })
+    this.removeEventListener("submit", this.handleFormSubmit)
   }
 }
 

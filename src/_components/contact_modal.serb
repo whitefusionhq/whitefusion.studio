@@ -1,44 +1,44 @@
 {% modal = capture do %}
-  {% if @step == 1 %}
-    <p>Fill in your email address, add a Toot-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
+  <iv-form id="model-forms">
+    {% if @step == 1 %}
+      <p data-function="replaceChildren">Fill in your email address, add a Toot-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
 
-    <form action="/contact-form/" method="post">
-      <p>
-        <sl-input required type="email" name="email" label="Email Address"></sl-input>
-      </p>
+      <form data-function="append" action="/contact-form/" method="post">
+        <p>
+          <sl-input required type="email" name="email" label="Email Address"></sl-input>
+        </p>
 
-      <p>
-        <sl-textarea name="message" required rows="2" label="Project Summary"></sl-textarea>
-      </p>
+        <p>
+          <sl-textarea name="message" required rows="2" label="Project Summary"></sl-textarea>
+        </p>
 
-      <p>
         {{ bot_check | safe }}
-      </p>
 
-      <p style="text-align:center">
-        <sl-button variant="success" type="submit" pill>
-          <sl-icon slot="suffix" name="envelope-fill" style="margin-top:-2px; margin-left:-2px"></sl-icon>
-          Booyeah!
-        </sl-button>
-      </p>
-    </form>
-  {% else %}
-    <p>Awesome sauce! We’ll respond to your email shortly.</p>
+        <p style="text-align:center">
+          <sl-button variant="success" type="submit" pill>
+            <sl-icon slot="suffix" name="envelope-fill" style="margin-top:-2px; margin-left:-2px"></sl-icon>
+            Booyeah!
+          </sl-button>
+        </p>
+      </form>
+    {% else %}
+      <p data-function="replaceChildren">Awesome sauce! We’ll respond to your email shortly.</p>
 
-    <p>In the meantime, you can <strong>follow us on <a href="https://intuitivefuture.com/@whitefusion" target="_blank"><sl-icon name="mastodon"></sl-icon>Mastodon</a></strong>, or go bake a lasagna. (Not sure what that has to do with anything. I just like lasagna. 😄)</p>
+      <p data-function="append">In the meantime, you can <strong>follow us on <a href="https://intuitivefuture.com/@whitefusion" target="_blank"><sl-icon name="mastodon"></sl-icon>Mastodon</a></strong>, or go bake a lasagna. (Not sure what that has to do with anything. I just like lasagna. 😄)</p>
 
-    <form action="/contact-form/reset/" method="post">
-      <p style="text-align:center">
-        <sl-button variant="primary" type="submit" pill onclick='
-          const dialog = this.closest("sl-dialog")
-          dialog.hide()
-        '>
-          <sl-icon slot="suffix" name="x" style="top:-1px;left:-2px"></sl-icon>
-          Close
-        </sl-button>
-      </p>
-    </form>
-  {% end %}
+      <form data-function="append" action="/contact-form/reset/" method="post">
+        <p style="text-align:center">
+          <sl-button variant="primary" type="submit" pill onclick='
+            const dialog = this.closest("sl-dialog")
+            dialog.hide()
+          '>
+            <sl-icon slot="suffix" name="x" style="top:-1px;left:-2px"></sl-icon>
+            Close
+          </sl-button>
+        </p>
+      </form>
+    {% end %}
+  </iv-form>
 {% end %}
 
 {% if @step == 1 %}

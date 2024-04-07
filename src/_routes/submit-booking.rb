@@ -15,7 +15,7 @@ r.post do # rubocop:disable Metrics/BlockLength
       nil
     end
 
-  puts r.params
+  # puts r.params
 
   if submitted_date.to_s.empty?
     error_message = -> { "Please select a suitable time for your session." }

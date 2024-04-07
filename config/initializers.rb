@@ -5,32 +5,24 @@ Bridgetown.configure do |_config|
   init :dotenv
   init :"bridgetown-routes"
 
-  init :"roda-turbo" # TODO: remove in favor of Swup & Simpatico
   init :ice_cube
   init :stripe, api_key: ENV.fetch("STRIPE_API_KEY", nil)
 
-  database_uri ENV.fetch("DATABASE_URL", "postgres://localhost/whitefusion_studio_#{Bridgetown.env}")
+  database_uri ENV.fetch(
+    "DATABASE_URL", "postgres://localhost/whitefusion_studio_#{Bridgetown.env}"
+  )
 
   except :sequel_tasks do
     init :bridgetown_sequel do
       connection_options do
-        if RUBY_PLATFORM.include?("darwin")
-          driver_options { gssencmode "disable" }
-        end
+        driver_options { gssencmode "disable" } if RUBY_PLATFORM.include?("darwin")
       end
     end
   end
 
   init :lifeform
   init :authtown do
-    rodauth_config -> {
-      before_create_account do
-        # Make sure timestamps get saved
-        account[:created_at] = account[:updated_at] = Time.now
-
-        account[:name] = param(:name)
-      end
-    }
+    user_name_field :name
   end
 
   only :server do
@@ -42,6 +34,7 @@ Bridgetown.configure do |_config|
 
     roda do |app|
       app.opts[:invocably_content_type] = "text/vnd.invocably.html"
+
       Roda::RodaRequest.include(Module.new do
         def invocably?
           (env["HTTP_ACCEPT"] || []).include?(roda_class.opts[:invocably_content_type])

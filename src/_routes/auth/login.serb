@@ -13,7 +13,7 @@ end
 
 <article>
 <iv-form>
-  {%= render Forms::Account.new(id: "login-form", url: rodauth.login_path, style: "max-width: 36ch; margin-inline: auto", data_turbo: false) do |f| %}
+  {%= render Forms::Account.new(id: "login-form", url: rodauth.login_path, style: "max-width: 36ch; margin-inline: auto") do |f| %}
     <form-errors>
       <p data-function="replaceChildren" aria-live="assertive">
         {% if flash[:error] %}

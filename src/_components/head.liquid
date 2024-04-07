@@ -7,13 +7,12 @@
 <title>{% if page_title != "Index" %}{{ page_title | escape }} | {{ metadata.title | escape }}{% else %}{{ metadata.title | escape }}: {{ metadata.tagline | escape }}{% endif %}</title>
 
 <meta name="description" content="{{ metadata.description }}" />
-<meta name="turbo-cache-control" content="no-cache" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 <link rel="stylesheet" href="{% asset_path css %}" />
-<script src="{% asset_path js %}" defer></script>
+<script src="{% asset_path js %}" type="module"></script>
 {% if env == "production" %}
 <script defer data-domain="whitefusion.studio" src="https://plausible.io/js/script.js"></script>
 {% endif %}

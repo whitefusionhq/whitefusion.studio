@@ -40,7 +40,7 @@ Here's how we build websites and web applications in 2021.
 
   For example, HTML provides a `<textarea>` tag. But anyone could write their own `<fancy-textarea>` tag which uses either `<textarea>` under the hood or offers a bespoke editor built out of other HTML/CSS/JavaScript primitives. To you, the downstream HTML author, it doesn’t matter. Use `<textarea>` or `<fancy-textarea>` or `<super-dee-dooper-textarea>` because of the capability each component affords, not because of its implementation details.
 
-  Some legacy JavaScript component libraries such as **React** have struggled to fully embrace and encorporate web components. ::That's on them, not a knock against the web components spec.:: We choose to utilize newer, lightweight libraries which take full advantage of web components—most notably [Lit](https://lit.dev){:target="_blank"}, as well as [Hotwire Turbo](https://turbo.hotwired.dev){:target="_blank"} and the upcoming [CableReady 5](https://cableready.stimulusreflex.com/v/v5/){:target="_blank"}.
+  Some legacy JavaScript component libraries such as **React** have struggled to fully embrace and encorporate web components. ::That's on them, not a knock against the web components spec.:: We choose to utilize newer, lightweight libraries which take full advantage of web components and well as other modern patterns such as signals.
 
   We sometimes may opt to write frontend code in a Ruby-derived syntax with 1:1 transpilation provided by [Ruby2JS](https://www.ruby2js.com){:target="_blank"}. Because there’s no runtime required, the output JavaScript looks much the same as if we hand-coded it ourselves. Pretty neat! (See our [Tech Specs](/tech/) page for further details.)
 </details>

@@ -18,8 +18,6 @@
     "postcss-preset-env": "^7.7.2"
   },
   "dependencies": {
-    "@hotwired/turbo": "^7.2.0",
-    "@shoelace-style/shoelace": "^2.15.0",
-    "turbo-shadow": "^1.2.0"
+    "@shoelace-style/shoelace": "^2.15.0"
   }
 }

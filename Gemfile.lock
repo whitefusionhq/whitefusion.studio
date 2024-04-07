@@ -40,6 +40,15 @@ GIT
       bridgetown-core (= 1.3.4)
       roda-route_list (>= 2.1)
 
+PATH
+  remote: ../authtown
+  specs:
+    authtown (0.2.0)
+      bcrypt (>= 3.1)
+      bridgetown (>= 1.3.0, < 2.0)
+      mail (>= 2.8)
+      rodauth (>= 2.30)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -59,11 +68,6 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     amazing_print (1.6.0)
     ast (2.4.2)
-    authtown (0.2.0)
-      bcrypt (>= 3.1)
-      bridgetown (>= 1.3.0, < 2.0)
-      mail (>= 2.8)
-      rodauth (>= 2.30)
     backport (1.2.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
@@ -159,8 +163,6 @@ GEM
       rack
     roda-route_list (2.1.0)
       roda
-    roda-turbo (1.0.0)
-      roda (~> 3.50)
     rodauth (2.34.0)
       roda (>= 2.6.0)
       sequel (>= 4)
@@ -226,7 +228,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  authtown (~> 0.2)
+  authtown (~> 0.2)!
   bridgetown (~> 1.3)!
   bridgetown-routes (~> 1.3)!
   bridgetown_sequel (~> 1.1)
@@ -236,7 +238,6 @@ DEPENDENCIES
   mail (= 2.8)
   pg (~> 1.5)
   puma (~> 6.4)
-  roda-turbo
   rubocop-bridgetown (~> 0.4)
   solargraph (~> 0.50)
   stripe (~> 10.3)

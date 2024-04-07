@@ -33,6 +33,7 @@ Sequel.migration do
   end
 
   def down
+    # not really sure why this didn't seem to be working
     drop_table :account_password_reset_keys, :account_remember_keys, :user
   end
 end
