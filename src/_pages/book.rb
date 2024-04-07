@@ -54,7 +54,7 @@ html -> { <<~HTML # rubocop:todo Metrics
         #{render AdvanceBookingNojs.new(blocked_dates: site.data.blocked_dates.dates, label: "", placeholder: "Choose an available time…")}
       </p>
       <p>
-        <button style="font: inherit; font-weight: bold">Let's Go!</button>
+        <button>Let's Go!</button>
       </p>
     </un-scripted>
   </form>

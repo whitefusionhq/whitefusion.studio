@@ -35,9 +35,23 @@ r.post do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  r.session[:submitted_date] = submitted_date
+  response.set_cookie :submitted_date, value: submitted_date, expires: Time.now + (60 * 60)
+  response.set_cookie :session_type, value: session_type, expires: Time.now + (60 * 60)
 
-  next r.redirect("/auth/signup") if session_type == "free"
+  if session_type == "free"
+    redirect_url = rodauth.logged_in? ? "/account/profile" : "/auth/create-account"
+    next r.redirect(redirect_url) unless r.invocably?
+
+    next html -> { <<~HTML
+      <checkout-action>
+        <p data-function="replaceChildren">
+          <strong>Awesome!</strong> Continuing on…
+        </p>
+        <redirect-to data-function="append" href="#{text -> { redirect_url }}" delay="1000"></redirect-to>
+      </checkout-action>
+    HTML
+    }
+  end
 
   (session_type == "morning" ? r.params[:morning_date] : r.params[:hour_date]).then do
     real_time = _1.tr("_", " ")

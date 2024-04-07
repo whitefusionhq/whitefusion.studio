@@ -20,3 +20,7 @@ gem "ice_cube", "~> 0.16"
 gem "lifeform", "~> 0.14"
 gem "mail", "= 2.8"
 gem "stripe", "~> 10.3"
+
+gem "pg", "~> 1.5"
+
+gem "bridgetown_sequel", "~> 1.1"

@@ -1,0 +1,59 @@
+~~~{%
+rodauth.require_authentication
+title = "Your Account"
+layout = :page
+
+if r.cookies[:submitted_date]
+  submitted_date = Time.parse r.cookies[:submitted_date].tr("_", " ")
+
+  current_user.add_appointment appointment_time: submitted_date, purpose: r.cookies[:session_type]
+  response.delete_cookie :submitted_date
+  response.delete_cookie :session_type
+end
+
+appointments = current_user.appointments
+
+render_with {}
+%}~~~
+
+{% if flash[:error] || flash[:alert] %}
+<form-errors>
+  <p>
+    {%= flash[:error] || flash[:alert] %}
+    <br/>
+    {% if rodauth.field_error(rodauth.login_param) %}
+      {%= rodauth.field_error(rodauth.login_param) %}
+    {% end %}
+    {% if rodauth.field_error(rodauth.password_param) %}
+      {%= rodauth.field_error(rodauth.password_param) %}
+    {% end %}
+  </p>
+</form-errors>
+{% end %}
+
+{%= markdownify do %}
+
+Hello **{%= current_user.name %}**.
+
+{% unless data.appointments.empty? %}
+
+  You have {%= data.appointments.length > 1 ? "some" : "an" %} upcoming appointment{%= data.appointments.length > 1 ? "s" : "" %} scheduled.
+  {% data.appointments.each do |appointment| %}
+  * {{ appointment | appointment_time | strftime: "%B %-d, %Y @ %-I:%M %p Pacific Time" }}
+  {% end %}
+
+{% else %}
+
+It looks like you don't have any upcoming appointments. Would you like to book a new session?
+
+{% end %}
+
+{% end %}
+
+<hr />
+
+<form method="post" action="{{ rodauth.logout_path }}" style="margin-block-start: var(--block-spacing-vertical)">
+  {%= csrf_tag(rodauth.logout_path) %}
+  <p>You’re logged in as: <strong>{%= current_user.email %}</strong>.</p>
+  <sl-button variant="primary" size="small" type="submit">{{ rodauth.logout_button }}</sl-button>
+</form>

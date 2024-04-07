@@ -28,7 +28,7 @@ sl-dialog::part(title) {
 sl-input[size="medium"], sl-textarea[size="medium"] {
   --sl-input-font-size-medium: var(--sl-font-size-small);
 
-  @media (--sl-breakpoint-xs) {
+  @media (--wf-breakpoint-xs) {
     /* ensure no weird zoom on mobile focus */
     --sl-input-font-size-medium: 16px;
   }
@@ -42,4 +42,15 @@ p a sl-icon {
 
 sl-dialog p {
   margin: 0 0 var(--sl-font-size-medium);
+}
+
+sl-option {
+  &::part(base) {
+    gap: .5em;
+  }
+
+  &::part(checked-icon) {
+    padding-inline-end: 0;
+    margin-inline-end: -.85em;
+  }
 }

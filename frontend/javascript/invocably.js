@@ -1,4 +1,4 @@
-class InvocableElement extends HTMLElement {
+export class InvocableElement extends HTMLElement {
   static define(name) {
     customElements.define(name, this)
   }
@@ -13,6 +13,8 @@ class InvocableElement extends HTMLElement {
         const invokeName = element.dataset.function
         if (InvocablyFunctions[invokeName]) {
           InvocablyFunctions[invokeName](el, element)
+        } else {
+          console.warn("Couldn't find Invocably function:", invokeName, element)
         }
         element.removeAttribute("data-function")
       }
@@ -30,20 +32,50 @@ class InvocableElement extends HTMLElement {
   }
 }
 
-class FormErrors extends InvocableElement {}
-class CheckoutAction extends InvocableElement {}
-FormErrors.define("form-errors")
-CheckoutAction.define("checkout-action")
+
 
 window.InvocablyFunctions = {
+  /**
+   * 
+   * @param {Element} host 
+   * @param {Element} element 
+   */
   append(host, element) {
     host.append(element)
   },
+  /**
+   * 
+   * @param {Element} host 
+   * @param {Element} element 
+   */
   prepend(host, element) {
     host.prepend(element)
   },
+  /**
+   * 
+   * @param {Element} host 
+   * @param {Element} element 
+   */
   replaceChildren(host, element) {
     host.replaceChildren(element)
+  },
+  /**
+   * 
+   * @param {Element} host 
+   * @param {Element} element 
+   */
+  aria(host, element) {
+    const actingElement = element.dataset.actingSelector ? host.querySelector(element.dataset.actingSelector) : host
+    for (const attr of actingElement.attributes) {
+      if (attr.name === "role" || attr.name.startsWith("aria-")) {
+        actingElement.removeAttribute(attr.name)
+      }
+    }
+    for (const attr of element.attributes) {
+      if (attr.name === "role" || attr.name.startsWith("aria-")) {
+        actingElement.setAttribute(attr.name, attr.value)
+      }
+    }
   }
 }
 
@@ -66,6 +98,7 @@ window.ProcessInvocables = (html, host = document) => {
     let existingSelector = element.parentElement.localName
     if (element.parentElement.id) existingSelector = `${existingSelector}#${element.parentElement.id}`
     if (element.parentElement.dataset.selector) existingSelector = `${existingSelector}:is(${element.parentElement.dataset.selector})`
+    if (element.dataset.parentSelector) existingSelector = `${existingSelector}:is(${element.dataset.parentSelector})`
 
     // Find by selector
     const existingNodes = element.parentElement.dataset.selectAll ? host.querySelectorAll(existingSelector) : [host.querySelector(existingSelector)]
@@ -93,6 +126,7 @@ class InvocablyFetch extends InvocableElement {
     const /** @type {RequestInit} */ options = {}
 //    options.method = form.method
     options.headers = {"Accept": "text/vnd.invocably.html"}
+    options.credentials = "same-origin"
 
     try {
       const results = await fetch(url, {...options})
@@ -130,6 +164,7 @@ class InvocablyForm extends HTMLElement {
         options.body = new FormData(form)
         options.method = form.method
         options.headers = {"Accept": "text/vnd.invocably.html"}
+        options.credentials = "same-origin"
 
         try {
           const results = await fetch(url, {...options})
@@ -140,6 +175,8 @@ class InvocablyForm extends HTMLElement {
             }
             const html = await results.text()
             ProcessInvocables(html)
+          } else {
+            console.warn("Whoopsie!")
           }
         } catch(err) {
           console.warn(err)

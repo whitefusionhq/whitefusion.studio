@@ -21,15 +21,24 @@ import "turbo-shadow"
 // Import all JavaScript & CSS files from src/_components
 import components from "$components/**/*.{js,jsx,js.rb,css}"
 
-import "./invocably.js"
+import { InvocableElement } from "./invocably.js"
+class FormErrors extends InvocableElement {
+  static { this.define("form-errors") }
+}
+class CheckoutAction extends InvocableElement {
+  static { this.define("checkout-action") }
+}
+class FormField extends InvocableElement {
+  static { this.define("form-field") }
+}
 
 /* *** Nav Bar Setup *** */
 
 const navBarQuery = (selector) => document.querySelector(`#nav-bar ${selector}`)
 
 document.addEventListener("turbo:load", () => {
-  if (navBarQuery("sl-bar").getAttribute("expanded") == "true") {
-    navBarQuery("sl-bar").setAttribute("expanded", "false")
+  if (navBarQuery("wf-bar").getAttribute("expanded") == "true") {
+    navBarQuery("wf-bar").setAttribute("expanded", "false")
     navBarQuery('sl-icon[name="x"]').setAttribute("name", "list")
   }
 
@@ -49,7 +58,7 @@ document.addEventListener("turbo:load", () => {
 window.addEventListener("DOMContentLoaded", () => {
   navBarQuery("sl-button[menutoggle]").addEventListener("click", (event) => {
     const toggle = event.target
-    const bar = toggle.closest("sl-bar")
+    const bar = toggle.closest("wf-bar")
     if (bar.getAttribute("expanded") == "false") {
       bar.setAttribute("expanded", "true")
       toggle.querySelector("sl-icon").setAttribute("name", "x")

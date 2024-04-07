@@ -1,8 +1,9 @@
 /* Import the base Shoelace stylesheet: */
 @import "@shoelace-style/shoelace/dist/themes/light.css";
 
-@import "fonts.css";
-@import "bar.css";
+@import "../fonts/NunitoSans.css";
+@import "variables.css";
 @import "global.css";
 @import "shoelace_customizations.css";
-@import "blocks";
+@import "navbar.css";
+@import "content.css";

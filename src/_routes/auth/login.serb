@@ -1,0 +1,67 @@
+---{%
+render_with do
+  layout :page
+  title "Access Your Account"
+end
+%}---
+
+{% if current_user %}
+  <p style="text-align:center">
+    It looks like you're already signed in. Would you like to <a href="/account/profile">view your profile?</a>
+  </p>
+{% end %}
+
+<article>
+<iv-form>
+  {%= render Forms::Account.new(id: "login-form", url: rodauth.login_path, style: "max-width: 36ch; margin-inline: auto", data_turbo: false) do |f| %}
+    <form-errors>
+      <p data-function="replaceChildren" aria-live="assertive">
+        {% if flash[:error] %}
+          {%= flash[:error] %}:
+          <br/>
+          <small>
+            {% if rodauth.field_error(rodauth.login_param) %}
+              {%= rodauth.field_error(rodauth.login_param) %}
+            {% end %}
+            {% if rodauth.field_error(rodauth.password_param) %}
+              {%= rodauth.field_error(rodauth.password_param) %}
+            {% end %}
+          </small>
+        {% end %}
+      </p>
+    </form-errors>
+
+    {%=
+      render f.field(
+        rodauth.login_param,
+        value: r.params[rodauth.login_param],
+        aria: { invalid: rodauth.field_error(rodauth.login_param) },
+        data_function: :aria,
+        data_parent_selector: "[name=#{rodauth.login_param}]",
+        data_acting_selector: "input"
+      )
+    %}
+    {%=
+      render f.field(
+        rodauth.password_param,
+        aria: { invalid: rodauth.field_error(rodauth.password_param) },
+        data_function: :aria,
+        data_parent_selector: "[name=#{rodauth.password_param}]",
+        data_acting_selector: "input"
+      ) %}
+
+    <checkout-action>
+      <sl-button type="submit" variant="primary">Sign In</sl-button>
+    </checkout-action>
+    <un-scripted>
+      {%@ f.field :submit %}
+    </un-scripted>
+
+    <p>Need to reset password? <a href="{%= rodauth.reset_password_request_path %}">Could be ➞</a></p>
+
+    <hr />
+
+    <p>Don't have an account yet? <a href="{%= rodauth.create_account_path %}">Sign up today!</a></p>
+  {% end %}
+</iv-form>
+</article>
