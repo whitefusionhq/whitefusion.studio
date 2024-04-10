@@ -34,6 +34,7 @@ Bridgetown.configure do |_config|
 
     roda do |app|
       app.opts[:invocably_content_type] = "text/vnd.invocably.html"
+      app.plugin :cookies, secure: true
 
       Roda::RodaRequest.include(Module.new do
         def invocably?
