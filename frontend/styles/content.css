@@ -5,6 +5,11 @@ main {
 body.page > main {
   /* border-top: 1px solid var(--alternate-transparent-color); */
   box-shadow: inset 4px 4px 4px var(--heading-shadow);
+  padding-inline: clamp(0rem, 2vw, var(--sl-spacing-medium));
+
+  @media (--nav-fullsize) {
+    padding-inline: clamp(var(--sl-spacing-medium), 4vw, var(--sl-spacing-2x-large));
+  }
 }
 
 main-content {

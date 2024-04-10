@@ -2,10 +2,10 @@ body > nav {
   background: var(--alternate-dark-color);
   background: radial-gradient(color-mix(in srgb, var(--alternate-color), var(--alternate-dark-color) 40%) 15%, var(--alternate-dark-color) 100%);
   color: white;
-  padding: var(--sl-spacing-x-large) 0;
+  padding-block: var(--sl-spacing-x-large);
 
   @media (--nav-minimal) {
-    padding: var(--sl-spacing-small) 0;
+    padding-block: var(--sl-spacing-small);
   }
   
   a {
