@@ -13,9 +13,12 @@ Bridgetown.configure do |_config|
   )
 
   except :sequel_tasks do
-    init :bridgetown_sequel do
-      connection_options do
-        driver_options { gssencmode "disable" } if RUBY_PLATFORM.include?("darwin")
+    # Don't roll out to production yet!
+    if Bridgetown.env.development?
+      init :bridgetown_sequel do
+        connection_options do
+          driver_options { gssencmode "disable" } if RUBY_PLATFORM.include?("darwin")
+        end
       end
     end
   end
