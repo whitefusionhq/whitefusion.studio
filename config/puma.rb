@@ -9,6 +9,9 @@ port ENV.fetch("BRIDGETOWN_PORT") { 4000 }
 #
 if ENV["BRIDGETOWN_ENV"] == "production"
   workers ENV.fetch("BRIDGETOWN_CONCURRENCY") { 4 }
+  before_fork do
+    Bridgetown.db.disconnect if defined?(Bridgetown) && Bridgetown.respond_to?(:db)
+  end
 end
 
 max_threads_count = ENV.fetch("BRIDGETOWN_MAX_THREADS") { 5 }

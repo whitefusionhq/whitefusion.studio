@@ -1,26 +1,36 @@
 <nav aria-label="Main navigation">
-  <navbar-inner id="nav-bar" data-turbo-permanent>
-    <sl-bar align-items="center" spaced="between" expanded="false">
-      <sl-bar-item branding size="6/10 xs:2/10 sm:3/10 md:4/10 lg:5/10">
+  <navbar-inner id="nav-bar">
+    <wf-bar align-items="center" spaced="between" expanded="false">
+      <wf-bar-item branding style="flex-grow: 1">
         <a href="/">
           <img alt="Whitefusion" title="Whitefusion" src="{% datauri whitefusion-thumb.png %}" width="60" style="margin-top:4px" />
         </a>
-      </sl-bar-item>
-      <sl-bar-item mobileonly>
+      </wf-bar-item>
+      <wf-bar-item mobileonly>
         <sl-button menutoggle variant="text">
            <sl-icon slot="suffix" name="list"></sl-icon>
            Menu
         </sl-button>
-      </sl-bar-item>
-      <sl-bar-item expandable>
+      </wf-bar-item>
+      <wf-bar-item expandable>
         <a href="/tech">Tech Specs</a>
-      </sl-bar-item>
-      <sl-bar-item expandable>
+      </wf-bar-item>
+      <wf-bar-item expandable>
         <a href="/methodology">Methodology</a>
-      </sl-bar-item>
-      <sl-bar-item expandable>
+      </wf-bar-item>
+      <wf-bar-item expandable>
         <a href="/resources">Resources</a>
-      </sl-bar-item>
-    </sl-bar>
+      </wf-bar-item>
+      <!--
+        <wf-bar-item expandable>
+          <a href="/book">Book Us</a>
+        </wf-bar-item>
+        <wf-bar-item>
+          <a href="/account/profile" style="font-size: 115%">
+            <sl-icon name="person-fill" label="Your Account" style="vertical-align: -.15em"></sl-icon>
+          </a>
+        </wf-bar-item>
+      -->
+    </wf-bar>
   </navbar-inner>
 </nav>

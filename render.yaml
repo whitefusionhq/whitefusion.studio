@@ -1,3 +1,10 @@
+# rndr = YAML.safe_load_file("render.yaml")
+# static_site = rndr["services"].find { _1["env"] == "static" }
+# api_site = rndr["services"].find { _1["env"] == "ruby" }
+# api_site["name"] => "whitefusion-site-api"
+# static_site["routes"] => [{ type, source, destination }]
+#
+
 services:
   - type: web
     name: whitefusion-site
@@ -33,8 +40,14 @@ services:
         source: /contact-form/*
         destination: https://whitefusion-site-api.onrender.com/contact-form/*
       - type: rewrite
-        source: /book-session/*
-        destination: https://whitefusion-site-api.onrender.com/book-session/*
+        source: /submit-booking/*
+        destination: https://whitefusion-site-api.onrender.com/submit-booking/*
+      - type: rewrite
+        source: /auth/*
+        destination: https://whitefusion-site-api.onrender.com/auth/*
+      - type: rewrite
+        source: /account/*
+        destination: https://whitefusion-site-api.onrender.com/account/*
   - type: web
     name: whitefusion-site-api
     env: ruby

@@ -2,7 +2,10 @@
 # route: POST /contact-form/reset/
 r.post "reset" do
   sleep 1 # intentionally allow modal to close on the frontend first
-  turbo_stream.replace "contact-modal", render(ContactModal.new step: 1)
+
+  next r.respond_invocably do
+    render ContactModal.new(step: 1)  
+  end
 end
 
 # route: GET|POST /contact-form/
@@ -17,10 +20,9 @@ r.is do
   next html_message if r.params[:preview]
 
   if r.params[:bot_check] != "11" && r.params[:bot_check] != "eleven"
-    next turbo_stream.replace_all(
-      "#contact-modal sl-input[name=bot_check]",
+    next r.respond_invocably do
       ContactModal.new(step: 1).bot_check(error: true)
-    )
+    end
   end
 
   mail = Mail.deliver do
@@ -29,16 +31,18 @@ r.is do
     subject "Whitefusion Contact Form"
 
     text_part do
-      body text_message
+      body text_message.transform!.output # maybe in future it should be callable, aka text_message.()
     end
 
     html_part do
       content_type "text/html; charset=UTF-8"
-      body html_message
+      body html_message.transform!.output
     end
   end
 
-  turbo_stream.update "contact-modal", render(ContactModal.new step: 2)
+  r.respond_invocably do
+    render ContactModal.new(step: 2)
+  end
 end
 %}~~~
 

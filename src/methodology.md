@@ -4,19 +4,22 @@ title: Methodology
 ---
 
 {:.lead}
-Here's how we build websites and web applications in 2021.
+Here's how we build websites and web applications in 2024.
 {:style="text-align:center"}
+
+<p><sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Let Us Do This for You</sl-button></p>
+{: style="text-align: center"}
 
 ### HyperText Markup Language
 
 <details markdown="block">
   <summary markdown="span">
-  It's a real shame how abused and neglected **HTML** has gotten in some corners of the industry over the years. Our skin crawls at the mere hint of HTML as a low-level “machine format” never intended for reading and writing by mere mortals. So we're going to go out on a limb and declare that HTML—in all its piecemeal and compromised glory—is the greatest "semantic communication syntax” ever invented by humanity.
+  We're going to go out on a limb and declare that HTML—in all its piecemeal and compromised glory—is the greatest "semantic communication syntax” ever invented by humanity. Thus it's a real shame how abused and neglected **HTML** has gotten in some corners of the industry over the years. Our skin crawls at the mere hint of HTML as a low-level “machine format” never intended for reading and writing by mere mortals.
   </summary>
 
-  Despite its many critics, HTML has not only survived against the onslaught of numerous competing systems over its 30+ year history, it has so solidly established itself as a universal and boundary-defying cultural treasure that we have no doubt ::HTML will still be with us 100 years from now.::
+  Despite its many critics, HTML has not only survived against the onslaught of numerous competing systems over its 35-year history, it has so solidly established itself as a universal and boundary-defying cultural treasure that we have no doubt ::HTML will still be with us 100 years from now.::
 
-  We prize and value HTML. Everything starts with HTML. Before we consider what CSS or JS frameworks to use, what build tooling to introduce, where to store and retrieve data, how to deploy the final product, and so forth, we start with the breadth of meaning and functionality we wish to express through HTML. It’s the _baseplate_ of all web development.
+  We prize and value HTML. _Everything starts with HTML._ Before we consider what CSS or JS frameworks to use, what build tooling to introduce, where to store and retrieve data, how to deploy the final product, and so forth, we start with the breadth of meaning and functionality we wish to express through HTML. It’s the _baseplate_ of all web development.
 </details>
 
 ### Custom Elements
@@ -40,7 +43,7 @@ Here's how we build websites and web applications in 2021.
 
   For example, HTML provides a `<textarea>` tag. But anyone could write their own `<fancy-textarea>` tag which uses either `<textarea>` under the hood or offers a bespoke editor built out of other HTML/CSS/JavaScript primitives. To you, the downstream HTML author, it doesn’t matter. Use `<textarea>` or `<fancy-textarea>` or `<super-dee-dooper-textarea>` because of the capability each component affords, not because of its implementation details.
 
-  Some legacy JavaScript component libraries such as **React** have struggled to fully embrace and encorporate web components. ::That's on them, not a knock against the web components spec.:: We choose to utilize newer, lightweight libraries which take full advantage of web components—most notably [Lit](https://lit.dev){:target="_blank"}, as well as [Hotwire Turbo](https://turbo.hotwired.dev){:target="_blank"} and the upcoming [CableReady 5](https://cableready.stimulusreflex.com/v/v5/){:target="_blank"}.
+  Some legacy JavaScript component libraries such as **React** have struggled to fully embrace and encorporate web components. ::That's on them, not a knock against the web components spec.:: We choose to utilize newer, lightweight libraries which take full advantage of web components and well as other modern patterns such as signals.
 
   We sometimes may opt to write frontend code in a Ruby-derived syntax with 1:1 transpilation provided by [Ruby2JS](https://www.ruby2js.com){:target="_blank"}. Because there’s no runtime required, the output JavaScript looks much the same as if we hand-coded it ourselves. Pretty neat! (See our [Tech Specs](/tech/) page for further details.)
 </details>
@@ -63,7 +66,7 @@ Here's how we build websites and web applications in 2021.
 
 <details markdown="block">
   <summary markdown="span">
-  Created by Cory LaViska, [Shoelace](https://shoelace.style){:target="_blank"} is the most impressive unified collection of web components and design tokens we’ve seen to date. That’s saying a lot considering there are component libraries out now from Salesforce, Microsoft, Google, Adobe, GitHub, and many other large companies.
+  ==_Soon to become [Web Awesome](https://blog.fontawesome.com/web-awesome-kickstarter/)!_== Created by Cory LaViska, [Shoelace](https://shoelace.style){:target="_blank"} is the most impressive unified collection of web components and design tokens we’ve seen to date. That’s saying a lot considering there are component libraries out now from Salesforce, Microsoft, Google, Adobe, GitHub, and many other large companies.
   </summary>
 
   Shoelace at first glance might seem like Yet-Another-Bunch-o’-Components with the usual suspects of buttons, icons, menus, and dropdown—however, such simple appearances can be deceiving. What makes Shoelace so impressive are five things:
@@ -78,10 +81,10 @@ Here's how we build websites and web applications in 2021.
 
   You can customize how Shoelace looks simply by overriding various design tokens via CSS variables, and you can also use Shoelace tokens directly in your own styles and markup—_even inside of inline styles!_ For example: `<h1 style="margin-bottom:var(--sl-spacing-2x-large)">Lots of Space</h1>`
 
-  Shoelace v2 is a total rewrite and currently in beta, so as usable and impressive as it is now, ::this is only the beginning::. We’re excited about choosing Shoelace as the default UI library for all our latest projects.
+  We regularly reach for Shoelace as the default UI library for ambitious projects, and love that it pairs so well with a variety of design systems and frontend stacks.
 </details>
 
-### Bridgetown, Roda, or Rails: <nobr>Pick Your Flavor</nobr>
+### Bridgetown + Roda: <nobr>Like Peanut Butter & Jelly</nobr>
 
 <details markdown="block">
   <summary markdown="span">
@@ -92,9 +95,9 @@ Here's how we build websites and web applications in 2021.
 
   Typically, if the site is a “publication”…meaning it’s essentially content-driven (e.g., marketing sites/brochureware, blogs, educational destinations, etc.), then we’ll go the static site route and use **Bridgetown**.
 
-  If the site is primarily a dynamic application orbiting a database—requiring user authentication and up-to-the-second live data—we’ll build out a fullstack **Ruby on Rails** app using Hotwire-style techniques and components to provide a sophisticated interactive interface.
+  If the site is primarily a dynamic application orbiting a database—requiring user authentication and up-to-the-second live data—we’ll build out a fullstack [Roda](http://roda.jeremyevans.net) app with Sequel and Rodauth to offer the necessary dashboard, API endpoints, and more.
 
-  Increasingly though, we're finding that Bridgetown's ::static-first approach:: coupled with dynamic routes powered by its integration of the  [Roda web toolkit](http://roda.jeremyevans.net){:target="_blank"} is a potent combination for a variety of applications. Never fear, ::we're not leaving Rails behind.:: We're just taking the bits we like and paring them with a dramatically different take on Ruby web development. Best of both worlds? **We sure hope so.**
+  Increasingly though, we're finding that Bridgetown's ::static-first approach:: (aka "Jamstack") coupled with ==dynamic routes== powered by its native integration of Roda is a potent combination for a variety of applications. It's true we have extensive experience with Rails as well. But this year, we're taking the bits we like and paring them with a _dramatically different (and much cheaper!) take on Ruby web development_. Best of both worlds? **Most definitely!**
 </details>
 
 ### Cloudinary
@@ -117,4 +120,4 @@ This is a rapidly-evolving space and what makes sense today might not make sense
 
 For more information on some of the tools we use and build on projects like these, visit our [Tech Specs](/tech/) page. Or visit [Resources](/resources/) to learn more about applying techniques such as these to your own projects.
 
-<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Yo, Let Us Do This for You</sl-button>
+<sl-button variant="primary" size="large" pill onclick="document.querySelector('sl-dialog').show()">Great! Let’s Build Something</sl-button>

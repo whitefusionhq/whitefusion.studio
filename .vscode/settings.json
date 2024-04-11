@@ -1,4 +1,18 @@
 {
   "css.validate": false,
-  "html.customData": ["./node_modules/@shoelace-style/shoelace/dist/custom-elements.json"]
+  "html.customData": [
+    "./node_modules/@shoelace-style/shoelace/dist/custom-elements.json"
+  ],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "pg",
+      "database": "whitefusion_studio_development",
+      "username": "jared"
+    }
+  ]
 }
