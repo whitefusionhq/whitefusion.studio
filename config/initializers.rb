@@ -24,8 +24,11 @@ Bridgetown.configure do |_config|
   end
 
   init :lifeform
-  init :authtown do
-    user_name_field :name
+  # Don't roll out to production yet!
+  if Bridgetown.env.development?
+    init :authtown do
+      user_name_field :name
+    end
   end
 
   only :server do

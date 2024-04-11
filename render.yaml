@@ -42,6 +42,12 @@ services:
       - type: rewrite
         source: /submit-booking/*
         destination: https://whitefusion-site-api.onrender.com/submit-booking/*
+      - type: rewrite
+        source: /auth/*
+        destination: https://whitefusion-site-api.onrender.com/auth/*
+      - type: rewrite
+        source: /account/*
+        destination: https://whitefusion-site-api.onrender.com/account/*
   - type: web
     name: whitefusion-site-api
     env: ruby
