@@ -1,4 +1,7 @@
 sl-button[size="large"]::part(base) {
+  white-space: normal;
+  line-height: inherit;
+  padding-block: var(--sl-spacing-small);
   box-shadow: 10px 22px 20px -8px var(--heading-shadow);
 }
 
