@@ -1,21 +1,24 @@
 ---{%
+# route: GET|POST /auth/create-account/
+
 render_with do
   layout :page
   title "Create Your Account"
 end
 %}---
 
-{% if current_user %}
-  <p style="text-align:center">
+<p style="text-align: center">
+  {% if rodauth.logged_in? %}
     It looks like you’re already signed in. Would you like to <a href="/account/profile">view your profile?</a>
-  </p>
-{% end %}
+  {% else %}
+    It only takes a moment to create your Whitefusion account so you can keep track of booked sessions.
+  {% end %}
+</p>
 
-<article>
-<iv-form>
+<article><iv-form>
   {%@ Forms::Account url: rodauth.create_account_path, style: "max-width: 36ch; margin-inline: auto" do |f| %}
     <form-errors>
-      <p data-function="replaceChildren" aria-live="assertive">
+      <p data-invocably="replaceChildren" aria-live="assertive">
         {% if flash[:error] %}
           {%= flash[:error] %}:
           <br/>
@@ -52,10 +55,9 @@ end
       {%@ f.field :submit, label: rodauth.create_account_button %}
     </un-scripted>
 
-    {% unless current_user %}
+    {% unless rodauth.logged_in? %}
       <hr />
       <p style="text-align:center">Have an account already? <a href="/auth/login">Sign in here</a>.</p>
     {% end %}
   {% end %}
-</iv-form>
-</article>
+</iv-form></article>

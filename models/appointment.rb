@@ -1,5 +1,16 @@
 class Appointment < Sequel::Model
   many_to_one :user
+
+  def display_purpose
+    case purpose # rubocop:disable Style/HashLikeCase
+    when "free"
+      "free 30 min"
+    when "hour"
+      "2 hours"
+    when "morning"
+      "4-6 hours"
+    end
+  end
 end
 
 # Table: appointments

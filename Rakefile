@@ -21,6 +21,23 @@ task :test do
   Bridgetown::Commands::Build.start
 end
 
+require "minitest/test_task"
+Minitest::TestTask.create(:test_ssr) do |t|
+  t.libs << "test"
+  t.libs << "lib"
+  t.warning = false
+  t.test_globs = ["test/ssr/**/test_*.rb"]
+end
+
+desc "Run both the static and dynamic server test suite"
+task :test_ci do
+  ENV["BRIDGETOWN_ENV"] = "test"
+  sh "unset BRIDGETOWN_NO_BUNDLER_REQUIRE && bin/bt db:migrate"
+
+  Rake::Task["test"].invoke
+  Rake::Task["test_ssr"].invoke
+end
+
 desc "Runs the clean command"
 task :clean do
   Bridgetown::Commands::Clean.start

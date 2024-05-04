@@ -3,44 +3,42 @@
 r.post "reset" do
   sleep 1 # intentionally allow modal to close on the frontend first
 
-  next r.respond_invocably do
+  next r.invocably do
     render ContactModal.new(step: 1)  
   end
 end
 
 # route: GET|POST /contact-form/
 r.is do
-  render_with =>
-    text_message
-  render_with(
-    data: { layout: :emails }
-  ) =>
-    html_message
+  render_with => text_message
+  render_with do
+    layout :emails
+  end => html_message
   
   next html_message if r.params[:preview]
 
   if r.params[:bot_check] != "11" && r.params[:bot_check] != "eleven"
-    next r.respond_invocably do
+    next r.invocably do
       ContactModal.new(step: 1).bot_check(error: true)
     end
   end
 
-  mail = Mail.deliver do
+  Mail.deliver do
     to      "Jared White <jared@whitefusion.studio>"
     from    "Jared White <jared@whitefusion.studio>"
     subject "Whitefusion Contact Form"
 
     text_part do
-      body text_message.transform!.output # maybe in future it should be callable, aka text_message.()
+      body text_message
     end
 
     html_part do
       content_type "text/html; charset=UTF-8"
-      body html_message.transform!.output
+      body html_message
     end
   end
 
-  r.respond_invocably do
+  r.invocably do
     render ContactModal.new(step: 2)
   end
 end

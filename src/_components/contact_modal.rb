@@ -9,7 +9,7 @@ class ContactModal < Bridgetown::Component
 
     <<~HTML
       <form-field id="i-like-big-bots-and-i-cannot-lie">
-        <sl-input data-function="replaceChildren" required #{%(class="bad-bot") if error} type="text" name="bot_check" label="Bot Check" help-text="#{help_text}"></sl-input>
+        <sl-input data-invocably="replaceChildren" required #{%(class="bad-bot") if error} type="text" name="bot_check" label="Bot Check" help-text="#{help_text}"></sl-input>
       </form-field>
     HTML
   end

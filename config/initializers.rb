@@ -14,7 +14,7 @@ Bridgetown.configure do |_config|
 
   except :sequel_tasks do
     # Don't roll out to production yet!
-    if Bridgetown.env.development?
+    unless Bridgetown.env.production?
       init :bridgetown_sequel do
         connection_options do
           driver_options { gssencmode "disable" } if RUBY_PLATFORM.include?("darwin")
@@ -25,7 +25,7 @@ Bridgetown.configure do |_config|
 
   init :lifeform
   # Don't roll out to production yet!
-  if Bridgetown.env.development?
+  unless Bridgetown.env.production?
     init :authtown do
       user_name_field :name
     end
@@ -39,19 +39,7 @@ Bridgetown.configure do |_config|
     end
 
     roda do |app|
-      app.opts[:invocably_content_type] = "text/vnd.invocably.html"
       app.plugin :cookies, secure: true
-
-      Roda::RodaRequest.include(Module.new do
-        def invocably?
-          (env["HTTP_ACCEPT"] || []).include?(roda_class.opts[:invocably_content_type])
-        end
-
-        def respond_invocably
-          response["Content-Type"] = roda_class.opts[:invocably_content_type]
-          yield
-        end
-      end)
     end
   end
 end

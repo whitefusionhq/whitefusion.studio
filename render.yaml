@@ -40,8 +40,8 @@ services:
         source: /contact-form/*
         destination: https://whitefusion-site-api.onrender.com/contact-form/*
       - type: rewrite
-        source: /submit-booking/*
-        destination: https://whitefusion-site-api.onrender.com/submit-booking/*
+        source: /booking/*
+        destination: https://whitefusion-site-api.onrender.com/booking/*
       - type: rewrite
         source: /auth/*
         destination: https://whitefusion-site-api.onrender.com/auth/*

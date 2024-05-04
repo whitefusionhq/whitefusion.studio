@@ -1,10 +1,18 @@
 ~~~{%
+# route: /account/profile/
+
 rodauth.require_authentication
+
 title = "Your Account"
 layout = :page
 
 if r.cookies[:submitted_date]
   submitted_date = Time.parse r.cookies[:submitted_date].tr("_", " ")
+
+  if r.cookies[:stripe_customer_id]
+    current_user.update stripe_customer_id: r.cookies[:stripe_customer_id]
+    response.delete_cookie :stripe_customer_id
+  end
 
   current_user.add_appointment appointment_time: submitted_date, purpose: r.cookies[:session_type]
   response.delete_cookie :submitted_date
@@ -13,7 +21,6 @@ end
 
 appointments = current_user.appointments
 
-render_with {}
 %}~~~
 
 {% if flash[:error] || flash[:alert] %}
@@ -37,17 +44,20 @@ Hello **{%= current_user.name %}**.
 
 {% unless data.appointments.empty? %}
 
-  You have {%= data.appointments.length > 1 ? "some" : "an" %} upcoming appointment{%= data.appointments.length > 1 ? "s" : "" %} scheduled.
+  You have {%= data.appointments.length > 1 ? "some" : "an" %} upcoming appointment{%= data.appointments.length > 1 ? "s" : "" %} scheduled. (All times are in Pacific Time.)
   {% data.appointments.each do |appointment| %}
-  * {{ appointment | appointment_time | strftime: "%B %-d, %Y @ %-I:%M %p Pacific Time" }}
+  * **{{ appointment | appointment_time | strftime: "%B %-d, %Y @ %-I:%M %p" }}** for a **{{ appointment.display_purpose }}** session.
   {% end %}
+
+  You'll receive an email with a **Zoom conference link** prior to the scheduled time.
+
+  Got any questions or further information to send us? [Let us know!](mailto:hello@whitefusion.studio)
 
 {% else %}
 
-It looks like you don't have any upcoming appointments. Would you like to book a new session?
+  It looks like you don't have any upcoming appointments. Would you like to [book a new session](/book)?
 
 {% end %}
-
 {% end %}
 
 <hr />

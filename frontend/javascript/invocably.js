@@ -6,17 +6,19 @@ export class InvocableElement extends HTMLElement {
   handleInvoke(e) {
     const el = e.currentTarget
     const action = e.action || e.detail.action
-    if (action === "invocably:functions") {
-      const tmpl = el.querySelector(":scope > template[data-functions]")
+    if (action === "invocably--functions") {
+      const tmpl = el.querySelector(":scope > template[data-invocably]")
       const actionElements = tmpl.content.children
       for (const element of [...actionElements]) {
-        const invokeName = element.dataset.function
+        let invokeName = element.dataset.invocably
+        if (invokeName === "") invokeName = "append"
+        console.log("invokeName", invokeName, element)
         if (InvocablyFunctions[invokeName]) {
           InvocablyFunctions[invokeName](el, element)
         } else {
           console.warn("Couldn't find Invocably function:", invokeName, element)
         }
-        element.removeAttribute("data-function")
+        element.removeAttribute("data-invocably")
       }
       tmpl.remove()
       el.dispatchEvent(new CustomEvent("invocably:complete", { detail: { elements: actionElements }}))
@@ -78,7 +80,7 @@ window.InvocablyFunctions = {
 }
 
 window.DispatchInvokeEvent = (el, action) => {
-  action = `invocably:${action}`
+  action = `invocably--${action}`
   if (window.InvokeEvent) {
     el.dispatchEvent(new InvokeEvent("invoke", { action }))
   } else {
@@ -89,7 +91,7 @@ window.DispatchInvokeEvent = (el, action) => {
 window.ProcessInvocables = (html, host = document) => {
   const fetchedDocument = new DOMParser().parseFromString(`<body>${html}</body>`, "text/html")
   // Pull out all the functions
-  const functionNodes = fetchedDocument.body.querySelectorAll("[data-function]")
+  const functionNodes = fetchedDocument.body.querySelectorAll("[data-invocably]")
   // Loop through the functions
   for (const element of functionNodes) {
     // Determine best selector
@@ -102,7 +104,7 @@ window.ProcessInvocables = (html, host = document) => {
     const existingNodes = element.parentElement.dataset.selectAll ? host.querySelectorAll(existingSelector) : [host.querySelector(existingSelector)]
     for (const existingNode of existingNodes) {
       const tmpl = document.createElement("template")
-      tmpl.dataset.functions = ""
+      tmpl.dataset.invocably = ""
       tmpl.content.replaceChildren(element)
       existingNode.append(tmpl)
       DispatchInvokeEvent(existingNode, "functions")
@@ -125,7 +127,7 @@ class InvocablyFetch extends InvocableElement {
     const url = this.getAttribute("href")
     const /** @type {RequestInit} */ options = {}
 //    options.method = form.method
-    options.headers = {"Accept": "text/vnd.invocably.html"}
+    options.headers = {"Invocably-Request": "true"}
     options.credentials = "same-origin"
 
     try {
@@ -160,7 +162,7 @@ class InvocablyForm extends InvocableElement {
     const /** @type {RequestInit} */ options = {}
     options.body = new FormData(form)
     options.method = form.method
-    options.headers = {"Accept": "text/vnd.invocably.html"}
+    options.headers = {"Invocably-Request": "true"}
     options.credentials = "same-origin"
 
     try {
