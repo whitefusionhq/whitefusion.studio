@@ -1,5 +1,11 @@
+require "bcrypt"
+
 class User < Sequel::Model
   one_to_many :appointments
+
+  def self.password_for_string(str)
+    BCrypt::Password.create(str).to_s
+  end
 end
 
 # Table: users

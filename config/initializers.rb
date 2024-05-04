@@ -28,6 +28,10 @@ Bridgetown.configure do |_config|
   unless Bridgetown.env.production?
     init :authtown do
       user_name_field :name
+
+      rodauth_config -> do
+        enable :http_basic_auth if Bridgetown.env.test?
+      end
     end
   end
 

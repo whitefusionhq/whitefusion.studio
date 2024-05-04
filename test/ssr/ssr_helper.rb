@@ -34,4 +34,24 @@ class SSRTest < Minitest::Test
 
     @document
   end
+
+  attr_reader :user
+
+  def authorize_user
+    authorize "test@example.com", "Abc12345"
+  end
+
+  def create_user
+    app # ensure it's booted
+
+    User.find(email: "test@example.com")&.tap do |u|
+      Bridgetown.db[:account_remember_keys].where(id: u.id).delete
+      Bridgetown.db[:appointments].where(user_id: u.id).delete
+      u.destroy
+    end
+
+    @user = User.create(
+      email: "test@example.com", password_hash: User.password_for_string("Abc12345")
+    )
+  end
 end
