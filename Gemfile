@@ -10,7 +10,7 @@ gem "dotenv", "~> 3.1"
 gem "rubocop-bridgetown", "~> 0.4"
 gem "solargraph", "~> 0.50"
 
-gem "authtown", "~> 0.4", path: "../authtown"
+gem "authtown", "~> 0.4"
 gem "bridgetown_sequel", "~> 1.1"
 gem "ice_cube", "~> 0.16"
 gem "lifeform", "~> 0.14"
