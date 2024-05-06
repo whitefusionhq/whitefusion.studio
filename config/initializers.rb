@@ -13,33 +13,28 @@ Bridgetown.configure do |_config|
   )
 
   except :sequel_tasks do
-    # Don't roll out to production yet!
-    unless Bridgetown.env.production?
-      init :bridgetown_sequel do
-        connection_options do
-          driver_options { gssencmode "disable" } if RUBY_PLATFORM.include?("darwin")
-        end
+    init :bridgetown_sequel do
+      connection_options do
+        driver_options { gssencmode "disable" } if RUBY_PLATFORM.include?("darwin")
       end
     end
   end
 
   init :lifeform
-  # Don't roll out to production yet!
-  unless Bridgetown.env.production?
-    init :authtown do
-      user_name_field :name
 
-      rodauth_config -> do
-        email_from "Jared White <jared@whitefusion.studio>"
+  init :authtown do
+    user_name_field :name
 
-        reset_password_email_body do
-          "Howdy! You or somebody requested a password reset for your Whitefusion account.\n" \
-            "If that's legit, here's the link:\n#{reset_password_email_link}\n\n" \
-            "Otherwise, you may safely ignore this message.\n\nThanks!\n–Jared @ Whitefusion"
-        end
+    rodauth_config -> do
+      email_from "Jared White <jared@whitefusion.studio>"
 
-        enable :http_basic_auth if Bridgetown.env.test?
+      reset_password_email_body do
+        "Howdy! You or somebody requested a password reset for your Whitefusion account.\n" \
+          "If that's legit, here's the link:\n#{reset_password_email_link}\n\n" \
+          "Otherwise, you may safely ignore this message.\n\nThanks!\n–Jared @ Whitefusion"
       end
+
+      enable :http_basic_auth if Bridgetown.env.test?
     end
   end
 

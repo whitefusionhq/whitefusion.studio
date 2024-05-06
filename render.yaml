@@ -15,6 +15,10 @@ services:
     envVars:
       - key: BRIDGETOWN_ENV
         value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: whitefusion_proddb
+          property: connectionString
       - fromGroup: whitefusion-prod-envs
     headers:
       - path: /*
@@ -56,4 +60,12 @@ services:
     envVars:
       - key: BRIDGETOWN_ENV
         value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: whitefusion_proddb
+          property: connectionString
       - fromGroup: whitefusion-prod-envs
+databases:
+  - name: whitefusion_proddb
+    plan: starter
+    databaseName: whitefusion_studio_production
