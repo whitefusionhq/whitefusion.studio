@@ -6,7 +6,7 @@ end
 ###
 
 html -> { <<~HTML # rubocop:todo Metrics
-  <iv-fetch id="signed" href="/booking/signed-in">
+  <iv-fetch id="signed" href="/booking/signed-in" style="display: block">
     <p class="professional-photograph" style="translate: 0 -1.25rem">
       <img src="/images/jared-studio-professional.jpg" alt="photo of Jared White" width="360" />
     </p>
