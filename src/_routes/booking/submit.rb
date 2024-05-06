@@ -75,7 +75,7 @@ r.post do # rubocop:disable Metrics/BlockLength
       },
     },
     mode: "setup",
-    success_url: absolute_url("https://4000.dev.whitefusion.studio/account/complete-checkout/?session_id={CHECKOUT_SESSION_ID}"),
+    success_url: absolute_url("/account/complete-checkout/?session_id={CHECKOUT_SESSION_ID}"),
     cancel_url: absolute_url("/canceled/"),
   } => payload
 
