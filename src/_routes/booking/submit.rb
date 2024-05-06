@@ -75,8 +75,8 @@ r.post do # rubocop:disable Metrics/BlockLength
       },
     },
     mode: "setup",
-    success_url: absolute_url("/account/complete-checkout/?session_id={CHECKOUT_SESSION_ID}"),
-    cancel_url: absolute_url("/canceled/"),
+    success_url: "#{site.config.url}/account/complete-checkout/?session_id={CHECKOUT_SESSION_ID}",
+    cancel_url: "#{site.config.url}/canceled/",
   } => payload
 
   session = Stripe::Checkout::Session.create(payload)
