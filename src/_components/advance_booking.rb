@@ -33,8 +33,6 @@ class AdvanceBooking < Bridgetown::Component
         </script>
       </p>
 
-      #{html -> { content }}
-
       <p>
         <sl-select hidden name="free_date" placeholder="#{text -> { @placeholder }}">
           #{ html_map(free_dates) do |date|
@@ -69,16 +67,26 @@ class AdvanceBooking < Bridgetown::Component
           end }
         </sl-select>
       </p>
+
+      #{html -> { content }}
     HTML
   end
 
   def radio_group_styles = <<~HTML
     <style>
-      @media (max-width: 767px) {
+      sl-radio-group[name='session_type']::part(button-group) {
+        width: 100%;
+      }
+
+      sl-radio-group[name='session_type'] > sl-radio-button {
+        flex-grow: 1;
+      }
+
+      @media (max-width: 900px) {
+        sl-select::part(display-input) {
+          font-size: var(--sl-font-size-small);
+        }
         sl-radio-group[name='session_type'] {
-          &::part(button-group) {
-            width: 100%;
-          }
           &::part(button-group__base) {
             display: grid;
           }

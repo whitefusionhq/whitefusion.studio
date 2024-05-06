@@ -1,0 +1,8 @@
+---{%
+render_with do
+  layout :page
+  title "Reset Link Sent"
+end
+%}---
+
+<p style="text-align: center">Check your email, it should be arriving in just a moment.</p>

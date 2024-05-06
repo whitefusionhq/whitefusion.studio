@@ -206,7 +206,7 @@ un-scripted {
 checkout-action {
   display: block;
   text-align:center;
-  margin-block: var(--sl-spacing-4x-large);
+  margin-block: var(--sl-spacing-3x-large);
 }
 
 :is(checkout-action, sl-radio-group):not(:defined) {

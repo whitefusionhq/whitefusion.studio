@@ -1,0 +1,16 @@
+<form-errors>
+  <p data-invocably="replaceChildren" aria-live="assertive">
+    {% if flash[:error] %}
+      {%= flash[:error] %}:
+      <br/>
+      <small>
+        {% if rodauth.field_error(rodauth.login_param) %}
+          {%= rodauth.field_error(rodauth.login_param) %}
+        {% end %}
+        {% if rodauth.field_error(rodauth.password_param) %}
+          {%= rodauth.field_error(rodauth.password_param) %}
+        {% end %}
+      </small>
+    {% end %}
+  </p>
+</form-errors>
