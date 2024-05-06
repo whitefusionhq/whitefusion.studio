@@ -29,12 +29,12 @@ r.is do
     subject "Whitefusion Contact Form"
 
     text_part do
-      body text_message
+      body text_message.()
     end
 
     html_part do
       content_type "text/html; charset=UTF-8"
-      body html_message
+      body html_message.()
     end
   end
 

@@ -1,7 +1,8 @@
 {% modal = capture do %}
   <iv-form id="model-forms">
     {% if @step == 1 %}
-      <p data-invocably="replaceChildren">Fill in your email address, add a Toot-length project summary, and then we’ll quickly follow-up to schedule a free 30-minute consultation. <strong>Sound good?</strong></p>
+      <p data-invocably="replaceChildren"><a href="/book">You can now schedule an appointment online!</a>
+      Or fill out this brief form and we’ll follow up shortly to schedule a consultation. <strong>Sound good?</strong></p>
 
       <form data-invocably action="/contact-form/" method="post">
         <p>
