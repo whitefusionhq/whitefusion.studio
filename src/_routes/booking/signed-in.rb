@@ -5,10 +5,14 @@ r.get do
   r.invocably do
     html -> { <<~HTML
       <iv-fetch id="signed">
-        <p data-invocably="replaceChildren">
-          Hello, signed in?
-          #{text -> { rodauth.logged_in? ? "Yup!" : "Nope" }}
-        </p>
+        #{
+          html(-> { <<~HTML
+            <p data-invocably="replaceChildren" style="text-align: center">
+              Hey #{text-> { current_user.name }}, you're back! So glad to see you here again. 😊
+            </p>
+          HTML
+          }) if rodauth.logged_in?
+        }
       </iv-fetch>
     HTML
     }

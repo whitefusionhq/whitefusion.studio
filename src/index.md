@@ -116,7 +116,7 @@ Where is Whitefusion? _Why is Whitefusion?_ 😜
 **Hi, I'm Jared.** I live and work in Portland, Oregon. And ==I'm a Web developer==.
 
 {: .professional-photograph}
-![A photo of Jared sitting with his hands folded neatly on the table in front of him](/images/jared-studio-professional.jpg){:width="440"}{:loading="lazy"}{:title="Jared in Hat"}
+![A photo of Jared sitting with his hands folded neatly on the table in front of him](/images/jared-studio-professional.jpg){:width="440"}{:loading="lazy"}
 
 I've been at this…a long time. 😅 I first got my start building Web sites in the 1990s. I've seen entire sub-industries of the Web come and go. One day it's J2EE, another day it's Next.js. There's always some outfit promoting flashy yet over-engineered technology that's so complicated it requires a slew of consultants ready to "fix" all the problems that inevitably arise.
 

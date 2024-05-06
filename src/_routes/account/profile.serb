@@ -3,10 +3,8 @@
 
 rodauth.require_authentication
 
-title = "Your Account"
-layout = :page
-
 if r.cookies[:submitted_date]
+  session_type = r.cookies[:session_type]
   submitted_date = Time.parse r.cookies[:submitted_date].tr("_", " ")
 
   if r.cookies[:stripe_customer_id]
@@ -14,11 +12,29 @@ if r.cookies[:submitted_date]
     response.delete_cookie :stripe_customer_id
   end
 
-  current_user.add_appointment appointment_time: submitted_date, purpose: r.cookies[:session_type]
+  current_user.add_appointment appointment_time: submitted_date, purpose: session_type
   response.delete_cookie :submitted_date
   response.delete_cookie :session_type
+
+  current_user.to_hash => name:, email:
+  Mail.deliver do
+    to      "Jared White <jared@whitefusion.studio>"
+    from    "Jared White <jared@whitefusion.studio>"
+    subject "Whitefusion Notice: New Booking"
+
+    text_part do
+      body <<~TEXT
+        There's been a new booking for #{name} <#{email}>.
+
+        Date: #{submitted_date}
+        Purpose: #{session_type}
+      TEXT
+    end
+  end
 end
 
+title = "Your Account"
+layout = :page
 appointments = current_user.appointments
 
 %}~~~

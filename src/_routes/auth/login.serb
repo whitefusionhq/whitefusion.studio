@@ -13,44 +13,25 @@ end
   </p>
 {% end %}
 
-<article>
 <iv-form>
-  {%= render Forms::Account.new(id: "login-form", url: rodauth.login_path, style: "max-width: 36ch; margin-inline: auto") do |f| %}
-    <form-errors>
-      <p data-invocably="replaceChildren" aria-live="assertive">
-        {% if flash[:error] %}
-          {%= flash[:error] %}:
-          <br/>
-          <small>
-            {% if rodauth.field_error(rodauth.login_param) %}
-              {%= rodauth.field_error(rodauth.login_param) %}
-            {% end %}
-            {% if rodauth.field_error(rodauth.password_param) %}
-              {%= rodauth.field_error(rodauth.password_param) %}
-            {% end %}
-          </small>
-        {% end %}
-      </p>
-    </form-errors>
+  {%@ Forms::Account id: "login-form", url: rodauth.login_path, style: "max-width: 36ch; margin-inline: auto" do |f| %}
+    {%@ "form_errors" %} 
 
-    {%=
-      render f.field(
+    {%@ f.field(
         rodauth.login_param,
         value: r.params[rodauth.login_param],
         aria: { invalid: rodauth.field_error(rodauth.login_param) },
         data_invocably: :aria,
         data_parent_selector: "[name=#{rodauth.login_param}]",
         data_acting_selector: "input"
-      )
-    %}
-    {%=
-      render f.field(
+    ) %}
+    {%@ f.field(
         rodauth.password_param,
         aria: { invalid: rodauth.field_error(rodauth.password_param) },
         data_invocably: :aria,
         data_parent_selector: "[name=#{rodauth.password_param}]",
         data_acting_selector: "input"
-      ) %}
+    ) %}
 
     <checkout-action>
       <sl-button type="submit" variant="primary">{{ rodauth.login_button }}</sl-button>
@@ -66,4 +47,3 @@ end
     <p>Don't have an account yet? <a href="{%= rodauth.create_account_path %}">Sign up today!</a></p>
   {% end %}
 </iv-form>
-</article>

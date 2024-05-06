@@ -1,23 +1,11 @@
-def mail_booking_notice(name, email, selected_date, session_type)
-  Mail.deliver do
-    to      "Jared White <jared@whitefusion.studio>"
-    from    "Jared White <jared@whitefusion.studio>"
-    subject "Whitefusion Notice: New Booking"
-
-    text_part do
-      body <<~TEXT
-        There's been a new booking for #{name} <#{email}>.
-
-        Date: #{selected_date}
-        Type: #{session_type}
-      TEXT
-    end
-  end
-end
-
 # route: /account/complete-checkout/
 r.get do
   r.params[:session_id] => session_id
+  if session_id.to_s == ""
+    # TODO: I don't know why this isn't working
+    flash.error = "Missing session ID"
+    next r.redirect("/account/profile")
+  end
 
   Stripe::Checkout::Session.retrieve(id: session_id, expand: ["setup_intent"]) => stripe_session
   stripe_session.customer_details.to_h => email:, name:
@@ -30,8 +18,6 @@ r.get do
   Stripe::PaymentMethod.attach(
     stripe_session.setup_intent.payment_method, { customer: customer.id }
   )
-
-  mail_booking_notice name, email, selected_date, session_type
 
   one_hour = Time.now + (60 * 60)
   response.set_cookie :stripe_customer_id, value: customer.id, expires: one_hour

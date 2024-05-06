@@ -15,24 +15,9 @@ end
   {% end %}
 </p>
 
-<article><iv-form>
+<iv-form>
   {%@ Forms::Account url: rodauth.create_account_path, style: "max-width: 36ch; margin-inline: auto" do |f| %}
-    <form-errors>
-      <p data-invocably="replaceChildren" aria-live="assertive">
-        {% if flash[:error] %}
-          {%= flash[:error] %}:
-          <br/>
-          <small>
-            {% if rodauth.field_error(rodauth.login_param) %}
-              {%= rodauth.field_error(rodauth.login_param) %}
-            {% end %}
-            {% if rodauth.field_error(rodauth.password_param) %}
-              {%= rodauth.field_error(rodauth.password_param) %}
-            {% end %}
-          </small>
-        {% end %}
-      </p>
-    </form-errors>
+    {%@ "form_errors" %} 
 
     {%@ f.field(
         rodauth.login_param,
@@ -42,8 +27,7 @@ end
     {%@ f.field(
         :name,
         value: r.params[:name]
-      )
-    %}
+    ) %}
     {%@ f.field(
         rodauth.password_param,
         aria: { invalid: rodauth.field_error(rodauth.password_param).present? }
@@ -60,4 +44,4 @@ end
       <p style="text-align:center">Have an account already? <a href="/auth/login">Sign in here</a>.</p>
     {% end %}
   {% end %}
-</iv-form></article>
+</iv-form>

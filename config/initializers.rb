@@ -30,6 +30,14 @@ Bridgetown.configure do |_config|
       user_name_field :name
 
       rodauth_config -> do
+        email_from "Jared White <jared@whitefusion.studio>"
+
+        reset_password_email_body do
+          "Howdy! You or somebody requested a password reset for your Whitefusion account.\n" \
+            "If that's legit, here's the link:\n#{reset_password_email_link}\n\n" \
+            "Otherwise, you may safely ignore this message.\n\nThanks!\n–Jared @ Whitefusion"
+        end
+
         enable :http_basic_auth if Bridgetown.env.test?
       end
     end
