@@ -144,9 +144,14 @@ class AdvanceBooking < Bridgetown::Component
   end
 
   def free_dates
-    # Wednesdays
+    # Tuesdays or Wednesdays
 
     make_schedule.tap do |schedule|
+      # 12:00 PM
+      add_rule schedule,
+               :tuesday,
+               12
+
       # 4:00 PM
       add_rule schedule,
                :wednesday,
@@ -158,10 +163,10 @@ class AdvanceBooking < Bridgetown::Component
     # Tuesdays
 
     make_schedule.tap do |schedule|
-      # 10:00 AM
+      # 9:00 AM
       add_rule schedule,
                :tuesday,
-               10
+               9
 
       # 3:00 PM
       add_rule schedule,
