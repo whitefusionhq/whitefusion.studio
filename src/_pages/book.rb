@@ -62,7 +62,7 @@ html -> { <<~HTML # rubocop:todo Metrics
         </sl-button>
       </p>
 
-      <p style="font-size: var(--sl-font-size-x-small); margin-block-start: var(--sl-spacing-2x-large); text-wrap: balance">For paid sessions, we will capture your payment details but we <em>won't</em> make the charge until after your appointment has concluded.</p>
+      <p style="font-size: var(--sl-font-size-x-small); margin-block-start: var(--sl-spacing-2x-large); text-wrap: balance">For paid sessions, we will capture your payment details but we <em>won't</em> make the charge until after your appointment has concluded. <strong>Question:</strong> Are you an <a href="https://plus.intuitivefuture.com" target="_blank">Intuitive+</a> member? You get a <mark>15% discount</mark> off any stated price!</p>
     </checkout-action>
     <un-scripted>
       <p>➡️ JavaScript doesn't seem to be running, but that's OK! We can still set you up with a free time slot.</p>
