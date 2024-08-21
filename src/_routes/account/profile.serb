@@ -35,7 +35,7 @@ end
 
 title = "Your Account"
 layout = :page
-appointments = current_user.appointments
+appointments = current_user.appointments.select { |appt| appt.appointment_time > (Time.now - (60 * 60 * 12)) }
 
 %}~~~
 
