@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem "bridgetown", "~> 1.3", github: "bridgetownrb/bridgetown", branch: "main"
-gem "bridgetown-routes", "~> 1.3", github: "bridgetownrb/bridgetown", branch: "main"
+gem "bridgetown", "~> 2.0.0.beta2"
+gem "bridgetown-routes", "~> 2.0.0.beta2"
 
 gem "puma", "~> 6.4"
 
@@ -17,7 +17,6 @@ gem "lifeform", "~> 0.14"
 gem "mail", "= 2.8"
 gem "pg", "~> 1.5"
 gem "stripe", "~> 10.3"
-
 
 group :test, optional: true do
   gem "nokogiri"

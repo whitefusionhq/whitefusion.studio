@@ -1,6 +1,9 @@
 Bridgetown.configure do |_config|
+  url "https://www.whitefusion.studio"
   permalink "pretty"
   timezone "America/Los_Angeles"
+
+  template_engine :liquid
 
   init :dotenv
   init :"bridgetown-routes"

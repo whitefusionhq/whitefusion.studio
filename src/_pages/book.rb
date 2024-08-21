@@ -16,7 +16,9 @@ html -> { <<~HTML # rubocop:todo Metrics
 
         Some people call ==Jared== the “code whisperer”. He will coach you, mentor you, help you get **unstuck**—whether it's on the frontend, the backend, documentation, or governance.
 
-        Ask ==Jared== to adjudicate when there’s a _real difference_ of opinion on your team. Seek a bit of **outside counsel** to make *meaningful* progress on reducing your tech debt, increasing understanding, and faciliating codebase health. Time to _get educated_ and take an empowering step forward. ==Here we go!==
+        Ask ==Jared== to adjudicate when there’s a _real difference_ of opinion on your team. Seek a bit of **outside counsel** to make *meaningful* progress on reducing your tech debt, increasing understanding, and faciliating codebase health. Time to _get educated_ on the cutting edge of vanilla-first web development and take an empowering step forward. ==Here we go!==
+
+        🎉 _For a limited time!_ Until the end of August, we're offering a **$100 discount** and a **$250 discount** off of the Double and Day packages. Double is now $249, and Day is now $749. _Get it while it's hot!_ 🧨
 
         ----
         {: style="margin-block: var(--sl-spacing-2x-large)"}
@@ -40,10 +42,10 @@ html -> { <<~HTML # rubocop:todo Metrics
           html -> { %(Zoom zoom! <strong>$0</strong> (15m)) }
         end
         c.slot :double do
-          html -> { %(Make mine a double! <strong>$349</strong> (2h)) }
+          html -> { %(Make mine a Double! <strong>$249</strong> (2h)) }
         end
         c.slot :day do
-          html -> { %(Team for a day! <strong>$999</strong> (4-6h)) }
+          html -> { %(Team for a Day! <strong>$749</strong> (6h)) }
         end
 
         html -> { <<~HTML

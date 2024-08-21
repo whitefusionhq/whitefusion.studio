@@ -6,7 +6,7 @@ class AdvanceBooking < Bridgetown::Component
       Time.parse(date_string).to_datetime
     end
 
-    @until = 6.weeks.from_now
+    @until = 3.weeks.from_now
   end
 
   def template # rubocop:disable Metrics
@@ -159,18 +159,48 @@ class AdvanceBooking < Bridgetown::Component
     end.then { remove_blocked_dates _1 }
   end
 
-  def hour_dates
-    # Tuesdays
+  def hour_dates # rubocop:disable Metrics
+    # Mondays-Thursdays
 
     make_schedule.tap do |schedule|
-      # 9:00 AM
+      # Mon 3:00 PM
+      add_rule schedule,
+               :monday,
+               3 + 12
+
+      # Tues 9:00 AM
       add_rule schedule,
                :tuesday,
                9
 
-      # 3:00 PM
+      # Tues 3:00 PM
       add_rule schedule,
                :tuesday,
+               3 + 12
+
+      # Wed 12:00 PM
+      add_rule schedule,
+               :wednesday,
+               12
+
+      # Wed 3:00 PM
+      add_rule schedule,
+               :wednesday,
+               3 + 12
+
+      # Wed 5:00 PM
+      add_rule schedule,
+               :wednesday,
+               5 + 12
+
+      # Thurs 12:00 PM
+      add_rule schedule,
+               :thursday,
+               12
+
+      # Thurs 3:00 PM
+      add_rule schedule,
+               :thursday,
                3 + 12
     end.then { remove_blocked_dates _1 }
   end
