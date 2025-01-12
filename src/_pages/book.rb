@@ -18,8 +18,6 @@ html -> { <<~HTML # rubocop:todo Metrics
 
         Ask ==Jared== to adjudicate when there’s a _real difference_ of opinion on your team. Seek a bit of **outside counsel** to make *meaningful* progress on reducing your tech debt, increasing understanding, and faciliating codebase health. Time to _get educated_ on the cutting edge of vanilla-first web development and take an empowering step forward. ==Here we go!==
 
-        🎉 _For a limited time!_ Until the end of August, we're offering a **$100 discount** and a **$250 discount** off of the Double and Day packages. Double is now $249, and Day is now $749. _Get it while it's hot!_ 🧨
-
         ----
         {: style="margin-block: var(--sl-spacing-2x-large)"}
       MARKDOWN

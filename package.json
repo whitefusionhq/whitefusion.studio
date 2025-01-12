@@ -5,7 +5,7 @@
   "scripts": {
     "shoelace:copy-assets": "mkdir -p src/shoelace-assets && cp -r node_modules/@shoelace-style/shoelace/dist/assets src/shoelace-assets",
     "esbuild": "yarn shoelace:copy-assets && node esbuild.config.js --minify",
-    "esbuild-dev": "yarn shoelace:copy-assets && node esbuild.config.js --watch"
+    "esbuild-dev": "node esbuild.config.js --watch"
   },
   "devDependencies": {
     "esbuild": "^0.19",
